@@ -7,7 +7,7 @@
 //
 
 #import "SettingView.h"
-
+#import "FeeHistoryView.h"
 
 @implementation SettingView
 @synthesize tableSettings;
@@ -155,12 +155,17 @@
             break;
         case 6:
         {
-            
+            FeeHistoryView *feeHistoryView = [[FeeHistoryView alloc] init];
+            feeHistoryView.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:feeHistoryView animated:YES];
         }
             break;
         case 7:
         {
-
+            FeeHistoryView *feeHistoryView = [[FeeHistoryView alloc] init];
+            feeHistoryView.hidesBottomBarWhenPushed = YES;
+            feeHistoryView.isShowPark = YES;
+            [self.navigationController pushViewController:feeHistoryView animated:YES];
         }
             break;
         case 8:

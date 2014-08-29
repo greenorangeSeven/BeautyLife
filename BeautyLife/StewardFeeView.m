@@ -14,6 +14,7 @@
 #import "AlipayUtils.h"
 #import "PayOrder.h"
 #import "OrdersNum.h"
+#import "FeeHistoryView.h"
 
 @interface StewardFeeView ()
 
@@ -249,6 +250,13 @@
     }
 }
 
+#pragma -mark 显示我的缴费历史
+- (IBAction)showHistoryAction:(UIButton *)sender
+{
+    FeeHistoryView *feeHistoryView = [[FeeHistoryView alloc] init];
+    feeHistoryView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:feeHistoryView animated:YES];
+}
 
 #pragma mark UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {

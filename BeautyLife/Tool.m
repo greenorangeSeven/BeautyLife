@@ -749,6 +749,20 @@
     return shops;
 }
 
+#pragma mark 将缴费历史记录转换为bean
++ (NSMutableArray *)readJsonStrToFeeHistory:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSArray *cateJsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if ( cateJsonArray == nil || [cateJsonArray count] <= 0) {
+        return nil;
+    }
+    NSMutableArray *feeHistorys = [RMMapper mutableArrayOfClass:[FeeHistory class] fromArrayOfDictionary:cateJsonArray];
+    return feeHistorys;
+}
+
+
 + (BusinessGoods *)readJsonStrBusinessGoods:(NSString *)str
 {
     NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];

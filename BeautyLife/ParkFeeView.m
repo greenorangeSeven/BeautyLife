@@ -9,6 +9,7 @@
 #import "ParkFeeView.h"
 #import "PayOrder.h"
 #import "AlipayUtils.h"
+#import "FeeHistoryView.h"
 
 @interface ParkFeeView ()
 {
@@ -252,6 +253,14 @@
     }
 }
 
+#pragma -mark 显示我的缴费历史
+- (IBAction)showHistoryAction:(UIButton *)sender
+{
+    FeeHistoryView *feeHistoryView = [[FeeHistoryView alloc] init];
+    feeHistoryView.hidesBottomBarWhenPushed = YES;
+    feeHistoryView.isShowPark = YES;
+    [self.navigationController pushViewController:feeHistoryView animated:YES];
+}
 
 #pragma mark UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {

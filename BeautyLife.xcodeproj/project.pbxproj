@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0408DFC719AF027500C33C99 /* OrdersNum.m in Sources */ = {isa = PBXBuildFile; fileRef = 0408DFC619AF027500C33C99 /* OrdersNum.m */; };
+		041869F119B05577009063C7 /* FeeHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041869EF19B05577009063C7 /* FeeHistoryView.m */; };
+		041869F219B05577009063C7 /* FeeHistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041869F019B05577009063C7 /* FeeHistoryView.xib */; };
+		041869F619B056C2009063C7 /* FeeHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 041869F419B056C2009063C7 /* FeeHistoryCell.m */; };
+		041869F719B056C2009063C7 /* FeeHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041869F519B056C2009063C7 /* FeeHistoryCell.xib */; };
+		041869F919B05CDE009063C7 /* fee_history_tag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 041869F819B05CDE009063C7 /* fee_history_tag@2x.png */; };
+		041869FC19B06713009063C7 /* FeeHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 041869FB19B06713009063C7 /* FeeHistory.m */; };
 		04952CAB199313620030534B /* conv_cell_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 04952CAA199313620030534B /* conv_cell_left.png */; };
 		04952CAD1993142A0030534B /* conv_cell_loc.png in Resources */ = {isa = PBXBuildFile; fileRef = 04952CAC1993142A0030534B /* conv_cell_loc.png */; };
 		04952CBB199321F80030534B /* BusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04952CB9199321F80030534B /* BusinessCell.m */; };
@@ -456,6 +462,15 @@
 /* Begin PBXFileReference section */
 		0408DFC519AF027500C33C99 /* OrdersNum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdersNum.h; sourceTree = "<group>"; };
 		0408DFC619AF027500C33C99 /* OrdersNum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdersNum.m; sourceTree = "<group>"; };
+		041869EE19B05577009063C7 /* FeeHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeeHistoryView.h; sourceTree = "<group>"; };
+		041869EF19B05577009063C7 /* FeeHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeeHistoryView.m; sourceTree = "<group>"; };
+		041869F019B05577009063C7 /* FeeHistoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeeHistoryView.xib; sourceTree = "<group>"; };
+		041869F319B056C2009063C7 /* FeeHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeeHistoryCell.h; sourceTree = "<group>"; };
+		041869F419B056C2009063C7 /* FeeHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeeHistoryCell.m; sourceTree = "<group>"; };
+		041869F519B056C2009063C7 /* FeeHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeeHistoryCell.xib; sourceTree = "<group>"; };
+		041869F819B05CDE009063C7 /* fee_history_tag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fee_history_tag@2x.png"; sourceTree = "<group>"; };
+		041869FA19B06713009063C7 /* FeeHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeeHistory.h; sourceTree = "<group>"; };
+		041869FB19B06713009063C7 /* FeeHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeeHistory.m; sourceTree = "<group>"; };
 		04952CAA199313620030534B /* conv_cell_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = conv_cell_left.png; sourceTree = "<group>"; };
 		04952CAC1993142A0030534B /* conv_cell_loc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = conv_cell_loc.png; sourceTree = "<group>"; };
 		04952CB8199321F80030534B /* BusinessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessCell.h; sourceTree = "<group>"; };
@@ -2044,6 +2059,8 @@
 				14387F3A19AE3E5600024966 /* OrderGood.m */,
 				0408DFC519AF027500C33C99 /* OrdersNum.h */,
 				0408DFC619AF027500C33C99 /* OrdersNum.m */,
+				041869FA19B06713009063C7 /* FeeHistory.h */,
+				041869FB19B06713009063C7 /* FeeHistory.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2198,6 +2215,7 @@
 		149ED4A7198773170097F2AF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				041869F819B05CDE009063C7 /* fee_history_tag@2x.png */,
 				142A11EA19ACC37500B51705 /* subtle_new@2x.png */,
 				142A11EB19ACC37500B51705 /* subtle_temp.png */,
 				142A11EC19ACC37500B51705 /* subtle_day_special@2x.png */,
@@ -2374,6 +2392,12 @@
 				14A32A0F198C8D3B00497E5C /* ParkFeeView.h */,
 				14A32A10198C8D3B00497E5C /* ParkFeeView.m */,
 				14A32A11198C8D3B00497E5C /* ParkFeeView.xib */,
+				041869EE19B05577009063C7 /* FeeHistoryView.h */,
+				041869EF19B05577009063C7 /* FeeHistoryView.m */,
+				041869F019B05577009063C7 /* FeeHistoryView.xib */,
+				041869F319B056C2009063C7 /* FeeHistoryCell.h */,
+				041869F419B056C2009063C7 /* FeeHistoryCell.m */,
+				041869F519B056C2009063C7 /* FeeHistoryCell.xib */,
 				14A32A1E198C962F00497E5C /* RepairsFrameView.h */,
 				14A32A1F198C962F00497E5C /* RepairsFrameView.m */,
 				14A32A20198C963000497E5C /* RepairsFrameView.xib */,
@@ -2553,6 +2577,7 @@
 				14343CEA199D9C4A00947080 /* NewsDetailView.xib in Resources */,
 				14B9057A1991C24E0087B09D /* ExpressView.xib in Resources */,
 				14A32A29198C979600497E5C /* repairslogo@2x.png in Resources */,
+				041869F219B05577009063C7 /* FeeHistoryView.xib in Resources */,
 				14B905801991CEAD0087B09D /* queryImg@2x.png in Resources */,
 				14343CEF199DBBB600947080 /* detail_join@2x.png in Resources */,
 				142277E11989E2D3007242A2 /* arealine.png in Resources */,
@@ -2629,6 +2654,7 @@
 				142A11F119ACC37500B51705 /* subtle_day_special@2x.png in Resources */,
 				142277E31989E637007242A2 /* areaBtnBg.png in Resources */,
 				04CED7481990B70F00E35D7C /* SubtleCell.xib in Resources */,
+				041869F919B05CDE009063C7 /* fee_history_tag@2x.png in Resources */,
 				04CAC3B9198C78CB0031E956 /* conv_dry_clean@2x.png in Resources */,
 				149ED4C019877E840097F2AF /* business@2x.png in Resources */,
 				1445B96A1986278A00C4417C /* LICENSE in Resources */,
@@ -2691,6 +2717,7 @@
 				1436058A19AC24EA00AAB9FA /* loadingpic3@2x.png in Resources */,
 				1445B8DB1986269500C4417C /* Images.xcassets in Resources */,
 				1445BA6D19862E5A00C4417C /* NotifyCheck@2x.png in Resources */,
+				041869F719B056C2009063C7 /* FeeHistoryCell.xib in Resources */,
 				04CAC3CD198C92540031E956 /* conv_order_share.png in Resources */,
 				14343CEE199DBBB600947080 /* detail_praise@2x.png in Resources */,
 				1445B9831986278A00C4417C /* MWPhotoBrowser.bundle in Resources */,
@@ -2732,6 +2759,7 @@
 				1445B97B1986278A00C4417C /* MWCaptionView.m in Sources */,
 				141D9896199A635C00E15C61 /* AreaListModel.m in Sources */,
 				1445B9DB1986288400C4417C /* EGOImageLoadConnection.m in Sources */,
+				041869F619B056C2009063C7 /* FeeHistoryCell.m in Sources */,
 				1445B9751986278A00C4417C /* SDWebImagePrefetcher.m in Sources */,
 				14343CF5199DF7F400947080 /* Shop.m in Sources */,
 				14AF581519908CF3000B4BB7 /* NoticeFrameView.m in Sources */,
@@ -2758,6 +2786,7 @@
 				1445B9631986278A00C4417C /* PSTCollectionViewItemKey.m in Sources */,
 				1445B8D91986269500C4417C /* AppDelegate.mm in Sources */,
 				1445B97A1986278A00C4417C /* UIImageView+WebCache.m in Sources */,
+				041869F119B05577009063C7 /* FeeHistoryView.m in Sources */,
 				1419F4171988974B00D3E5E3 /* SettingView.m in Sources */,
 				1445B9A5198627A400C4417C /* ASIDownloadCache.m in Sources */,
 				1445BA0B1986290500C4417C /* AFOSCClient.m in Sources */,
@@ -2885,6 +2914,7 @@
 				1445B9651986278A00C4417C /* PSTCollectionViewUpdateItem.m in Sources */,
 				1448EDC819A445B200361C51 /* OutExpress.m in Sources */,
 				1445BAAA19862F1A00C4417C /* UserModel.m in Sources */,
+				041869FC19B06713009063C7 /* FeeHistory.m in Sources */,
 				1448EDBE19A43AFF00361C51 /* SBJSON.m in Sources */,
 				14B9ACE1198F5C3500F67E97 /* MyRepairsCell.m in Sources */,
 				1445B9AB198627A400C4417C /* Reachability.m in Sources */,
@@ -3114,6 +3144,8 @@
 					Framework,
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
 					Framework,
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeautyLife/BeautyLife-Prefix.pch";
@@ -3160,6 +3192,8 @@
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK",
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK/UI",
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
 					Framework,
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",

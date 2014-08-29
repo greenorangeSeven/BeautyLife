@@ -164,6 +164,9 @@
                                     <state key="normal" image="payfeequery.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="showHistoryAction:" destination="-1" eventType="touchUpInside" id="H8C-KZ-fNX"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x1S-Kq-okQ">
                                     <rect key="frame" x="151" y="55" width="129" height="21"/>

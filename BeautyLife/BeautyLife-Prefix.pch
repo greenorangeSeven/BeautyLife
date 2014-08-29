@@ -98,6 +98,12 @@
 //停车缴费通知url
 #define api_park_notify @"http://114.215.145.29:8900/api/park_notifyurl"
 
+//物业缴费历史
+#define api_pay_property_fee_record @"/pay_property_fee_record"
+//停车缴费历史
+#define api_pay_park_fee_record @"/pay_park_fee_record"
+
+
 #define AreaListKey @"AreList"
 
 #define SettingTableIdentifier @"SettingTableIdentifier"
@@ -111,6 +117,7 @@
 #define BusinessGoodCellIdentifier @"BusinessGoodCellIdentifier"
 #define ShoppingCartCellIdentifier @"ShoppingCartCellIdentifier"
 #define ConvCellIdentifier @"ConvCellIdentifier"
+#define FeeHistoryIdentifier @"FeeHistoryIdentifier"
 
 #define createshoppingcart @"create table shoppingcart (id integer primary key autoincrement not null,goodid text,title text,thumb text,price text,store_name text,business_id text,number int)"
 

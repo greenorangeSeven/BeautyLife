@@ -40,4 +40,5 @@
 
 - (IBAction)payFeeAction:(UIButton *)sender;
 
+- (IBAction)showHistoryAction:(UIButton *)sender;
 @end
