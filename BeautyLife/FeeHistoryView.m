@@ -9,7 +9,7 @@
 #import "FeeHistoryView.h"
 #import "FeeHistoryCell.h"
 
-@interface FeeHistoryView () <UITableViewDataSource,UITableViewDelegate>
+@interface FeeHistoryView () <UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 {
     NSMutableArray *feeHData;
     MBProgressHUD *hud;
@@ -68,6 +68,12 @@
     [self loadFeeHistory];
 }
 
+//弹出框事件
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark 获取缴费历史记录集合
 - (void)loadFeeHistory{
     UserModel *usermodel = [UserModel Instance];
@@ -90,7 +96,17 @@
                                        [feeHData removeAllObjects];
                                        @try {
                                            feeHData = [Tool readJsonStrToFeeHistory:operation.responseString];
-                                           [self.tableView reloadData];
+                                           if(feeHData.count == 0)
+                                           {
+                                               UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"错误提示"
+                                                                                            message:@"您当前没有缴费信息"                         delegate:self
+                                                                                  cancelButtonTitle:@"确定"
+                                                                                  otherButtonTitles:nil];
+                                               [av show];                                           }
+                                           else
+                                           {
+                                               [self.tableView reloadData];
+                                           }
                                        }
                                        @catch (NSException *exception) {
                                            [NdUncaughtExceptionHandler TakeException:exception];
