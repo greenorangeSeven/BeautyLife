@@ -12,8 +12,9 @@
 #import "EGOImageView.h"
 #import "EGOImageButton.h"
 #import "BusinessCateCell.h"
-#import "BusinessCell.h"
-#import "BusinessDetailView.h"
+#import "ConvCell.h"
+#import "ConvOrderView.h"
+#import "BusniessSearchView.h"
 
 @interface ConvView : UIViewController<UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 {
