@@ -13,6 +13,7 @@
 @end
 
 @implementation SelectHomeAddressView
+
 @synthesize selectAreaBtn;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
