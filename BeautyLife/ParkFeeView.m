@@ -76,7 +76,7 @@
                                                        carport_number = @"租用车位";
                                                    }
                                                    monthFee = [feeInfo.park_fee doubleValue] * [feeInfo.discount doubleValue];
-                                                   self.parkInfoLb.text = [NSString stringWithFormat:@"%@  %@  ￥%0.2f/月", feeInfo.car_number, carport_number, monthFee];
+                                                   self.parkInfoLb.text = [NSString stringWithFormat:@"车牌号:%@  车位:%@   ￥%0.2f/月", feeInfo.car_number, carport_number, monthFee];
                                                    //获得已缴月份
                                                    int endFeeMonth = [[feeInfo.fee_enddate substringWithRange:NSMakeRange(0, 4)] intValue] *12 + [[feeInfo.fee_enddate substringWithRange:NSMakeRange(5, 2)] intValue];
                                                    //获得当前月份
@@ -84,15 +84,17 @@
                                                    [formatter setDateFormat:@"YYYY-MM"];
                                                    NSString *currentMonthStr = [formatter stringFromDate:[NSDate date]];
                                                    int currentMonth = [[currentMonthStr substringWithRange:NSMakeRange(0, 4)] intValue] *12 + [[currentMonthStr substringWithRange:NSMakeRange(5, 2)] intValue];
-                                                   
-                                                   if ( (currentMonth - endFeeMonth) > 0) {
+                                                   if ( (currentMonth - endFeeMonth) > 0)
+                                                   {
                                                        shouldMoney = monthFee * (currentMonth - endFeeMonth);
                                                        shouldMonth = currentMonth - endFeeMonth;
+                                                       self.feeinfoLb.text = [NSString stringWithFormat:@"您已欠缴%d个月停车费", currentMonth - endFeeMonth];
                                                    }
                                                    else
                                                    {
                                                        shouldMoney = 0.00;
                                                        shouldMonth = 0;
+                                                       self.feeinfoLb.text = [NSString stringWithFormat:@"您的停车费将于%d个月后到期", endFeeMonth - currentMonth];
                                                    }
                                                    self.shouldFeeLb.text = [NSString stringWithFormat:@"￥%0.2f元", shouldMoney];
                                                    

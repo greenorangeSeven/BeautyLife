@@ -75,7 +75,7 @@
                                        @try {
                                            PropertyFeeInfo *feeInfo = [Tool readJsonStrToPropertyFeeInfo:operation.responseString];
                                            
-                                           self.userInfoLb.text = [NSString stringWithFormat:@"%@(%@㎡)", feeInfo.house_number, feeInfo.area];
+                                           self.userInfoLb.text = [NSString stringWithFormat:@"%@%@%@(%@㎡)", [usermodel getUserValueForKey:@"comm_name"], [usermodel getUserValueForKey:@"build_name"], feeInfo.house_number, feeInfo.area];
                                            
                                            monthFee = [feeInfo.area doubleValue] * [feeInfo.property_fee doubleValue] * [feeInfo.discount doubleValue];
                                            //获得已缴月份
@@ -84,16 +84,18 @@
                                            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
                                            [formatter setDateFormat:@"YYYY-MM"];
                                            NSString *currentMonthStr = [formatter stringFromDate:[NSDate date]];
-                                           int currentMonth = [[currentMonthStr substringWithRange:NSMakeRange(0, 4)] intValue] *12 + [[currentMonthStr substringWithRange:NSMakeRange(5, 2)] intValue];
-                                           
-                                           if ( (currentMonth - endFeeMonth) > 0) {
+                                           int currentMonth = [[currentMonthStr substringWithRange:NSMakeRange(0, 4)] intValue] *12 + [[currentMonthStr substringWithRange:NSMakeRange(5, 2)] intValue];         
+                                           if ( (currentMonth - endFeeMonth) > 0)
+                                           {
                                                arrearage = monthFee * (currentMonth - endFeeMonth);
                                                arrearageMonth = currentMonth - endFeeMonth;
+                                               self.feeinfoLb.text = [NSString stringWithFormat:@"您已欠缴%d个月物业费", currentMonth - endFeeMonth];
                                            }
                                            else
                                            {
                                                arrearage = 0.00;
                                                arrearageMonth = 0;
+                                               self.feeinfoLb.text = [NSString stringWithFormat:@"您的物业费将于%d个月后到期", endFeeMonth - currentMonth];
                                            }
                                            self.shouldPayLb.text = [NSString stringWithFormat:@"￥%0.2f元", arrearage];
                                            self.sumMoneyLb.text = [NSString stringWithFormat:@"￥%0.2f元", arrearage];

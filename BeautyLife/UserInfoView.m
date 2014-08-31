@@ -89,10 +89,8 @@
     NSString *communityStr = [usermodel getUserValueForKey:@"selectCommunityStr"];
     NSString *buildStr = [usermodel getUserValueForKey:@"selectBuildStr"];
     NSString *houseStr = [usermodel getUserValueForKey:@"selectHouseStr"];
-    if (regionStr != nil && [regionStr length] > 0) {
-        self.homeAddressLb.text = [NSString stringWithFormat:@"%@%@%@%@%@%@", provinceStr, cityStr, regionStr, communityStr, buildStr, houseStr];
-        self.homeAddressLb.textColor = [UIColor blackColor];
-    }
+    self.homeAddressLb.text = [NSString stringWithFormat:@"%@%@%@", communityStr, buildStr, houseStr];
+    self.homeAddressLb.textColor = [UIColor blackColor];
 }
 
 - (void)didReceiveMemoryWarning
