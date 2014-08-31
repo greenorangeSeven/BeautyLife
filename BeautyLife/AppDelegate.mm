@@ -15,6 +15,7 @@ BMKMapManager* _mapManager;
 @synthesize mainPage;
 @synthesize stewardPage;
 @synthesize lifePage;
+@synthesize shopCarPage;
 @synthesize settingPage;
 @synthesize tabBarController;
 
@@ -47,6 +48,13 @@ BMKMapManager* _mapManager;
     lifePage.tabBarItem.image = [UIImage imageNamed:@"tab_life"];
     lifePage.tabBarItem.title = @"美生活";
     UINavigationController *lifePageNav = [[UINavigationController alloc] initWithRootViewController:self.lifePage];
+    
+    //购物车
+    self.shopCarPage = [[ShoppingCartView alloc] initWithNibName:@"ShoppingCartView" bundle:nil];
+    shopCarPage.tabBarItem.image = [UIImage imageNamed:@"tab_shopcar"];
+    shopCarPage.tabBarItem.title = @"购物车";
+    UINavigationController *shopcarPageNav = [[UINavigationController alloc] initWithRootViewController:self.shopCarPage];
+    
     //我
     self.settingPage = [[SettingView alloc] initWithNibName:@"SettingView" bundle:nil];
     settingPage.tabBarItem.image = [UIImage imageNamed:@"tab_my"];
@@ -58,6 +66,7 @@ BMKMapManager* _mapManager;
                                              mainPageNav,
                                              stewardPageNav,
                                              lifePageNav,
+                                             shopcarPageNav,
                                              settingPageNav,
                                              nil];
     [[self.tabBarController tabBar] setSelectedImageTintColor:[UIColor colorWithRed:246.0/255 green:129.0/255 blue:33.0/255 alpha:1.0]];

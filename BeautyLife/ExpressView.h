@@ -15,6 +15,7 @@
 {
     NSArray *typeData;
     NSString *typeStr;
+    UIWebView *phoneCallWebView;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *inboxNumLb;
@@ -31,5 +32,6 @@
 - (IBAction)mySendExpressAction:(id)sender;
 - (IBAction)sendAction:(id)sender;
 - (IBAction)selectTypeAction:(id)sender;
+- (IBAction)telAction:(id)sender;
 
 @end

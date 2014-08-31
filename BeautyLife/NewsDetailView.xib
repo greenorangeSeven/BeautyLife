@@ -7,7 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsDetailView">
             <connections>
+                <outlet property="baomingBtn" destination="8KW-Ci-y4I" id="uLb-Sb-lqh"/>
                 <outlet property="menuView" destination="8Vp-vM-qzu" id="Ic3-b1-O9s"/>
+                <outlet property="pointsBtn" destination="uji-LQ-NUv" id="gL9-dm-owx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="H1a-ic-pRk" id="e82-y4-poA"/>
             </connections>
@@ -34,10 +36,13 @@
                             <rect key="frame" x="11" y="7" width="93" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <state key="normal" title=" 赞（ 6 ）" image="detail_praise.png">
+                            <state key="normal" title=" 赞（ 0 ）" image="detail_praise.png">
                                 <color key="titleColor" red="0.32156862749999998" green="0.32156862749999998" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="pointsAction:" destination="-1" eventType="touchUpInside" id="C1T-xh-MYe"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8KW-Ci-y4I">
                             <rect key="frame" x="120" y="7" width="80" height="24"/>
@@ -47,6 +52,9 @@
                                 <color key="titleColor" red="0.32156862749999998" green="0.32156862749999998" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="baoming:" destination="-1" eventType="touchUpInside" id="Mws-pU-wKX"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="u9O-KM-09p">
                             <rect key="frame" x="229" y="7" width="80" height="24"/>
@@ -56,6 +64,9 @@
                                 <color key="titleColor" red="0.32156862749999998" green="0.32156862749999998" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="telAction:" destination="-1" eventType="touchUpInside" id="wqv-Vw-Jy6"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

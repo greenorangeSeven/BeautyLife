@@ -72,6 +72,7 @@
     {
         titleLabel.text = @"活动详情";
     }
+    [self.pointsBtn setTitle:[NSString stringWithFormat:@"点赞( %@ )", self.news.points] forState:UIControlStateNormal];
     
     NSString *detailUrl = [NSString stringWithFormat:@"%@%@?APPKey=%@&id=%@", api_base_url, api_getnoticeinfo, appkey, news.id];
     NSURL *url = [ NSURL URLWithString : detailUrl];
@@ -121,6 +122,77 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)pointsAction:(id)sender {
+    NSString *pointslUrl = [NSString stringWithFormat:@"%@%@?APPKey=%@&model=news&id=%@", api_base_url, api_points, appkey, self.news.id];
+    NSURL *url = [ NSURL URLWithString : pointslUrl];
+    // 构造 ASIHTTPRequest 对象
+    ASIHTTPRequest *request = [ ASIHTTPRequest requestWithURL :url];
+    // 开始同步请求
+    [request startSynchronous ];
+    NSError *error = [request error ];
+    assert (!error);
+    // 如果请求成功，返回 Response
+    NSString *response = [request responseString ];
+    NSData *data = [response dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSString *status = @"0";
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&err];
+    if (json) {
+        status = [json objectForKey:@"status"];
+        if ([status isEqualToString:@"1"]) {
+            [self.pointsBtn setTitle:[NSString stringWithFormat:@"点赞( %d )", [self.news.points intValue] + 1] forState:UIControlStateNormal];
+            [self.pointsBtn setEnabled:NO];
+        }
+    }
+}
+
+- (IBAction)baoming:(id)sender {
+    if ([UserModel Instance].isLogin == NO)
+    {
+        [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
+        return;
+    }
+    NSString *baominglUrl = [NSString stringWithFormat:@"%@%@?APPKey=%@&activities_id=%@&userid=%@", api_base_url, api_baoming, appkey, self.news.id, [[UserModel Instance] getUserValueForKey:@"id"]];
+    NSURL *url = [ NSURL URLWithString : baominglUrl];
+    // 构造 ASIHTTPRequest 对象
+    ASIHTTPRequest *request = [ ASIHTTPRequest requestWithURL :url];
+    // 开始同步请求
+    [request startSynchronous ];
+    NSError *error = [request error ];
+    assert (!error);
+    // 如果请求成功，返回 Response
+    NSString *response = [request responseString ];
+    NSData *data = [response dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSString *status = @"0";
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&err];
+    if (json) {
+        status = [json objectForKey:@"status"];
+        if ([status intValue] == 1) {
+            [Tool showCustomHUD:@"报名成功" andView:self.view  andImage:@"37x-Checkmark.png" andAfterDelay:3];
+            [self.baomingBtn setEnabled:NO];
+        }
+        else
+        {
+            [Tool showCustomHUD:[json objectForKey:@"info"] andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:3];
+            [self.baomingBtn setEnabled:NO];
+        }
+    }
+}
+
+- (IBAction)telAction:(id)sender {
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", servicephone]];
+    if (!phoneCallWebView) {
+        phoneCallWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    }
+    [phoneCallWebView loadRequest:[NSURLRequest requestWithURL:phoneUrl]];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [Tool processLoginNotice:actionSheet andButtonIndex:buttonIndex andNav:self.navigationController andParent:nil];
 }
 
 @end

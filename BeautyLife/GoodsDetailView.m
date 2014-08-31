@@ -113,6 +113,11 @@
 }
 
 - (IBAction)toShoppingCartAction:(id)sender {
+    if ([UserModel Instance].isLogin == NO)
+    {
+        [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
+        return;
+    }
     FMDatabase* database=[FMDatabase databaseWithPath:[Tool databasePath]];
     if (![database open]) {
         NSLog(@"Open database failed");
@@ -122,13 +127,13 @@
         [database executeUpdate:createshoppingcart];
     }
     BOOL addGood;
-    FMResultSet* resultSet=[database executeQuery:@"select * from shoppingcart where goodid = ?", goodDetail.id];
+    FMResultSet* resultSet=[database executeQuery:@"select * from shoppingcart where goodid = ? and user_id = ?", goodDetail.id, [[UserModel Instance] getUserValueForKey:@"id"]];
     if ([resultSet next]) {
-        addGood = [database executeUpdate:@"update shoppingcart set number = number + 1 where goodid= ?", goodDetail.id];
+        addGood = [database executeUpdate:@"update shoppingcart set number = number + 1 where id= ?", [resultSet stringForColumn:@"id"]];
     }
     else
     {
-        addGood = [database executeUpdate:@"insert into shoppingcart (goodid, title, thumb, price, store_name, business_id, number) values (?, ?, ?, ?, ?, ?, ?)", goodDetail.id, goodDetail.title, goodDetail.thumb, goodDetail.price, goodDetail.store_name, goodDetail.business_id, [NSNumber numberWithInt:1]];
+        addGood = [database executeUpdate:@"insert into shoppingcart (goodid, title, thumb, price, store_name, business_id, number, user_id) values (?, ?, ?, ?, ?, ?, ?, ?)", goodDetail.id, goodDetail.title, goodDetail.thumb, goodDetail.price, goodDetail.store_name, goodDetail.business_id, [NSNumber numberWithInt:1], [[UserModel Instance] getUserValueForKey:@"id"]];
     }
     if (addGood) {
         [Tool showCustomHUD:@"已添加至购物车" andView:self.view andImage:@"37x-Checkmark.png" andAfterDelay:3];
@@ -138,4 +143,10 @@
 
 - (IBAction)buyAction:(id)sender {
 }
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [Tool processLoginNotice:actionSheet andButtonIndex:buttonIndex andNav:self.navigationController andParent:nil];
+}
+
 @end

@@ -8,11 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewsDetailView : UIViewController
+@interface NewsDetailView : UIViewController<UIActionSheetDelegate>
+{
+    UIWebView *phoneCallWebView;
+}
 
 @property (weak, nonatomic) News *news;
 @property int catalog;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIButton *pointsBtn;
+@property (weak, nonatomic) IBOutlet UIButton *baomingBtn;
+
+- (IBAction)pointsAction:(id)sender;
+- (IBAction)baoming:(id)sender;
+- (IBAction)telAction:(id)sender;
 
 @end

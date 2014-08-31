@@ -10,6 +10,7 @@
 #import "CheckNetwork.h"
 #import "MainPageView.h"
 #import "StewardPageView.h"
+#import "ShoppingCartView.h"
 #import "BMapKit.h"
 #import <sys/xattr.h>
 #import "LifePageView.h"
@@ -25,6 +26,7 @@
 @property (strong, nonatomic) MainPageView *mainPage;
 @property (strong, nonatomic) StewardPageView *stewardPage;
 @property (strong, nonatomic) LifePageView *lifePage;
+@property (strong, nonatomic) ShoppingCartView *shopCarPage;
 @property (strong, nonatomic) SettingView *settingPage;
 
 @end

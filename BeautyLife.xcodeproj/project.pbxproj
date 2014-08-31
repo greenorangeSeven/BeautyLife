@@ -349,6 +349,7 @@
 		1448EDC219A43AFF00361C51 /* PayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1448EDB319A43AFF00361C51 /* PayOrder.m */; };
 		1448EDC519A441AD00361C51 /* AlipayInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1448EDC419A441AD00361C51 /* AlipayInfo.m */; };
 		1448EDC819A445B200361C51 /* OutExpress.m in Sources */ = {isa = PBXBuildFile; fileRef = 1448EDC719A445B200361C51 /* OutExpress.m */; };
+		144B14AA19B2CB7D00494428 /* tab_shopcar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 144B14A919B2CB7D00494428 /* tab_shopcar@2x.png */; };
 		145049EF199CEFF100C24440 /* ADVDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 145049ED199CEFF100C24440 /* ADVDetailView.m */; };
 		145049F0199CEFF100C24440 /* ADVDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145049EE199CEFF100C24440 /* ADVDetailView.xib */; };
 		145049F3199D080E00C24440 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 145049F2199D080E00C24440 /* News.m */; };
@@ -1048,6 +1049,7 @@
 		1448EDC419A441AD00361C51 /* AlipayInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlipayInfo.m; sourceTree = "<group>"; };
 		1448EDC619A445B200361C51 /* OutExpress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutExpress.h; sourceTree = "<group>"; };
 		1448EDC719A445B200361C51 /* OutExpress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutExpress.m; sourceTree = "<group>"; };
+		144B14A919B2CB7D00494428 /* tab_shopcar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_shopcar@2x.png"; sourceTree = "<group>"; };
 		145049EC199CEFF100C24440 /* ADVDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADVDetailView.h; sourceTree = "<group>"; };
 		145049ED199CEFF100C24440 /* ADVDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADVDetailView.m; sourceTree = "<group>"; };
 		145049EE199CEFF100C24440 /* ADVDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ADVDetailView.xib; sourceTree = "<group>"; };
@@ -1231,8 +1233,8 @@
 				1445B8CB1986269500C4417C /* CoreGraphics.framework in Frameworks */,
 				1445B8CD1986269500C4417C /* UIKit.framework in Frameworks */,
 				1445B8C91986269500C4417C /* Foundation.framework in Frameworks */,
-				1445BA181986294A00C4417C /* KeyboardManager.framework in Frameworks */,
 				1445BA9619862EE100C4417C /* AGCommon.framework in Frameworks */,
+				1445BA181986294A00C4417C /* KeyboardManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2352,6 +2354,7 @@
 				149ED4AE198776750097F2AF /* maingoodbg@2x.png */,
 				149ED4AF198776750097F2AF /* topimage.png */,
 				149ED4C4198781750097F2AF /* tab_my@2x.png */,
+				144B14A919B2CB7D00494428 /* tab_shopcar@2x.png */,
 				149ED4C5198781750097F2AF /* tab_life@2x.png */,
 				149ED4C6198781750097F2AF /* tab_steward@2x.png */,
 				149ED4C7198781750097F2AF /* tab_main@2x.png */,
@@ -2566,6 +2569,7 @@
 				04952CC519932A4B0030534B /* BusinessDetailView.xib in Resources */,
 				04CAC3B7198C78CB0031E956 /* conv_ homemaking@2x.png in Resources */,
 				1448EDB919A43AFF00361C51 /* Alixpay.bundle in Resources */,
+				144B14AA19B2CB7D00494428 /* tab_shopcar@2x.png in Resources */,
 				04C9CD851991CCFA000DCDEF /* ConvCell.xib in Resources */,
 				1419F42D19889CFB00D3E5E3 /* setting_push@2x.png in Resources */,
 				14A32A0A198C85A900497E5C /* prepayBtnBg.png in Resources */,
@@ -3158,6 +3162,8 @@
 					Framework,
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
 					Framework,
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeautyLife/BeautyLife-Prefix.pch";
@@ -3204,6 +3210,8 @@
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK",
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK/UI",
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
 					Framework,
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
