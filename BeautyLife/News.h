@@ -16,5 +16,6 @@
 @property (nonatomic, retain) NSString *thumb;
 @property (nonatomic, retain) NSString *summary;
 @property (nonatomic, retain) NSString *published;
+@property (nonatomic, retain) NSString *points;
 
 @end

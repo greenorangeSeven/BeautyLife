@@ -176,6 +176,14 @@
     [actionSheet addSubview:catePicker];
 }
 
+- (IBAction)telAction:(id)sender {
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", servicephone]];
+    if (!phoneCallWebView) {
+        phoneCallWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    }
+    [phoneCallWebView loadRequest:[NSURLRequest requestWithURL:phoneUrl]];
+}
+
 //返回显示的列数
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {

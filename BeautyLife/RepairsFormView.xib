@@ -123,6 +123,9 @@
                                     <state key="normal" image="telorderbtn.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="telAction:" destination="-1" eventType="touchUpInside" id="HZw-ux-Ar4"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lqg-hb-8pY">
                                     <rect key="frame" x="0.0" y="375" width="300" height="22"/>

@@ -116,15 +116,19 @@
     self.navigationController.navigationBar.hidden = NO;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)telAction:(id)sender {
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", servicephone]];
+    if (!phoneCallWebView) {
+        phoneCallWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    }
+    [phoneCallWebView loadRequest:[NSURLRequest requestWithURL:phoneUrl]];
 }
-*/
 
+- (IBAction)telShopAction:(id)sender {
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", _shop.tel]];
+    if (!phoneCallWebView) {
+        phoneCallWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    }
+    [phoneCallWebView loadRequest:[NSURLRequest requestWithURL:phoneUrl]];
+}
 @end

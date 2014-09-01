@@ -122,7 +122,7 @@
     //    NSLog(@"%s \n scrollToIndex===>%d",__FUNCTION__,index);
     advIndex = index;
     Advertisement *adv = (Advertisement *)[advDatas objectAtIndex:advIndex];
-    [self.pointsBtn setTitle:[NSString stringWithFormat:@"点赞(%@)", adv.points] forState:UIControlStateNormal];
+    [self.pointsBtn setTitle:[NSString stringWithFormat:@"点赞( %@ )", adv.points] forState:UIControlStateNormal];
 }
 
 - (void)getInBoxRemind
@@ -294,7 +294,7 @@
         status = [json objectForKey:@"status"];
         if ([status isEqualToString:@"1"]) {
             adv.points = [NSString stringWithFormat:@"%d", [adv.points intValue] + 1];
-            [self.pointsBtn setTitle:[NSString stringWithFormat:@"点赞(%@)", adv.points] forState:UIControlStateNormal];
+            [self.pointsBtn setTitle:[NSString stringWithFormat:@"点赞( %@ )", adv.points] forState:UIControlStateNormal];
         }
     }
 }

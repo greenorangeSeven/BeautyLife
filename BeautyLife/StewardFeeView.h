@@ -35,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *shouldPayLb;
 @property (weak, nonatomic) IBOutlet UIButton *presetBtn;
 @property (weak, nonatomic) IBOutlet UILabel *sumMoneyLb;
+@property (weak, nonatomic) IBOutlet UILabel *feeinfoLb;
 
 - (IBAction)showPresetAction:(id)sender;
 

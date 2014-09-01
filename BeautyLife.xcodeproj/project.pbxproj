@@ -357,6 +357,7 @@
 		1448EDC219A43AFF00361C51 /* PayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1448EDB319A43AFF00361C51 /* PayOrder.m */; };
 		1448EDC519A441AD00361C51 /* AlipayInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1448EDC419A441AD00361C51 /* AlipayInfo.m */; };
 		1448EDC819A445B200361C51 /* OutExpress.m in Sources */ = {isa = PBXBuildFile; fileRef = 1448EDC719A445B200361C51 /* OutExpress.m */; };
+		144B14AA19B2CB7D00494428 /* tab_shopcar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 144B14A919B2CB7D00494428 /* tab_shopcar@2x.png */; };
 		145049EF199CEFF100C24440 /* ADVDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 145049ED199CEFF100C24440 /* ADVDetailView.m */; };
 		145049F0199CEFF100C24440 /* ADVDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145049EE199CEFF100C24440 /* ADVDetailView.xib */; };
 		145049F3199D080E00C24440 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 145049F2199D080E00C24440 /* News.m */; };
@@ -447,6 +448,8 @@
 		14B9ACDD198F5A1F00F67E97 /* MyRepairsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B9ACDB198F5A1F00F67E97 /* MyRepairsView.xib */; };
 		14B9ACE1198F5C3500F67E97 /* MyRepairsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B9ACDF198F5C3500F67E97 /* MyRepairsCell.m */; };
 		14B9ACE2198F5C3500F67E97 /* MyRepairsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B9ACE0198F5C3500F67E97 /* MyRepairsCell.xib */; };
+		14CDD39419B0B9A6004FDAD2 /* BusniessSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDD39219B0B9A6004FDAD2 /* BusniessSearchView.m */; };
+		14CDD39519B0B9A6004FDAD2 /* BusniessSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14CDD39319B0B9A6004FDAD2 /* BusniessSearchView.xib */; };
 		14EF64251987E5E00006257D /* cuttingline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14EF64241987E5E00006257D /* cuttingline@2x.png */; };
 		14EF64271987E69F0006257D /* mainlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14EF64261987E69F0006257D /* mainlogo@2x.png */; };
 		14EF64291987E7E20006257D /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14EF64281987E7E20006257D /* mail@2x.png */; };
@@ -1067,6 +1070,7 @@
 		1448EDC419A441AD00361C51 /* AlipayInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlipayInfo.m; sourceTree = "<group>"; };
 		1448EDC619A445B200361C51 /* OutExpress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutExpress.h; sourceTree = "<group>"; };
 		1448EDC719A445B200361C51 /* OutExpress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutExpress.m; sourceTree = "<group>"; };
+		144B14A919B2CB7D00494428 /* tab_shopcar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_shopcar@2x.png"; sourceTree = "<group>"; };
 		145049EC199CEFF100C24440 /* ADVDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADVDetailView.h; sourceTree = "<group>"; };
 		145049ED199CEFF100C24440 /* ADVDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADVDetailView.m; sourceTree = "<group>"; };
 		145049EE199CEFF100C24440 /* ADVDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ADVDetailView.xib; sourceTree = "<group>"; };
@@ -1188,6 +1192,9 @@
 		14B9ACDE198F5C3500F67E97 /* MyRepairsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRepairsCell.h; sourceTree = "<group>"; };
 		14B9ACDF198F5C3500F67E97 /* MyRepairsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRepairsCell.m; sourceTree = "<group>"; };
 		14B9ACE0198F5C3500F67E97 /* MyRepairsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyRepairsCell.xib; sourceTree = "<group>"; };
+		14CDD39119B0B9A6004FDAD2 /* BusniessSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusniessSearchView.h; sourceTree = "<group>"; };
+		14CDD39219B0B9A6004FDAD2 /* BusniessSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusniessSearchView.m; sourceTree = "<group>"; };
+		14CDD39319B0B9A6004FDAD2 /* BusniessSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusniessSearchView.xib; sourceTree = "<group>"; };
 		14EF64241987E5E00006257D /* cuttingline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cuttingline@2x.png"; sourceTree = "<group>"; };
 		14EF64261987E69F0006257D /* mainlogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainlogo@2x.png"; sourceTree = "<group>"; };
 		14EF64281987E7E20006257D /* mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mail@2x.png"; sourceTree = "<group>"; };
@@ -1295,6 +1302,9 @@
 				04CED72B1990AB9900E35D7C /* BusinessView.h */,
 				04CED72C1990AB9900E35D7C /* BusinessView.m */,
 				04CED72A1990AB9900E35D7C /* BusinessView.xib */,
+				14CDD39119B0B9A6004FDAD2 /* BusniessSearchView.h */,
+				14CDD39219B0B9A6004FDAD2 /* BusniessSearchView.m */,
+				14CDD39319B0B9A6004FDAD2 /* BusniessSearchView.xib */,
 				04952CB8199321F80030534B /* BusinessCell.h */,
 				04952CB9199321F80030534B /* BusinessCell.m */,
 				04952CBD199322C50030534B /* BusinessCell.xib */,
@@ -2378,6 +2388,7 @@
 				149ED4AE198776750097F2AF /* maingoodbg@2x.png */,
 				149ED4AF198776750097F2AF /* topimage.png */,
 				149ED4C4198781750097F2AF /* tab_my@2x.png */,
+				144B14A919B2CB7D00494428 /* tab_shopcar@2x.png */,
 				149ED4C5198781750097F2AF /* tab_life@2x.png */,
 				149ED4C6198781750097F2AF /* tab_steward@2x.png */,
 				149ED4C7198781750097F2AF /* tab_main@2x.png */,
@@ -2569,6 +2580,7 @@
 				142277DB1989DED9007242A2 /* ChooseAreaView.xib in Resources */,
 				145049F0199CEFF100C24440 /* ADVDetailView.xib in Resources */,
 				04952CD2199354110030534B /* business_buy@2x.png in Resources */,
+				14CDD39519B0B9A6004FDAD2 /* BusniessSearchView.xib in Resources */,
 				14EF64251987E5E00006257D /* cuttingline@2x.png in Resources */,
 				1419F4331988C5E100D3E5E3 /* RegisterView.xib in Resources */,
 				04CAC3BA198C78CB0031E956 /* conv_car@2x.png in Resources */,
@@ -2591,6 +2603,7 @@
 				04952CC519932A4B0030534B /* BusinessDetailView.xib in Resources */,
 				04CAC3B7198C78CB0031E956 /* conv_ homemaking@2x.png in Resources */,
 				1448EDB919A43AFF00361C51 /* Alixpay.bundle in Resources */,
+				144B14AA19B2CB7D00494428 /* tab_shopcar@2x.png in Resources */,
 				04C9CD851991CCFA000DCDEF /* ConvCell.xib in Resources */,
 				1419F42D19889CFB00D3E5E3 /* setting_push@2x.png in Resources */,
 				14A32A0A198C85A900497E5C /* prepayBtnBg.png in Resources */,
@@ -2875,6 +2888,7 @@
 				14B56D0219912D0000F7C601 /* NewsTableView.m in Sources */,
 				04CAC3D1198CB9B40031E956 /* RechargeView.m in Sources */,
 				142AE66019AB86B200079A9A /* ShoppingCartCell.m in Sources */,
+				14CDD39419B0B9A6004FDAD2 /* BusniessSearchView.m in Sources */,
 				141D62E819A09F4E008B0945 /* RepairsRateView.m in Sources */,
 				04952CE9199373090030534B /* BusinessDetailView.m in Sources */,
 				1445B9C41986281900C4417C /* NSData+CommonCrypto.m in Sources */,

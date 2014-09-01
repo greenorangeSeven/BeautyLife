@@ -14,6 +14,7 @@
 #import "BusinessCateCell.h"
 #import "BusinessCell.h"
 #import "BusinessDetailView.h"
+#import "BusniessSearchView.h"
 
 @interface BusinessView : UIViewController<UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 {

@@ -22,17 +22,17 @@
     if (self) {
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
         titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        titleLabel.text = @"我的购物车";
+        titleLabel.text = @"购物车";
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = [UIColor whiteColor];
         titleLabel.textAlignment = UITextAlignmentCenter;
         self.navigationItem.titleView = titleLabel;
         
-        UIButton *lBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
-        [lBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
-        [lBtn setImage:[UIImage imageNamed:@"backBtn"] forState:UIControlStateNormal];
-        UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
-        self.navigationItem.leftBarButtonItem = btnBack;
+//        UIButton *lBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
+//        [lBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+//        [lBtn setImage:[UIImage imageNamed:@"backBtn"] forState:UIControlStateNormal];
+//        UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
+//        self.navigationItem.leftBarButtonItem = btnBack;
     }
     return self;
 }
@@ -50,6 +50,36 @@
     self.goodTableView.dataSource = self;
     self.goodTableView.delegate = self;
     self.goodTableView.backgroundColor = [UIColor colorWithRed:246.0/255 green:246.0/255 blue:246.0/255 alpha:1.0];
+    
+    noDataLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 200, 320, 44)];
+    noDataLabel.font = [UIFont boldSystemFontOfSize:18];
+    noDataLabel.text = @"暂无物品";
+    noDataLabel.textColor = [UIColor blackColor];
+    noDataLabel.backgroundColor = [UIColor clearColor];
+    noDataLabel.textAlignment = UITextAlignmentCenter;
+    noDataLabel.hidden = YES;
+    [self.view addSubview:noDataLabel];
+    
+    //适配iOS7uinavigationbar遮挡的问题
+    if(IS_IOS7)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if ([UserModel Instance].isLogin == NO)
+    {
+        [goodData removeAllObjects];
+        [self.goodTableView reloadData];
+        noDataLabel.hidden = NO;
+        [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
+        return;
+    }
+    noDataLabel.hidden = YES;
     [self reloadData];
 }
 
@@ -66,7 +96,7 @@
     if (![database tableExists:@"shoppingcart"]) {
         [database executeUpdate:createshoppingcart];
     }
-    FMResultSet* resultSet=[database executeQuery:@"select * from shoppingcart order by business_id"];
+    FMResultSet* resultSet=[database executeQuery:@"select * from shoppingcart where user_id = ? order by business_id", [[UserModel Instance] getUserValueForKey:@"id"]];
     while ([resultSet next]) {
         Goods *good = [[Goods alloc] init];
         good.id = [resultSet stringForColumn:@"goodid"];
@@ -83,6 +113,10 @@
     if ([goodData count] > 0) {
         self.totalLb.text = [NSString stringWithFormat:@"%.2f", total];
         [self.goodTableView reloadData];
+    }
+    else
+    {
+        noDataLabel.hidden = NO;
     }
     [database close];
 }
@@ -333,6 +367,11 @@
         }
             break;
     }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [Tool processLoginNotice:actionSheet andButtonIndex:buttonIndex andNav:self.navigationController andParent:nil];
 }
 
 @end

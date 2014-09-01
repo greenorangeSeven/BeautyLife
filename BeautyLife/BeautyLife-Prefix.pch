@@ -75,6 +75,7 @@
 #define api_lifelist @"/get_life_list"
 #define api_lifeinfo @"/get_life_info"
 #define api_points @"/points"
+#define api_baoming @"/baoming"
 
 //商品下单地址
 #define api_send_order @"/send_order"
@@ -112,6 +113,8 @@
 
 #define AreaListKey @"AreList"
 
+#define servicephone @"0731-85824888"
+
 #define SettingTableIdentifier @"SettingTableIdentifier"
 #define MyRepairsCellIdentifier @"MyRepairsCellIdentifier"
 #define NoticeTableCellIdentifier @"NoticeTableCellIdentifier"
@@ -125,7 +128,7 @@
 #define ConvCellIdentifier @"ConvCellIdentifier"
 #define FeeHistoryIdentifier @"FeeHistoryIdentifier"
 
-#define createshoppingcart @"create table shoppingcart (id integer primary key autoincrement not null,goodid text,title text,thumb text,price text,store_name text,business_id text,number int)"
+#define createshoppingcart @"create table shoppingcart (id integer primary key autoincrement not null,goodid text,title text,thumb text,price text,store_name text,business_id text,number int,user_id text)"
 
 
 #define Notification_RefreshMyRepairs @"Notification_RefreshMyRepairs"

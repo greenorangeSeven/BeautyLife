@@ -98,7 +98,7 @@
                                            feeHData = [Tool readJsonStrToFeeHistory:operation.responseString];
                                            if(feeHData.count == 0)
                                            {
-                                               UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"错误提示"
+                                               UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示"
                                                                                             message:@"您当前没有缴费信息"                         delegate:self
                                                                                   cancelButtonTitle:@"确定"
                                                                                   otherButtonTitles:nil];
@@ -167,7 +167,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 146;
+    return 127;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

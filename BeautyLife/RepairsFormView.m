@@ -97,6 +97,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)telAction:(id)sender {
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", servicephone]];
+    if (!phoneCallWebView) {
+        phoneCallWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    }
+    [phoneCallWebView loadRequest:[NSURLRequest requestWithURL:phoneUrl]];
+}
+
 - (IBAction)selectTypeAction:(id)sender {
     if (cateData != nil && [cateData count] > 0) {
         RepairsCate *cate = (RepairsCate *)[cateData objectAtIndex:0];

@@ -20,6 +20,7 @@
     NSString *cateValue;
     
     UIImage *picimage;
+    UIWebView *phoneCallWebView;
 }
 
 @property (strong, nonatomic) UIView *parentView;
@@ -33,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *selectCateBtn;
 @property (weak, nonatomic) IBOutlet UIButton *selectPhoneBtn;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+
+- (IBAction)telAction:(id)sender;
 
 - (IBAction)selectTypeAction:(id)sender;
 - (IBAction)selectPhoneAction:(id)sender;

@@ -7,8 +7,6 @@
 //
 
 #import "ConvView.h"
-#import "ConvCell.h"
-#import "ConvOrderView.h"
 
 @interface ConvView () <UITableViewDataSource,UITableViewDelegate>
 
@@ -35,7 +33,7 @@
         self.navigationItem.leftBarButtonItem = btnBack;
         
         UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 63, 22)];
-        //[rBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+        [rBtn addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
         [rBtn setImage:[UIImage imageNamed:@"conv_search"] forState:UIControlStateNormal];
         UIBarButtonItem *btnSearch = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
         self.navigationItem.rightBarButtonItem = btnSearch;
@@ -48,6 +46,15 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)searchAction
+{
+    if (myPoint.x > 0) {
+        BusniessSearchView *searchView = [[BusniessSearchView alloc] init];
+        searchView.myPoint = myPoint;
+        searchView.viewType = @"conv";
+        [self.navigationController pushViewController:searchView animated:YES];
+    }
+}
 
 - (void)viewDidLoad
 {

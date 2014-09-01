@@ -20,11 +20,12 @@
 #import "JSONKit.h"
 #import "PrintObject.h"
 
-@interface ShoppingCartView : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface ShoppingCartView : UIViewController<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate>
 {
     NSMutableArray *goodData;
     MBProgressHUD *hud;
     float total;
+    UILabel *noDataLabel;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *goodTableView;
