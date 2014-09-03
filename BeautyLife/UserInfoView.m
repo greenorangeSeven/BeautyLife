@@ -89,7 +89,10 @@
     NSString *communityStr = [usermodel getUserValueForKey:@"selectCommunityStr"];
     NSString *buildStr = [usermodel getUserValueForKey:@"selectBuildStr"];
     NSString *houseStr = [usermodel getUserValueForKey:@"selectHouseStr"];
-    self.homeAddressLb.text = [NSString stringWithFormat:@"%@%@%@", communityStr, buildStr, houseStr];
+    if([communityStr length] > 0 && [buildStr length] > 0 && [houseStr length] > 0)
+    {
+        self.homeAddressLb.text = [NSString stringWithFormat:@"%@%@%@", communityStr, buildStr, houseStr];
+    }
     self.homeAddressLb.textColor = [UIColor blackColor];
 }
 
