@@ -7,6 +7,8 @@
 //
 
 #import "Tool.h"
+#import "MyGoods.h"
+
 @implementation Tool
 
 + (UIAlertView *)getLoadingView:(NSString *)title andMessage:(NSString *)message
@@ -574,6 +576,18 @@
     return alipay;
 }
 
++ (ResponseCode *)readJsonStrToResponseCode:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *detailDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if ( detailDic == nil) {
+        return nil;
+    }
+    ResponseCode *responseCode = [RMMapper objectWithClass:[ResponseCode class] fromDictionary:detailDic];
+    return responseCode;
+}
+
 + (NSMutableArray *)readJsonStrToRegionArray:(NSString *)str
 {
     NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
@@ -611,21 +625,21 @@
         return nil;
     }
     NSMutableArray *commArray = [RMMapper mutableArrayOfClass:[CommunityModel class]
-                                fromArrayOfDictionary:commJsonArray];
-        for (CommunityModel *c in commArray) {
-            NSMutableArray *buildArray = [RMMapper mutableArrayOfClass:[BuildModel class]
-                                                fromArrayOfDictionary:c.build_list];
-            for (BuildModel *b in buildArray) {
-                if ([b.house_list isKindOfClass:[NSArray class]]) {
-                    NSMutableArray *houseArray = [RMMapper mutableArrayOfClass:[HouseModel class]
-                                                         fromArrayOfDictionary:b.house_list];
-                    b.houseArray = houseArray;
-                }
-                
+                                        fromArrayOfDictionary:commJsonArray];
+    for (CommunityModel *c in commArray) {
+        NSMutableArray *buildArray = [RMMapper mutableArrayOfClass:[BuildModel class]
+                                             fromArrayOfDictionary:c.build_list];
+        for (BuildModel *b in buildArray) {
+            if ([b.house_list isKindOfClass:[NSArray class]]) {
+                NSMutableArray *houseArray = [RMMapper mutableArrayOfClass:[HouseModel class]
+                                                     fromArrayOfDictionary:b.house_list];
+                b.houseArray = houseArray;
             }
-            c.buildArray = buildArray;
+            
         }
-
+        c.buildArray = buildArray;
+    }
+    
     return commArray;
 }
 
@@ -786,6 +800,25 @@
     }
     return businessGoods;
 }
+
++ (NSMutableArray *)readJsonStrToMyOrder:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSArray *orderJsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if ( orderJsonArray == nil || [orderJsonArray count] <= 0) {
+        return nil;
+    }
+    NSMutableArray *orders = [RMMapper mutableArrayOfClass:[MyOrder class] fromArrayOfDictionary:orderJsonArray];
+    for (MyOrder *o in orders)
+    {
+        NSMutableArray *goodsArray = [RMMapper mutableArrayOfClass:[MyGoods class]
+                                             fromArrayOfDictionary:o.goodlist];
+        o.goodArray = goodsArray;
+    }
+    return orders;
+}
+
 
 + (Goods *)readJsonStrToGoodsInfo:(NSString *)str
 {

@@ -8,6 +8,7 @@
 
 #import "SettingView.h"
 #import "FeeHistoryView.h"
+#import "MyOrderView.h"
 
 @implementation SettingView
 @synthesize tableSettings;
@@ -148,9 +149,12 @@
             break;
         case 5:
         {
-            ShoppingCartView *careView = [[ShoppingCartView alloc] init];
-            careView.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:careView animated:YES];
+            MyOrderView *myOrderView = [[MyOrderView alloc] init];
+            myOrderView.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:myOrderView animated:YES];
+//            ShoppingCartView *myOrderView = [[ShoppingCartView alloc] init];
+//            myOrderView.hidesBottomBarWhenPushed = YES;
+//            [self.navigationController pushViewController:myOrderView animated:YES];
         }
             break;
         case 6:

@@ -104,6 +104,12 @@
 //停车缴费历史
 #define api_pay_park_fee_record @"/pay_park_fee_record"
 
+//我的订单
+#define api_my_order_list @"/my_order_list"
+//确认收货
+#define api_take_my_order @"/take_my_order"
+//取消订单
+#define api_cancel_my_order @"/cancel_my_order"
 
 #define AreaListKey @"AreList"
 

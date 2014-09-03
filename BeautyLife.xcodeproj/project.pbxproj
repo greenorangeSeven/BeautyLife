@@ -14,6 +14,14 @@
 		041869F719B056C2009063C7 /* FeeHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041869F519B056C2009063C7 /* FeeHistoryCell.xib */; };
 		041869F919B05CDE009063C7 /* fee_history_tag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 041869F819B05CDE009063C7 /* fee_history_tag@2x.png */; };
 		041869FC19B06713009063C7 /* FeeHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 041869FB19B06713009063C7 /* FeeHistory.m */; };
+		0440160419B2CCB500546126 /* MyOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440160219B2CCB500546126 /* MyOrderView.m */; };
+		0440160519B2CCB500546126 /* MyOrderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0440160319B2CCB500546126 /* MyOrderView.xib */; };
+		0440160819B2D1A600546126 /* MyOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440160719B2D1A600546126 /* MyOrder.m */; };
+		0440160B19B306C400546126 /* MyGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440160A19B306C400546126 /* MyGoods.m */; };
+		0440160F19B3128C00546126 /* MyGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440160D19B3128C00546126 /* MyGoodsCell.m */; };
+		0440161019B3128C00546126 /* MyGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0440160E19B3128C00546126 /* MyGoodsCell.xib */; };
+		0443196D19B40187009C494F /* order_top_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0443196C19B40187009C494F /* order_top_bg@2x.png */; };
+		0443197019B41A4F009C494F /* ResponseCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0443196F19B41A4F009C494F /* ResponseCode.m */; };
 		04952CAB199313620030534B /* conv_cell_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 04952CAA199313620030534B /* conv_cell_left.png */; };
 		04952CAD1993142A0030534B /* conv_cell_loc.png in Resources */ = {isa = PBXBuildFile; fileRef = 04952CAC1993142A0030534B /* conv_cell_loc.png */; };
 		04952CBB199321F80030534B /* BusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04952CB9199321F80030534B /* BusinessCell.m */; };
@@ -474,6 +482,19 @@
 		041869F819B05CDE009063C7 /* fee_history_tag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fee_history_tag@2x.png"; sourceTree = "<group>"; };
 		041869FA19B06713009063C7 /* FeeHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeeHistory.h; sourceTree = "<group>"; };
 		041869FB19B06713009063C7 /* FeeHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeeHistory.m; sourceTree = "<group>"; };
+		0440160119B2CCB500546126 /* MyOrderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderView.h; sourceTree = "<group>"; };
+		0440160219B2CCB500546126 /* MyOrderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderView.m; sourceTree = "<group>"; };
+		0440160319B2CCB500546126 /* MyOrderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderView.xib; sourceTree = "<group>"; };
+		0440160619B2D1A600546126 /* MyOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrder.h; sourceTree = "<group>"; };
+		0440160719B2D1A600546126 /* MyOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrder.m; sourceTree = "<group>"; };
+		0440160919B306C400546126 /* MyGoods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGoods.h; sourceTree = "<group>"; };
+		0440160A19B306C400546126 /* MyGoods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGoods.m; sourceTree = "<group>"; };
+		0440160C19B3128C00546126 /* MyGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGoodsCell.h; sourceTree = "<group>"; };
+		0440160D19B3128C00546126 /* MyGoodsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGoodsCell.m; sourceTree = "<group>"; };
+		0440160E19B3128C00546126 /* MyGoodsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyGoodsCell.xib; sourceTree = "<group>"; };
+		0443196C19B40187009C494F /* order_top_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "order_top_bg@2x.png"; sourceTree = "<group>"; };
+		0443196E19B41A4F009C494F /* ResponseCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseCode.h; sourceTree = "<group>"; };
+		0443196F19B41A4F009C494F /* ResponseCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseCode.m; sourceTree = "<group>"; };
 		04952CAA199313620030534B /* conv_cell_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = conv_cell_left.png; sourceTree = "<group>"; };
 		04952CAC1993142A0030534B /* conv_cell_loc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = conv_cell_loc.png; sourceTree = "<group>"; };
 		04952CB8199321F80030534B /* BusinessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessCell.h; sourceTree = "<group>"; };
@@ -1333,6 +1354,12 @@
 				149FDA79199A03D500BAA6D4 /* SelectHomeAddressView.h */,
 				149FDA7A199A03D500BAA6D4 /* SelectHomeAddressView.m */,
 				149FDA7B199A03D500BAA6D4 /* SelectHomeAddressView.xib */,
+				0440160119B2CCB500546126 /* MyOrderView.h */,
+				0440160219B2CCB500546126 /* MyOrderView.m */,
+				0440160319B2CCB500546126 /* MyOrderView.xib */,
+				0440160C19B3128C00546126 /* MyGoodsCell.h */,
+				0440160D19B3128C00546126 /* MyGoodsCell.m */,
+				0440160E19B3128C00546126 /* MyGoodsCell.xib */,
 			);
 			name = SettingPage;
 			sourceTree = "<group>";
@@ -2071,6 +2098,12 @@
 				0408DFC619AF027500C33C99 /* OrdersNum.m */,
 				041869FA19B06713009063C7 /* FeeHistory.h */,
 				041869FB19B06713009063C7 /* FeeHistory.m */,
+				0440160619B2D1A600546126 /* MyOrder.h */,
+				0440160719B2D1A600546126 /* MyOrder.m */,
+				0440160919B306C400546126 /* MyGoods.h */,
+				0440160A19B306C400546126 /* MyGoods.m */,
+				0443196E19B41A4F009C494F /* ResponseCode.h */,
+				0443196F19B41A4F009C494F /* ResponseCode.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2225,6 +2258,7 @@
 		149ED4A7198773170097F2AF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0443196C19B40187009C494F /* order_top_bg@2x.png */,
 				041869F819B05CDE009063C7 /* fee_history_tag@2x.png */,
 				142A11EA19ACC37500B51705 /* subtle_new@2x.png */,
 				142A11EB19ACC37500B51705 /* subtle_temp.png */,
@@ -2584,6 +2618,7 @@
 				146F7C40199FBB9B00926CA2 /* ritem-6@2x.png in Resources */,
 				1419F4371988CBC700D3E5E3 /* securitycode@2x.png in Resources */,
 				04952CE1199367850030534B /* goods_name_bg@2x.png in Resources */,
+				0440161019B3128C00546126 /* MyGoodsCell.xib in Resources */,
 				142A11F319ACC37500B51705 /* subtle_ supermarket@2x.png in Resources */,
 				146F7C3F199FBB9B00926CA2 /* ritem-5@2x.png in Resources */,
 				1419F42619889CFB00D3E5E3 /* setting_info@2x.png in Resources */,
@@ -2623,6 +2658,7 @@
 				14EF64331987EEB00006257D /* tellogo@2x.png in Resources */,
 				1419F42E19889CFB00D3E5E3 /* setting_logout@2x.png in Resources */,
 				14B9057C1991C3FC0087B09D /* maillogo@2x.png in Resources */,
+				0440160519B2CCB500546126 /* MyOrderView.xib in Resources */,
 				149ED4AD1987737D0097F2AF /* MainPageView.xib in Resources */,
 				149ED4B3198776BC0097F2AF /* main_topimage.png in Resources */,
 				04952CD01993529B0030534B /* detail_temp.png in Resources */,
@@ -2693,6 +2729,7 @@
 				14EF64311987EC100006257D /* stewardtop@2x.png in Resources */,
 				1419F40F1988950F00D3E5E3 /* top_bg7@2x.png in Resources */,
 				1445BA6E19862E5A00C4417C /* NotifyX@2x.png in Resources */,
+				0443196D19B40187009C494F /* order_top_bg@2x.png in Resources */,
 				142277DF1989E265007242A2 /* areaarrows@2x.png in Resources */,
 				14EF64271987E69F0006257D /* mainlogo@2x.png in Resources */,
 				142B1C6119A62BFF00FA3D4F /* RechargeDetailView.xib in Resources */,
@@ -2827,8 +2864,10 @@
 				1475AA8119AB0B3B00AE904F /* BusinessGoods.m in Sources */,
 				14A32A21198C963000497E5C /* RepairsFrameView.m in Sources */,
 				1445B9DC1986288400C4417C /* EGOImageLoader.m in Sources */,
+				0440160B19B306C400546126 /* MyGoods.m in Sources */,
 				1475AA7D19AB048D00AE904F /* Coupons.m in Sources */,
 				1445B9E31986289300C4417C /* IconDownloader.m in Sources */,
+				0440160419B2CCB500546126 /* MyOrderView.m in Sources */,
 				146F7C27199F9CD700926CA2 /* RepairsList.m in Sources */,
 				14B9ACDC198F5A1F00F67E97 /* MyRepairsView.m in Sources */,
 				1445B9821986278A00C4417C /* MWZoomingScrollView.m in Sources */,
@@ -2842,6 +2881,7 @@
 				1445B9DD1986288400C4417C /* EGOImageView.m in Sources */,
 				149FDA7C199A03D500BAA6D4 /* SelectHomeAddressView.m in Sources */,
 				1448EDBB19A43AFF00361C51 /* AlixPayResult.m in Sources */,
+				0440160F19B3128C00546126 /* MyGoodsCell.m in Sources */,
 				1445BA0C1986290500C4417C /* AFPropertyListRequestOperation.m in Sources */,
 				1445B97D1986278A00C4417C /* MWGridViewController.m in Sources */,
 				1445B9771986278A00C4417C /* UIImage+GIF.m in Sources */,
@@ -2900,6 +2940,7 @@
 				04952CD6199364250030534B /* GoodsDetailView.m in Sources */,
 				1445B9611986278A00C4417C /* PSTCollectionViewData.m in Sources */,
 				0408DFC719AF027500C33C99 /* OrdersNum.m in Sources */,
+				0440160819B2D1A600546126 /* MyOrder.m in Sources */,
 				14A32A26198C96E500497E5C /* RepairsFormView.m in Sources */,
 				1445B96D1986278A00C4417C /* NSData+GIF.m in Sources */,
 				142277DA1989DED9007242A2 /* ChooseAreaView.m in Sources */,
@@ -2917,6 +2958,7 @@
 				141D62EC19A108BF008B0945 /* PropertyFeeInfo.m in Sources */,
 				1448EDC019A43AFF00361C51 /* SBJsonParser.m in Sources */,
 				14B26779199C9B7F005159EA /* Advertisement.m in Sources */,
+				0443197019B41A4F009C494F /* ResponseCode.m in Sources */,
 				1445BA0F1986290500C4417C /* UIImageView+AFNetworking.m in Sources */,
 				1445B9701986278A00C4417C /* SDWebImageCompat.m in Sources */,
 				1445B9841986278A00C4417C /* NSString+STRegex.m in Sources */,

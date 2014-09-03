@@ -39,6 +39,8 @@
 #import "Goods.h"
 #import "OrdersNum.h"
 #import "FeeHistory.h"
+#import "MyOrder.h"
+#import "ResponseCode.h"
 
 @interface Tool : NSObject
 
@@ -135,6 +137,8 @@
 + (NSMutableArray *)readJsonStrToShopArray:(NSString *)str;
 + (NSMutableArray *)readJsonStrToShopsCate:(NSString *)str;
 + (BusinessGoods *)readJsonStrBusinessGoods:(NSString *)str;
++ (ResponseCode *)readJsonStrToResponseCode:(NSString *)str;
++ (NSMutableArray *)readJsonStrToMyOrder:(NSString *)str;
 + (OrdersNum *)readJsonStrToOrdersNum:(NSString *)str;
 + (Goods *)readJsonStrToGoodsInfo:(NSString *)str;
 + (Coupons *)readJsonStrToCouponDetail:(NSString *)str;
