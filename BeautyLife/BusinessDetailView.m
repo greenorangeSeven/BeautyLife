@@ -25,7 +25,7 @@
         self.navigationItem.leftBarButtonItem = btnBack;
         //        if (self.shop) {
         UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 63, 22)];
-        //[rBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+        [rBtn addTarget:self action:@selector(mapPointAction) forControlEvents:UIControlEventTouchUpInside];
         [rBtn setImage:[UIImage imageNamed:@"business_map"] forState:UIControlStateNormal];
         UIBarButtonItem *btnSearch = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
         self.navigationItem.rightBarButtonItem = btnSearch;
@@ -38,6 +38,20 @@
 - (void)backAction
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)mapPointAction
+{
+    if (_shop) {
+        CLLocationCoordinate2D coor;
+        coor.longitude = [_shop.longitude doubleValue];
+        coor.latitude = [_shop.latitude doubleValue];
+        StoreMapPointView *pointView = [[StoreMapPointView alloc] init];
+        pointView.storeCoor = coor;
+        pointView.storeTitle = _shop.name;
+        [self.navigationController pushViewController:pointView animated:YES];
+    }
+    
 }
 
 - (void)viewDidLoad

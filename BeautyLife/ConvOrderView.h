@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BMapKit.h"
+#import "StoreMapPointView.h"
 
 @interface ConvOrderView : UIViewController<UIWebViewDelegate>
 {
@@ -24,5 +26,6 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 - (IBAction)telAction:(id)sender;
 - (IBAction)telShopAction:(id)sender;
+- (IBAction)mapPointAction:(id)sender;
 
 @end

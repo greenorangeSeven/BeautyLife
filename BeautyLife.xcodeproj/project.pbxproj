@@ -157,6 +157,8 @@
 		143069541999BD0300A1F1B1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 143069531999BD0300A1F1B1 /* User.m */; };
 		143069581999BF2500A1F1B1 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 143069561999BF2500A1F1B1 /* LoginView.m */; };
 		143069591999BF2500A1F1B1 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 143069571999BF2500A1F1B1 /* LoginView.xib */; };
+		1432768419B83A8900C18B71 /* StoreMapPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432768219B83A8900C18B71 /* StoreMapPointView.m */; };
+		1432768519B83A8900C18B71 /* StoreMapPointView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1432768319B83A8900C18B71 /* StoreMapPointView.xib */; };
 		14343CE9199D9C4A00947080 /* NewsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14343CE7199D9C4A00947080 /* NewsDetailView.m */; };
 		14343CEA199D9C4A00947080 /* NewsDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14343CE8199D9C4A00947080 /* NewsDetailView.xib */; };
 		14343CEE199DBBB600947080 /* detail_praise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14343CEB199DBBB600947080 /* detail_praise@2x.png */; };
@@ -667,6 +669,9 @@
 		143069551999BF2500A1F1B1 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		143069561999BF2500A1F1B1 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		143069571999BF2500A1F1B1 /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		1432768119B83A8900C18B71 /* StoreMapPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreMapPointView.h; sourceTree = "<group>"; };
+		1432768219B83A8900C18B71 /* StoreMapPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreMapPointView.m; sourceTree = "<group>"; };
+		1432768319B83A8900C18B71 /* StoreMapPointView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreMapPointView.xib; sourceTree = "<group>"; };
 		14343CE6199D9C4A00947080 /* NewsDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailView.h; sourceTree = "<group>"; };
 		14343CE7199D9C4A00947080 /* NewsDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailView.m; sourceTree = "<group>"; };
 		14343CE8199D9C4A00947080 /* NewsDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetailView.xib; sourceTree = "<group>"; };
@@ -1319,6 +1324,9 @@
 				04952CC119932A4B0030534B /* BusinessDetailView.h */,
 				04952CE8199373090030534B /* BusinessDetailView.m */,
 				04952CC319932A4B0030534B /* BusinessDetailView.xib */,
+				1432768119B83A8900C18B71 /* StoreMapPointView.h */,
+				1432768219B83A8900C18B71 /* StoreMapPointView.m */,
+				1432768319B83A8900C18B71 /* StoreMapPointView.xib */,
 				1475AA8219AB200300AE904F /* BusinessGoodCell.h */,
 				1475AA8319AB200300AE904F /* BusinessGoodCell.m */,
 				1475AA8519AB202200AE904F /* BusinessGoodCell.xib */,
@@ -2757,6 +2765,7 @@
 				143069511999B7DF00A1F1B1 /* 37x-Checkmark@2x.png in Resources */,
 				1419F42C19889CFB00D3E5E3 /* setting_update@2x.png in Resources */,
 				1445BA171986294A00C4417C /* IQKeyboardManager.bundle in Resources */,
+				1432768519B83A8900C18B71 /* StoreMapPointView.xib in Resources */,
 				1419F412198896DC00D3E5E3 /* tabbar_bg@2x.png in Resources */,
 				1436058C19AC24EA00AAB9FA /* loadingpic1@2x.png in Resources */,
 				04952CD7199364250030534B /* GoodsDetailView.xib in Resources */,
@@ -2978,6 +2987,7 @@
 				1436059719AC662600AAB9FA /* KuaiDi100View.m in Sources */,
 				1445B9C31986281900C4417C /* NSData+Base64.m in Sources */,
 				1445B9651986278A00C4417C /* PSTCollectionViewUpdateItem.m in Sources */,
+				1432768419B83A8900C18B71 /* StoreMapPointView.m in Sources */,
 				1448EDC819A445B200361C51 /* OutExpress.m in Sources */,
 				1445BAAA19862F1A00C4417C /* UserModel.m in Sources */,
 				041869FC19B06713009063C7 /* FeeHistory.m in Sources */,

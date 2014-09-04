@@ -16,6 +16,8 @@
 #import "BusinessGoodCell.h"
 #import "GoodsDetailView.h"
 #import "CouponDetailView.h"
+#import "BMapKit.h"
+#import "StoreMapPointView.h"
 
 @interface BusinessDetailView : UIViewController<SGFocusImageFrameDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 {
