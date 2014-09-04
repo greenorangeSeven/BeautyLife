@@ -35,7 +35,7 @@
         self.navigationItem.leftBarButtonItem = btnBack;
         
         UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 58, 26)];
-        //[rBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+        [rBtn addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
         [rBtn setImage:[UIImage imageNamed:@"conv_order_share"] forState:UIControlStateNormal];
         UIBarButtonItem *btnSearch = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
         self.navigationItem.rightBarButtonItem = btnSearch;
@@ -46,6 +46,15 @@
 - (void)backAction
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)shareAction:(id)sender {
+    NSDictionary *contentDic = [NSDictionary dictionaryWithObjectsAndKeys:
+                                _adv.content , @"title",
+                                _adv.content, @"summary",
+                                _adv.pic, @"thumb",
+                                nil];
+    [Tool shareAction:sender andShowView:self.view andContent:contentDic];
 }
 
 - (void)viewDidLoad
