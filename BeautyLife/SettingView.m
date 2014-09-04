@@ -149,6 +149,11 @@
             break;
         case 5:
         {
+            if (![[UserModel Instance] isLogin])
+            {
+                [Tool showCustomHUD:@"请先登录" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:2];
+                return;
+            }
             MyOrderView *myOrderView = [[MyOrderView alloc] init];
             myOrderView.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:myOrderView animated:YES];
@@ -159,6 +164,11 @@
             break;
         case 6:
         {
+            if (![[UserModel Instance] isLogin])
+            {
+                [Tool showCustomHUD:@"请先登录" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:2];
+                return;
+            }
             FeeHistoryView *feeHistoryView = [[FeeHistoryView alloc] init];
             feeHistoryView.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:feeHistoryView animated:YES];
@@ -166,6 +176,11 @@
             break;
         case 7:
         {
+            if (![[UserModel Instance] isLogin])
+            {
+                [Tool showCustomHUD:@"请先登录" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:2];
+                return;
+            }
             FeeHistoryView *feeHistoryView = [[FeeHistoryView alloc] init];
             feeHistoryView.hidesBottomBarWhenPushed = YES;
             feeHistoryView.isShowPark = YES;
@@ -174,7 +189,14 @@
             break;
         case 8:
         {
-
+            if (![[UserModel Instance] isLogin])
+            {
+                [Tool showCustomHUD:@"请先登录" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:2];
+                return;
+            }
+            MySendExpressView *mySendExpress = [[MySendExpressView alloc] init];
+            mySendExpress.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:mySendExpress animated:YES];
         }
             break;
         case 9:

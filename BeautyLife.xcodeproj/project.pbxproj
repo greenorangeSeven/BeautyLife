@@ -387,6 +387,8 @@
 		1475AA8119AB0B3B00AE904F /* BusinessGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 1475AA8019AB0B3B00AE904F /* BusinessGoods.m */; };
 		1475AA8419AB200300AE904F /* BusinessGoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1475AA8319AB200300AE904F /* BusinessGoodCell.m */; };
 		1475AA8619AB202200AE904F /* BusinessGoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1475AA8519AB202200AE904F /* BusinessGoodCell.xib */; };
+		148195F219B6F9CD0024C5B1 /* SearchAdderssView.m in Sources */ = {isa = PBXBuildFile; fileRef = 148195F019B6F9CD0024C5B1 /* SearchAdderssView.m */; };
+		148195F319B6F9CD0024C5B1 /* SearchAdderssView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 148195F119B6F9CD0024C5B1 /* SearchAdderssView.xib */; };
 		149ED4AC1987737D0097F2AF /* MainPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 149ED4AA1987737D0097F2AF /* MainPageView.m */; };
 		149ED4AD1987737D0097F2AF /* MainPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 149ED4AB1987737D0097F2AF /* MainPageView.xib */; };
 		149ED4B0198776750097F2AF /* maingoodbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 149ED4AE198776750097F2AF /* maingoodbg@2x.png */; };
@@ -1111,6 +1113,9 @@
 		1475AA8219AB200300AE904F /* BusinessGoodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessGoodCell.h; sourceTree = "<group>"; };
 		1475AA8319AB200300AE904F /* BusinessGoodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessGoodCell.m; sourceTree = "<group>"; };
 		1475AA8519AB202200AE904F /* BusinessGoodCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessGoodCell.xib; sourceTree = "<group>"; };
+		148195EF19B6F9CD0024C5B1 /* SearchAdderssView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchAdderssView.h; sourceTree = "<group>"; };
+		148195F019B6F9CD0024C5B1 /* SearchAdderssView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAdderssView.m; sourceTree = "<group>"; };
+		148195F119B6F9CD0024C5B1 /* SearchAdderssView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchAdderssView.xib; sourceTree = "<group>"; };
 		149ED4A91987737D0097F2AF /* MainPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageView.h; sourceTree = "<group>"; };
 		149ED4AA1987737D0097F2AF /* MainPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageView.m; sourceTree = "<group>"; };
 		149ED4AB1987737D0097F2AF /* MainPageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainPageView.xib; sourceTree = "<group>"; };
@@ -1354,6 +1359,9 @@
 				149FDA79199A03D500BAA6D4 /* SelectHomeAddressView.h */,
 				149FDA7A199A03D500BAA6D4 /* SelectHomeAddressView.m */,
 				149FDA7B199A03D500BAA6D4 /* SelectHomeAddressView.xib */,
+				148195EF19B6F9CD0024C5B1 /* SearchAdderssView.h */,
+				148195F019B6F9CD0024C5B1 /* SearchAdderssView.m */,
+				148195F119B6F9CD0024C5B1 /* SearchAdderssView.xib */,
 				0440160119B2CCB500546126 /* MyOrderView.h */,
 				0440160219B2CCB500546126 /* MyOrderView.m */,
 				0440160319B2CCB500546126 /* MyOrderView.xib */,
@@ -2619,6 +2627,7 @@
 				1419F4371988CBC700D3E5E3 /* securitycode@2x.png in Resources */,
 				04952CE1199367850030534B /* goods_name_bg@2x.png in Resources */,
 				0440161019B3128C00546126 /* MyGoodsCell.xib in Resources */,
+				148195F319B6F9CD0024C5B1 /* SearchAdderssView.xib in Resources */,
 				142A11F319ACC37500B51705 /* subtle_ supermarket@2x.png in Resources */,
 				146F7C3F199FBB9B00926CA2 /* ritem-5@2x.png in Resources */,
 				1419F42619889CFB00D3E5E3 /* setting_info@2x.png in Resources */,
@@ -2938,6 +2947,7 @@
 				146F7C2A199FB26500926CA2 /* RepairsItem.m in Sources */,
 				1445BA6119862E0E00C4417C /* Tool.m in Sources */,
 				04952CD6199364250030534B /* GoodsDetailView.m in Sources */,
+				148195F219B6F9CD0024C5B1 /* SearchAdderssView.m in Sources */,
 				1445B9611986278A00C4417C /* PSTCollectionViewData.m in Sources */,
 				0408DFC719AF027500C33C99 /* OrdersNum.m in Sources */,
 				0440160819B2D1A600546126 /* MyOrder.m in Sources */,
@@ -3208,6 +3218,10 @@
 					Framework,
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
 					Framework,
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeautyLife/BeautyLife-Prefix.pch";
@@ -3254,6 +3268,10 @@
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK",
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK/UI",
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
 					Framework,
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",

@@ -1,20 +1,18 @@
 //
-//  SelectHomeAddressView.m
+//  SearchAdderssView.m
 //  BeautyLife
 //
-//  Created by Seven on 14-8-12.
+//  Created by Seven on 14-9-3.
 //  Copyright (c) 2014年 Seven. All rights reserved.
 //
 
-#import "SelectHomeAddressView.h"
+#import "SearchAdderssView.h"
 
-@interface SelectHomeAddressView ()
+@interface SearchAdderssView ()
 
 @end
 
-@implementation SelectHomeAddressView
-
-@synthesize selectAreaBtn;
+@implementation SearchAdderssView
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,58 +44,42 @@
 {
     [super viewDidLoad];
     hud = [[MBProgressHUD alloc] initWithView:self.view];
-    AreaListModel *areaList = (AreaListModel *)[[EGOCache currentCache] objectForKey:AreaListKey];
-    if (areaList == nil) {
-        [self initAreaData];
+    self.searchBar.delegate = self;
+    if (!IS_IOS7) {
+        [self.searchBar setTintColor:[Tool getBackgroundColor]];
     }
-    else
-    {
-        areaData = areaList.areaList;
-    }
-}
-
-- (void)initAreaData
-{
-    //如果有网络连接
-    if ([UserModel Instance].isNetworkRunning) {
-        [Tool showHUD:@"数据获取" andView:self.view andHUD:hud];
-        NSString *url = [NSString stringWithFormat:@"%@%@?APPKey=%@", api_base_url, api_getregion, appkey];
-        [[AFOSCClient sharedClient]getPath:url parameters:Nil
-                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                       @try {
-                                           areaData = [Tool readJsonStrToRegionArray:operation.responseString];
-                                           AreaListModel *areaList = [[AreaListModel alloc] initWithParameters:areaData];
-                                           [[EGOCache currentCache] setObject:areaList forKey:AreaListKey withTimeoutInterval:3600 * 24 *7];
-                                       }
-                                       @catch (NSException *exception) {
-                                           [NdUncaughtExceptionHandler TakeException:exception];
-                                       }
-                                       @finally {
-                                           if (hud != nil) {
-                                               [hud hide:YES];
-                                           }
-                                       }
-                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                       if ([UserModel Instance].isNetworkRunning == NO) {
-                                           return;
-                                       }
-                                       if ([UserModel Instance].isNetworkRunning) {
-                                           [Tool ToastNotification:@"错误 网络无连接" andView:self.view andLoading:NO andIsBottom:NO];
-                                       }
-                                   }];
-    }
+    [self.searchBar becomeFirstResponder];
 }
 
 - (void)getCommunity
 {
     //如果有网络连接
     if ([UserModel Instance].isNetworkRunning) {
-        [Tool showHUD:@"数据获取" andView:self.view andHUD:hud];
-        NSString *url = [NSString stringWithFormat:@"%@%@?APPKey=%@&town=%@", api_base_url, api_community, appkey, selectRegionId];
+        [Tool showHUD:@"小区搜索" andView:self.view andHUD:hud];
+        NSString *url = [NSString stringWithFormat:@"%@%@?APPKey=%@&words=%@", api_base_url, api_community, appkey, searchWord];
+        url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                        @try {
                                            communityData = [Tool readJsonStrToCommunityArray:operation.responseString];
+                                           if ([communityData count] > 0) {
+                                               [self.selectCommunityBtn setEnabled:YES];
+                                               [self.selectBuildBtn setEnabled:YES];
+                                               CommunityModel *community = (CommunityModel *)[communityData objectAtIndex:0];
+                                               buildData = community.buildArray;
+                                               selectCommunityId = community.id;
+                                               selectCommunityStr = community.title;
+                                               [self.selectCommunityBtn setTitle:selectCommunityStr forState:UIControlStateNormal];
+                                           }
+                                           else
+                                           {
+                                               UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                                            message:@"没有搜索到与关键字相符的小区"
+                                                                                           delegate:nil
+                                                                                  cancelButtonTitle:@"确定"
+                                                                                  otherButtonTitles:nil];
+                                               [av show];
+                                           }
                                        }
                                        @catch (NSException *exception) {
                                            [NdUncaughtExceptionHandler TakeException:exception];
@@ -116,33 +98,6 @@
                                        }
                                    }];
     }
-}
-
-- (IBAction)selectRegionAction:(id)sender {
-    provinceArray = areaData;
-    ProvinceModel *pro = (ProvinceModel *)[provinceArray objectAtIndex:0];
-    cityArray = pro.cityArray;
-    CityModel *city = (CityModel *)[cityArray objectAtIndex:0];
-    regionArray = city.regionArray;
-    RegionModel *region = (RegionModel *)[regionArray objectAtIndex:0];
-    selectProvinceId = pro.id;
-    selectProvinceStr = pro.name;
-    selectCityId = city.id;
-    selectCityStr = city.name;
-    selectRegionId = region.id;
-    selectRegionStr = region.name;
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"\n\n\n\n\n\n\n\n\n\n\n\n\n"
-                                                             delegate:self
-                                                    cancelButtonTitle:nil
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"确  定", nil];
-    actionSheet.tag = 0;
-    [actionSheet showInView:self.view];
-    UIPickerView *cityPicker = [[UIPickerView alloc] init];
-    cityPicker.delegate = self;
-    cityPicker.showsSelectionIndicator = YES;
-    cityPicker.tag = 0;
-    [actionSheet addSubview:cityPicker];
 }
 
 - (IBAction)selectCommunityAction:(id)sender {
@@ -214,25 +169,7 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (actionSheet.tag == 0) {
-        if (buttonIndex == 0) {
-            [self getCommunity];
-            [self.selectAreaBtn setTitle:[NSString stringWithFormat:@"%@ %@ %@", selectProvinceStr, selectCityStr, selectRegionStr] forState:UIControlStateNormal];
-            selectCommunityId = nil;
-            selectCommunityStr = nil;
-            self.selectCommunityBtn.enabled = YES;
-            [self.selectCommunityBtn setTitle:@"选择小区" forState:UIControlStateNormal];
-            selectBuildId = nil;
-            selectBuildStr = nil;
-            self.selectBuildBtn.enabled = NO;
-            [self.selectBuildBtn setTitle:@"选择楼栋" forState:UIControlStateNormal];
-            selectHouseId = nil;
-            selectHouseStr = nil;
-            self.selectHouseBtn.enabled = NO;
-            [self.selectHouseBtn setTitle:@"选择房号" forState:UIControlStateNormal];
-        }
-    }
-    else if (actionSheet.tag == 1) {
+    if (actionSheet.tag == 1) {
         if (buttonIndex == 0) {
             self.selectBuildBtn.enabled = YES;
             [self.selectCommunityBtn setTitle:selectCommunityStr forState:UIControlStateNormal];
@@ -270,24 +207,7 @@
 //返回当前列显示的行数
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    if(pickerView.tag == 0)
-    {
-        switch (component) {
-            case 0:
-                return [provinceArray count];
-                break;
-            case 1:
-                return [cityArray count];
-                break;
-            case 2:
-                return [regionArray count];
-                break;
-            default:
-                return 0;
-                break;
-        }
-    }
-    else if (pickerView.tag == 1)
+    if (pickerView.tag == 1)
     {
         return [communityData count];
     }
@@ -310,26 +230,7 @@
 //返回当前行的内容,此处是将数组中数值添加到滚动的那个显示栏上
 -(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if(pickerView.tag == 0)
-    {
-        if (component == 0) {
-            ProvinceModel *pro = (ProvinceModel *)[provinceArray objectAtIndex:row];
-            return pro.name;
-        }
-        else if(component == 1) {
-            CityModel *city = (CityModel *)[cityArray objectAtIndex:row];
-            return city.name;
-        }
-        else if(component == 2) {
-            RegionModel *region = (RegionModel *)[regionArray objectAtIndex:row];
-            return region.name;
-        }
-        else
-        {
-            return nil;
-        }
-    }
-    else if (pickerView.tag == 1)
+    if (pickerView.tag == 1)
     {
         CommunityModel *community = (CommunityModel *)[communityData objectAtIndex:row];
         return community.title;
@@ -352,43 +253,7 @@
 
 -(void) pickerView: (UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent: (NSInteger)component
 {
-    if(pickerView.tag == 0)
-    {
-        if (component == 0) {
-            ProvinceModel *pro = (ProvinceModel *)[provinceArray objectAtIndex:row];
-            cityArray = pro.cityArray;
-            CityModel *city = (CityModel *)[cityArray objectAtIndex:0];
-            regionArray = city.regionArray;
-            RegionModel *region = (RegionModel *)[regionArray objectAtIndex:0];
-            [pickerView selectRow:0 inComponent:1 animated:NO];
-            [pickerView reloadComponent:1];
-            [pickerView selectRow:0 inComponent:2 animated:NO];
-            [pickerView reloadComponent:2];
-            selectProvinceId = pro.id;
-            selectProvinceStr = pro.name;
-            selectCityId = city.id;
-            selectCityStr = city.name;
-            selectRegionId = region.id;
-            selectRegionStr = region.name;
-        }
-        else if(component == 1) {
-            CityModel *city = (CityModel *)[cityArray objectAtIndex:row];
-            regionArray = city.regionArray;
-            RegionModel *region = (RegionModel *)[regionArray objectAtIndex:0];
-            [pickerView selectRow:0 inComponent:2 animated:NO];
-            [pickerView reloadComponent:2];
-            selectCityId = city.id;
-            selectCityStr = city.name;
-            selectRegionId = region.id;
-            selectRegionStr = region.name;
-        }
-        else if(component == 2) {
-            RegionModel *region = (RegionModel *)[regionArray objectAtIndex:row];
-            selectRegionId = region.id;
-            selectRegionStr = region.name;
-        }
-    }
-    else if (pickerView.tag == 1)
+    if (pickerView.tag == 1)
     {
         CommunityModel *community = (CommunityModel *)[communityData objectAtIndex:row];
         buildData = community.buildArray;
@@ -412,12 +277,6 @@
 
 - (IBAction)finishAction:(id)sender {
     UserModel *userModel = [UserModel Instance];
-    [userModel saveValue:selectProvinceId ForKey:@"selectProvinceId"];
-    [userModel saveValue:selectProvinceStr ForKey:@"selectProvinceStr"];
-    [userModel saveValue:selectCityId ForKey:@"selectCityId"];
-    [userModel saveValue:selectCityStr ForKey:@"selectCityStr"];
-    [userModel saveValue:selectRegionId ForKey:@"selectRegionId"];
-    [userModel saveValue:selectRegionStr ForKey:@"selectRegionStr"];
     [userModel saveValue:selectCommunityId ForKey:@"selectCommunityId"];
     [userModel saveValue:selectCommunityStr ForKey:@"selectCommunityStr"];
     [userModel saveValue:selectBuildId ForKey:@"selectBuildId"];
@@ -431,6 +290,38 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    [self.searchBar setShowsCancelButton:YES animated:YES];
+}
+
+// 键盘中，搜索按钮被按下，执行的方法
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    searchWord = searchBar.text;
+    if ([searchWord length] > 0) {
+        [self.searchBar resignFirstResponder];// 放弃第一响应者
+        [self.searchBar setShowsCancelButton:NO animated:YES];
+        [self getCommunity];
+    }
+    else
+    {
+        [Tool showCustomHUD:@"请输入要搜索的关键字" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:3];
+    }
+}
+
+//编辑代理(完成编辑触发)
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
+{
+    return YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    searchBar.text = @"";
+    [self.searchBar setShowsCancelButton:NO animated:YES];
+    [self.searchBar resignFirstResponder];// 放弃第一响应者
+    searchWord = @"";
 }
 
 @end
