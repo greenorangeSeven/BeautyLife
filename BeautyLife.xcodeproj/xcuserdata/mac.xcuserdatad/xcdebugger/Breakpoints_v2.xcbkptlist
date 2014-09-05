@@ -46,9 +46,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "222"
-            endingLineNumber = "222"
-            landmarkName = "-tableView:viewForHeaderInSection:"
-            landmarkType = "5">
+            endingLineNumber = "222">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,9 +60,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "-loadOrder"
-            landmarkType = "5">
+            endingLineNumber = "94">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
