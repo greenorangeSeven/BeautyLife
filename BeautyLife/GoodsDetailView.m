@@ -7,6 +7,7 @@
 //
 
 #import "GoodsDetailView.h"
+#import "ShoppingBuyView.h"
 
 @interface GoodsDetailView ()
 
@@ -135,13 +136,19 @@
     {
         addGood = [database executeUpdate:@"insert into shoppingcart (goodid, title, thumb, price, store_name, business_id, number, user_id) values (?, ?, ?, ?, ?, ?, ?, ?)", goodDetail.id, goodDetail.title, goodDetail.thumb, goodDetail.price, goodDetail.store_name, goodDetail.business_id, [NSNumber numberWithInt:1], [[UserModel Instance] getUserValueForKey:@"id"]];
     }
-    if (addGood) {
+    if (addGood)
+    {
         [Tool showCustomHUD:@"已添加至购物车" andView:self.view andImage:@"37x-Checkmark.png" andAfterDelay:3];
     }
     [database close];
 }
 
-- (IBAction)buyAction:(id)sender {
+- (IBAction)buyAction:(id)sender
+{
+    ShoppingBuyView *shoppingBuyView = [[ShoppingBuyView alloc] init];
+    shoppingBuyView.hidesBottomBarWhenPushed = YES;
+    shoppingBuyView.goods = self.good;
+    [self.navigationController pushViewController:shoppingBuyView animated:YES];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

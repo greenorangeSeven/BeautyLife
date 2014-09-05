@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0408DFC719AF027500C33C99 /* OrdersNum.m in Sources */ = {isa = PBXBuildFile; fileRef = 0408DFC619AF027500C33C99 /* OrdersNum.m */; };
+		0412D9F319B866A10026D527 /* ShoppingBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0412D9F119B866A10026D527 /* ShoppingBuyView.m */; };
+		0412D9F419B866A10026D527 /* ShoppingBuyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0412D9F219B866A10026D527 /* ShoppingBuyView.xib */; };
 		041869F119B05577009063C7 /* FeeHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041869EF19B05577009063C7 /* FeeHistoryView.m */; };
 		041869F219B05577009063C7 /* FeeHistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041869F019B05577009063C7 /* FeeHistoryView.xib */; };
 		041869F619B056C2009063C7 /* FeeHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 041869F419B056C2009063C7 /* FeeHistoryCell.m */; };
@@ -475,6 +477,9 @@
 /* Begin PBXFileReference section */
 		0408DFC519AF027500C33C99 /* OrdersNum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdersNum.h; sourceTree = "<group>"; };
 		0408DFC619AF027500C33C99 /* OrdersNum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdersNum.m; sourceTree = "<group>"; };
+		0412D9F019B866A10026D527 /* ShoppingBuyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingBuyView.h; sourceTree = "<group>"; };
+		0412D9F119B866A10026D527 /* ShoppingBuyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingBuyView.m; sourceTree = "<group>"; };
+		0412D9F219B866A10026D527 /* ShoppingBuyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingBuyView.xib; sourceTree = "<group>"; };
 		041869EE19B05577009063C7 /* FeeHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeeHistoryView.h; sourceTree = "<group>"; };
 		041869EF19B05577009063C7 /* FeeHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeeHistoryView.m; sourceTree = "<group>"; };
 		041869F019B05577009063C7 /* FeeHistoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeeHistoryView.xib; sourceTree = "<group>"; };
@@ -1259,8 +1264,8 @@
 				1445B8CB1986269500C4417C /* CoreGraphics.framework in Frameworks */,
 				1445B8CD1986269500C4417C /* UIKit.framework in Frameworks */,
 				1445B8C91986269500C4417C /* Foundation.framework in Frameworks */,
-				1445BA181986294A00C4417C /* KeyboardManager.framework in Frameworks */,
 				1445BA9619862EE100C4417C /* AGCommon.framework in Frameworks */,
+				1445BA181986294A00C4417C /* KeyboardManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1334,6 +1339,9 @@
 				142AE65D19AB86B200079A9A /* ShoppingCartCell.h */,
 				142AE65E19AB86B200079A9A /* ShoppingCartCell.m */,
 				142AE65F19AB86B200079A9A /* ShoppingCartCell.xib */,
+				0412D9F019B866A10026D527 /* ShoppingBuyView.h */,
+				0412D9F119B866A10026D527 /* ShoppingBuyView.m */,
+				0412D9F219B866A10026D527 /* ShoppingBuyView.xib */,
 			);
 			name = LifePage;
 			sourceTree = "<group>";
@@ -2731,6 +2739,7 @@
 				149ED4BB19877BF30097F2AF /* propertypay@2x.png in Resources */,
 				149ED4CD198790170097F2AF /* saleprice.png in Resources */,
 				1445BAF11986304700C4417C /* mapapi.bundle in Resources */,
+				0412D9F419B866A10026D527 /* ShoppingBuyView.xib in Resources */,
 				04CAC3E3198CC6560031E956 /* online_title.png in Resources */,
 				04CAC3E1198CC29C0031E956 /* online_liantong@2x.png in Resources */,
 				04CAC3DF198CC29C0031E956 /* online_yidong@2x.png in Resources */,
@@ -2955,6 +2964,7 @@
 				1445B96D1986278A00C4417C /* NSData+GIF.m in Sources */,
 				142277DA1989DED9007242A2 /* ChooseAreaView.m in Sources */,
 				1445B9781986278A00C4417C /* UIImage+MultiFormat.m in Sources */,
+				0412D9F319B866A10026D527 /* ShoppingBuyView.m in Sources */,
 				1445B9AA198627A400C4417C /* CheckNetwork.m in Sources */,
 				1445B9C21986281900C4417C /* AESCrypt.m in Sources */,
 				1445B9A7198627A400C4417C /* ASIHTTPRequest.m in Sources */,
@@ -3222,6 +3232,12 @@
 					Framework,
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
 					Framework,
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeautyLife/BeautyLife-Prefix.pch";
@@ -3268,6 +3284,12 @@
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK",
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK/UI",
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
 					Framework,
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
