@@ -189,28 +189,28 @@
     status_Label.text = [NSString stringWithFormat:@"订单状态:%@",order.status];
    [headerView addSubview:status_Label];
     
-//    if([order.status isEqualToString:@"卖家已发货"] ||
-//       [order.status isEqualToString:@"未付款"])
-//    {
+    if([order.status isEqualToString:@"卖家已发货"] ||
+       [order.status isEqualToString:@"未付款"])
+    {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
         btn.frame = CGRectMake(220, 40, 90, 30);
         btn.backgroundColor = [UIColor clearColor];
         btn.titleLabel.textColor = [UIColor blueColor];
         btn.titleLabel.font = [UIFont boldSystemFontOfSize:15.0];
-//        if([order.status isEqualToString:@"卖家已发货"])
-//        {
+        if([order.status isEqualToString:@"卖家已发货"])
+        {
             [btn setTitle:@"确认收货" forState:UIControlStateNormal];
-//        }
-//        else
-//        {
-//            [btn setTitle:@"取消订单" forState:UIControlStateNormal];
-//        }
+        }
+        else
+        {
+            [btn setTitle:@"取消订单" forState:UIControlStateNormal];
+        }
         [btn setTag:section];
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         [headerView addSubview:btn];
 
         NSLog(@"nhujmkilop");
-//    }
+    }
     
     return headerView;
 }

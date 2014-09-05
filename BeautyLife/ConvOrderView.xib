@@ -68,6 +68,9 @@
                             <state key="normal" image="conv_order_map.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="mapPointAction:" destination="-1" eventType="touchUpInside" id="yqh-zV-LiX"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FKf-bd-94v">
                             <rect key="frame" x="15" y="56" width="136" height="50"/>
