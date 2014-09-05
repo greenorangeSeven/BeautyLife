@@ -147,7 +147,7 @@
 {
     ShoppingBuyView *shoppingBuyView = [[ShoppingBuyView alloc] init];
     shoppingBuyView.hidesBottomBarWhenPushed = YES;
-    shoppingBuyView.goods = self.good;
+    shoppingBuyView.goods = goodDetail;
     [self.navigationController pushViewController:shoppingBuyView animated:YES];
 }
 

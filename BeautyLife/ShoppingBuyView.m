@@ -19,7 +19,7 @@
 #import "PayOrder.h"
 #import "AlipayUtils.h"
 
-@interface ShoppingBuyView ()
+@interface ShoppingBuyView () <UIAlertViewDelegate>
 
 @end
 
@@ -59,6 +59,23 @@
     self.nameField.text = [user getUserValueForKey:@"name"];
     self.addressField.text = [user getUserValueForKey:@"address"];
     self.phoneField.text =[user getUserValueForKey:@"tel"];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyOK) name:@"buyOK" object:nil];
+}
+
+- (void)buyOK
+{
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                 message:@"支付成功"                         delegate:self
+                                       cancelButtonTitle:@"确定"
+                                       otherButtonTitles:nil];
+    [av show];
+}
+
+//弹出框事件
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+   [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -140,7 +157,6 @@
     
     NSData *jsonData = [PrintObject getJSON:orderInfo options:NSJSONWritingPrettyPrinted error:nil];
     NSString *jsonText = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@", jsonText);
     [self payFeeAction:jsonText];
 }
 
