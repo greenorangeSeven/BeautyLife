@@ -92,7 +92,7 @@ BMKMapManager* _mapManager;
     NSURL *dbURLPath = [NSURL fileURLWithPath:directory];
     [self addSkipBackupAttributeToItemAtURL:dbURLPath];
     [self addSkipBackupAttributeToPath:directory];
-
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:self.tabBarController ];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -108,7 +108,7 @@ BMKMapManager* _mapManager;
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -142,7 +142,7 @@ BMKMapManager* _mapManager;
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-
+    
 }
 
 - (void)requestUserinfo:(ASIHTTPRequest *)request
@@ -253,14 +253,14 @@ BMKMapManager* _mapManager;
 			 */
             
             //交易成功
-            //            NSString* key = @"签约帐户后获取到的支付宝公钥";
-            //			id<DataVerifier> verifier;
-            //            verifier = CreateRSADataVerifier(key);
-            //
-            //			if ([verifier verifyString:result.resultString withSign:result.signString])
-            //            {
-            //                //验证签名成功，交易结果无篡改
-            //			}
+            //UserModel *userModel = [UserModel Instance];
+            NSString* key = @"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB";
+            id<DataVerifier> verifier;
+            verifier = CreateRSADataVerifier(key);
+            if ([verifier verifyString:result.resultString withSign:result.signString])
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"buyOK" object:nil];
+            }
             
         }
         else

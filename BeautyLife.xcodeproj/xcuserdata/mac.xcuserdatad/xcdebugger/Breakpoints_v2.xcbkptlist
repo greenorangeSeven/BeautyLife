@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BeautyLife/AppDelegate.mm"
+            filePath = "BeautyLife/AppDelegate.m"
             timestampString = "430902567.028375"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "177"
             endingLineNumber = "177"
-            landmarkName = "-saveAlipayKeyInfo"
+            landmarkName = "-requestUserinfo:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -46,9 +46,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "222"
-            endingLineNumber = "222"
-            landmarkName = "-tableView:viewForHeaderInSection:"
-            landmarkType = "5">
+            endingLineNumber = "222">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,9 +60,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "-loadOrder"
-            landmarkType = "5">
+            endingLineNumber = "94">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
