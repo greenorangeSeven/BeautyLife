@@ -10,4 +10,6 @@
 
 @interface BusinessCateCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLb;
+
 @end
