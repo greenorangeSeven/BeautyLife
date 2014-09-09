@@ -107,7 +107,6 @@
         good.store_name = [resultSet stringForColumn:@"store_name"];
         good.business_id = [resultSet stringForColumn:@"business_id"];
         good.number = [NSNumber numberWithInteger:[resultSet intForColumn:@"number"]];
-        
         total += [good.price doubleValue] * [good.number intValue];
         [goodData addObject:good];
     }
@@ -116,6 +115,7 @@
     }
     else
     {
+        self.totalLb.text = @"0.00";
         noDataLabel.hidden = NO;
     }
     [self.goodTableView reloadData];
