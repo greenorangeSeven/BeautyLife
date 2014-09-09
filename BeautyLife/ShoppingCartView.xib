@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShoppingCartView">
             <connections>
+                <outlet property="buyButton" destination="Ve0-GN-dD7" id="W8s-Fw-zPd"/>
                 <outlet property="goodTableView" destination="HMv-mQ-5sT" id="h3H-Vx-G1g"/>
                 <outlet property="totalLb" destination="wil-wb-eCs" id="trR-yY-oeq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

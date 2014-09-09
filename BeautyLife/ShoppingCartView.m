@@ -113,12 +113,13 @@
     }
     if ([goodData count] > 0) {
         self.totalLb.text = [NSString stringWithFormat:@"%.2f", total];
-        [self.goodTableView reloadData];
     }
     else
     {
+        _buyButton.enabled = NO;
         noDataLabel.hidden = NO;
     }
+    [self.goodTableView reloadData];
     [database close];
 }
 
