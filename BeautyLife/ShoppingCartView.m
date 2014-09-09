@@ -113,12 +113,12 @@
     }
     if ([goodData count] > 0) {
         self.totalLb.text = [NSString stringWithFormat:@"%.2f", total];
-        [self.goodTableView reloadData];
     }
     else
     {
         noDataLabel.hidden = NO;
     }
+    [self.goodTableView reloadData];
     [database close];
 }
 
@@ -191,7 +191,7 @@
         if (![database tableExists:@"shoppingcart"]) {
             [database executeUpdate:createshoppingcart];
         }
-        BOOL updateGood = [database executeUpdate:@"update shoppingcart set number = number - 1 where goodid= ?", good.id];
+        BOOL updateGood = [database executeUpdate:@"update shoppingcart set number = number - 1 where goodid= ? and user_id = ?", good.id, [[UserModel Instance] getUserValueForKey:@"id"]];
         [database close];
         if (updateGood) {
             [self reloadData];
@@ -212,7 +212,7 @@
         if (![database tableExists:@"shoppingcart"]) {
             [database executeUpdate:createshoppingcart];
         }
-        BOOL updateGood = [database executeUpdate:@"update shoppingcart set number = number + 1 where goodid= ?", good.id];
+        BOOL updateGood = [database executeUpdate:@"update shoppingcart set number = number + 1 where goodid= ? and user_id = ?", good.id, [[UserModel Instance] getUserValueForKey:@"id"]];
         [database close];
         if (updateGood) {
             [self reloadData];
@@ -233,7 +233,7 @@
         if (![database tableExists:@"shoppingcart"]) {
             [database executeUpdate:createshoppingcart];
         }
-        BOOL detele = [database executeUpdate:@"delete from shoppingcart where goodid = ?", good.id];
+        BOOL detele = [database executeUpdate:@"delete from shoppingcart where goodid = ? and user_id = ?", good.id, [[UserModel Instance] getUserValueForKey:@"id"]];
         [database close];
         if (detele) {
             [self reloadData];
