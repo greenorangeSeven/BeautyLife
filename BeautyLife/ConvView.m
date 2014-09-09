@@ -341,10 +341,12 @@
     int indexRow = [indexPath row];
     ShopsCate *cate = [shopCateData objectAtIndex:indexRow];
     
-    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"loadingpic2.png"]];
+    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"loadingpic4.png"]];
     imageView.imageURL = [NSURL URLWithString:cate.logo];
-    imageView.frame = CGRectMake(16.0f, 11.0f, 49.0f, 58.0f);
+    imageView.frame = CGRectMake(15.0f, 9.0f, 50.0f, 50.0f);
     [cell addSubview:imageView];
+    
+    cell.nameLb.text = cate.cate_name;
     
     return cell;
 }
