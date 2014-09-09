@@ -31,5 +31,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *goodTableView;
 @property (weak, nonatomic) IBOutlet UILabel *totalLb;
 - (IBAction)balanceAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *buyButton;
 
 @end

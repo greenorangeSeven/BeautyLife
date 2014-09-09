@@ -75,7 +75,6 @@
 //弹出框事件
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    
    [self.navigationController popViewControllerAnimated:YES];
 }
 
