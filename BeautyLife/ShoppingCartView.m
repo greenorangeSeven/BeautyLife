@@ -108,7 +108,6 @@
         good.store_name = [resultSet stringForColumn:@"store_name"];
         good.business_id = [resultSet stringForColumn:@"business_id"];
         good.number = [NSNumber numberWithInteger:[resultSet intForColumn:@"number"]];
-        
         total += [good.price doubleValue] * [good.number intValue];
         [goodData addObject:good];
     }
@@ -118,7 +117,7 @@
     }
     else
     {
-        _buyButton.enabled = NO;
+        self.totalLb.text = @"0.00";
         noDataLabel.hidden = NO;
     }
     [self.goodTableView reloadData];
@@ -194,7 +193,7 @@
         if (![database tableExists:@"shoppingcart"]) {
             [database executeUpdate:createshoppingcart];
         }
-        BOOL updateGood = [database executeUpdate:@"update shoppingcart set number = number - 1 where goodid= ?", good.id];
+        BOOL updateGood = [database executeUpdate:@"update shoppingcart set number = number - 1 where goodid= ? and user_id = ?", good.id, [[UserModel Instance] getUserValueForKey:@"id"]];
         [database close];
         if (updateGood) {
             [self reloadData];
@@ -215,7 +214,7 @@
         if (![database tableExists:@"shoppingcart"]) {
             [database executeUpdate:createshoppingcart];
         }
-        BOOL updateGood = [database executeUpdate:@"update shoppingcart set number = number + 1 where goodid= ?", good.id];
+        BOOL updateGood = [database executeUpdate:@"update shoppingcart set number = number + 1 where goodid= ? and user_id = ?", good.id, [[UserModel Instance] getUserValueForKey:@"id"]];
         [database close];
         if (updateGood) {
             [self reloadData];
@@ -236,7 +235,7 @@
         if (![database tableExists:@"shoppingcart"]) {
             [database executeUpdate:createshoppingcart];
         }
-        BOOL detele = [database executeUpdate:@"delete from shoppingcart where goodid = ?", good.id];
+        BOOL detele = [database executeUpdate:@"delete from shoppingcart where goodid = ? and user_id = ?", good.id, [[UserModel Instance] getUserValueForKey:@"id"]];
         [database close];
         if (detele) {
             [self reloadData];
