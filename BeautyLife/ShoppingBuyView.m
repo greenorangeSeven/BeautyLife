@@ -65,6 +65,21 @@
 
 - (void)buyOK
 {
+    FMDatabase* database=[FMDatabase databaseWithPath:[Tool databasePath]];
+    if (![database open]) {
+        NSLog(@"Open database failed");
+        return;
+    }
+    if (![database tableExists:@"shoppingcart"])
+    {
+        [database executeUpdate:createshoppingcart];
+    }
+    BOOL isOK = [database executeUpdate:@"DELETE FROM shoppingcart"];
+    if(isOK)
+    {
+        NSLog(@"数据已清空");
+    }
+    
     UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示"
                                                  message:@"支付成功"                         delegate:self
                                        cancelButtonTitle:@"确定"
