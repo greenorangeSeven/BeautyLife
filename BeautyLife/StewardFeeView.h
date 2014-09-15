@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "PropertyFeeInfo.h"
 #import "EGOImageView.h"
+#import "UserInfoView.h"
 
-@interface StewardFeeView : UIViewController<UIActionSheetDelegate, UIPickerViewDelegate>
+@interface StewardFeeView : UIViewController<UIActionSheetDelegate, UIPickerViewDelegate, UIAlertViewDelegate>
 {
     UserModel *usermodel;
     double monthFee;

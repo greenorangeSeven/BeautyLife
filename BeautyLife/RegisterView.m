@@ -59,29 +59,60 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(int)getRandomNumber:(int)start to:(int)end
+
+{
+//    int y =  (arc4random() % 501) + 500));
+    return (int)(start + (arc4random() % (end - start + 1)));
+    
+}
+
 - (IBAction)sendSecurityCodeAction:(id)sender {
-    NSString *urlStr = [@"http://sms.3g6.com.cn/ws/Send.aspx?CorpID=LPZSDK01545&Pwd=924889&Mobile=18073118891&Content=测试仪11111" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *mobileStr = self.mobileTf.text;
+    if (![mobileStr isValidPhoneNum]) {
+        [Tool showCustomHUD:@"手机号错误" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
+        return;
+    }
+    NSString *random =  [NSString stringWithFormat:@"%d" ,[self getRandomNumber:100000 to:999999]];
+    [[EGOCache currentCache] setObject:random forKey:SecurityCode withTimeoutInterval:60 * 10];
+    NSString *regUrl = @"http://sms.3g6.com.cn/ws/Send.aspx";
+    NSString *content = [NSString stringWithFormat:@"注册验证码为%@, 请注意保密，此验证码10分钟内有效，请在注册页面中输入以完成注册", random];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:regUrl]];
+    [request setUseCookiePersistence:NO];
+    [request setPostValue:@"LPZSDK01545" forKey:@"CorpID"];
+    [request setPostValue:@"924889" forKey:@"Pwd"];
+    [request setPostValue:mobileStr forKey:@"Mobile"];
+    [request setPostValue:content forKey:@"Content"];
+    [request setDelegate:self];
+    [request setDidFailSelector:@selector(requestFailed:)];
+    [request setDidFinishSelector:@selector(requestSend:)];
+    [request startAsynchronous];
+    [securityCodeBtn setEnabled:NO];
+    request.hud = [[MBProgressHUD alloc] initWithView:self.view];
+    [Tool showHUD:@"发送中..." andView:self.view andHUD:request.hud];
+}
+
+- (void)requestSend:(ASIHTTPRequest *)request
+{
+    if (request.hud) {
+        [request.hud hide:YES];
+    }
     
-    NSStringEncoding encoding =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-    NSData* gb2312data = [urlStr dataUsingEncoding:encoding];
-    NSString *GBKsTR = [[NSString alloc] initWithData:gb2312data encoding:encoding];
-    NSURL *url = [ NSURL URLWithString : GBKsTR];
-    
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-    NSString *retStr = [[NSString alloc] initWithData:data encoding:enc];
-    
-    // 构造 ASIHTTPRequest 对象
-    ASIHTTPRequest *request = [ ASIHTTPRequest requestWithURL :url];
-    // 开始同步请求
-    [request startSynchronous ];
-    NSError *error = [request error ];
-    assert (!error);
-    NSLog([request responseString]);
+    [request setUseCookiePersistence:YES];
+    if ([request.responseString isEqualToString:@"0"]) {
+        [Tool showCustomHUD:@"验证码发送成功" andView:self.view  andImage:@"" andAfterDelay:1];
+    }
+    else
+    {
+        [Tool showCustomHUD:@"验证码发送失败，请重试" andView:self.view  andImage:@"" andAfterDelay:1];
+        [securityCodeBtn setEnabled:YES];
+    }
 }
 
 - (IBAction)registerAction:(id)sender {
     NSString *mobileStr = self.mobileTf.text;
+    NSString *SMSStr = (NSString *)[[EGOCache currentCache] objectForKey:SecurityCode];
+    NSString *randomStr = self.securityCodeTf.text;
     NSString *pwdStr = self.pwdTf.text;
     NSString *pwdAgainStr = self.pwdAgainTf.text;
     if (![mobileStr isValidPhoneNum]) {
@@ -95,6 +126,10 @@
     if (![pwdStr isEqualToString:pwdAgainStr]) {
         [Tool showCustomHUD:@"密码确认不一致" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
         self.pwdAgainTf.text = @"";
+        return;
+    }
+    if ([randomStr isEqualToString:SMSStr] == NO) {
+        [Tool showCustomHUD:@"验证码错误" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
         return;
     }
     self.registerBtn.enabled = NO;
@@ -144,11 +179,11 @@
     switch (errorCode) {
         case 1:
         {
-//            [[UserModel Instance] saveIsLogin:YES];
+            [[EGOCache currentCache] removeCacheForKey:SecurityCode];
             [[UserModel Instance] saveAccount:self.mobileTf.text andPwd:self.pwdTf.text];
             [[UserModel Instance] saveValue:self.mobileTf.text ForKey:@"tel"];
             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"注册提醒"
-                                                         message:errorMessage
+                                                         message:@"注册成功，请登录并完善您的资料，以便缴费和享受更多服务。"
                                                         delegate:nil
                                                cancelButtonTitle:@"确定"
                                                otherButtonTitles:nil];

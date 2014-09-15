@@ -38,20 +38,21 @@
 {
     [super viewDidLoad];
     usermodel = [UserModel Instance];
+    
     //用户是否已认证，已认证后才能报修
-    if (![[usermodel getUserValueForKey:@"checkin"] isEqualToString:@"1"]) {
-        self.payfeeBtn.enabled = NO;
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"温馨提醒"
-                                                     message:@"您的入住信息暂未审核通过，暂未能在线缴费，请联系客户服务中心！"
-                                                    delegate:nil
-                                           cancelButtonTitle:@"确定"
-                                           otherButtonTitles:nil];
-        [av show];
-    }
-    else
-    {
-        [self getPropertyFee];
-    }
+//    if (![[usermodel getUserValueForKey:@"checkin"] isEqualToString:@"1"]) {
+//        self.payfeeBtn.enabled = NO;
+//        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"温馨提醒"
+//                                                     message:@"您的入住信息暂未审核通过，暂未能在线缴费，请联系客户服务中心！"
+//                                                    delegate:nil
+//                                           cancelButtonTitle:@"确定"
+//                                           otherButtonTitles:nil];
+//        [av show];
+//    }
+//    else
+//    {
+//        [self getPropertyFee];
+//    }
     [Tool roundView:self.bgView andCornerRadius:3.0];
     if (!IS_IPHONE_5) {
         self.scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width, 443);
@@ -65,11 +66,40 @@
     [self.faceIv addSubview:faceEGOImageView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if ([[usermodel getUserValueForKey:@"house_number"] isEqualToString:@""]) {
+        self.payfeeBtn.enabled = NO;
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"温馨提醒"
+                                                     message:@"您的个人信息不完善，暂未能在线缴费，请完善个人信息！"
+                                                    delegate:self
+                                           cancelButtonTitle:nil
+                                           otherButtonTitles:@"确定", nil];
+        [av show];
+    }
+    else
+    {
+        self.payfeeBtn.enabled = YES;
+        [self getPropertyFee];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        UserInfoView *userinfoView = [[UserInfoView alloc] init];
+        userinfoView.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:userinfoView animated:YES];
+    }
+}
+
 - (void)getPropertyFee
 {
     //如果有网络连接
     if ([UserModel Instance].isNetworkRunning) {
         NSString *url = [NSString stringWithFormat:@"%@%@?APPKey=%@&userid=%@", api_base_url, api_mypropertyfee, appkey, [[UserModel Instance] getUserValueForKey:@"id"]];
+        NSString *house = [[UserModel Instance] getUserValueForKey:@"house_number"];
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                        @try {

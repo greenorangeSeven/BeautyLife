@@ -198,12 +198,6 @@
     bannerView.delegate = self;
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    bannerView.delegate = nil;
-}
-
 - (IBAction)clickService:(UIButton *)sender
 {
     ConvView *convView = [[ConvView alloc] init];

@@ -1268,8 +1268,8 @@
 				1445BA2119862BE300C4417C /* libsqlite3.dylib in Frameworks */,
 				1445B8CB1986269500C4417C /* CoreGraphics.framework in Frameworks */,
 				1445B8CD1986269500C4417C /* UIKit.framework in Frameworks */,
-				1445B8C91986269500C4417C /* Foundation.framework in Frameworks */,
 				1445BA181986294A00C4417C /* KeyboardManager.framework in Frameworks */,
+				1445B8C91986269500C4417C /* Foundation.framework in Frameworks */,
 				1445BA9619862EE100C4417C /* AGCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

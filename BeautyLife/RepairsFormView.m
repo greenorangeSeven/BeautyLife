@@ -31,15 +31,15 @@
     usermodel = [UserModel Instance];
     
     //用户是否已认证，已认证后才能报修
-    if (![[usermodel getUserValueForKey:@"checkin"] isEqualToString:@"1"]) {
-        self.submitBtn.enabled = NO;
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"温馨提醒"
-                                                     message:@"您的入住信息暂未审核通过，暂未能提交报修信息，请联系客户服务中心！"
-                                                    delegate:nil
-                                           cancelButtonTitle:@"确定"
-                                           otherButtonTitles:nil];
-        [av show];
-    }
+//    if (![[usermodel getUserValueForKey:@"checkin"] isEqualToString:@"1"]) {
+//        self.submitBtn.enabled = NO;
+//        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"温馨提醒"
+//                                                     message:@"您的入住信息暂未审核通过，暂未能提交报修信息，请联系客户服务中心！"
+//                                                    delegate:nil
+//                                           cancelButtonTitle:@"确定"
+//                                           otherButtonTitles:nil];
+//        [av show];
+//    }
     
     [Tool roundView:self.bgView andCornerRadius:3.0];
     [Tool roundTextView:self.descTv andBorderWidth:1 andCornerRadius:4.0];
@@ -51,6 +51,33 @@
     self.addressLb.text = [usermodel getUserValueForKey:@"address"];
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerFunc) userInfo:nil repeats:YES];
     [self initCateData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if ([[usermodel getUserValueForKey:@"house_number"] isEqualToString:@""]) {
+        self.submitBtn.enabled = NO;
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"温馨提醒"
+                                                     message:@"您的个人信息不完善，暂未能在线缴费，请完善个人信息！"
+                                                    delegate:self
+                                           cancelButtonTitle:nil
+                                           otherButtonTitles:@"确定", nil];
+        [av show];
+    }
+    else
+    {
+        self.submitBtn.enabled = YES;
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        UserInfoView *userinfoView = [[UserInfoView alloc] init];
+        userinfoView.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:userinfoView animated:YES];
+    }
 }
 
 - (void)timerFunc

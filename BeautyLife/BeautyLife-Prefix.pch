@@ -112,6 +112,8 @@
 #define api_cancel_my_order @"/cancel_my_order"
 
 #define AreaListKey @"AreList"
+#define SecurityCode @"SecurityCode"
+
 
 #define servicephone @"0731-85824888"
 

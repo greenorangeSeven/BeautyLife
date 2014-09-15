@@ -11,8 +11,9 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "EGOImageView.h"
+#import "UserInfoView.h"
 
-@interface RepairsFormView : UIViewController<UIActionSheetDelegate, UIPickerViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, VPImageCropperDelegate>
+@interface RepairsFormView : UIViewController<UIActionSheetDelegate, UIPickerViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, VPImageCropperDelegate, UIAlertViewDelegate>
 {
     NSArray *cateData;
     NSTimer *_timer;

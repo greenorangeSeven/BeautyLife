@@ -128,12 +128,6 @@
     bannerView.delegate = self;
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    bannerView.delegate = nil;
-}
-
 - (IBAction)stewardFeeAction:(id)sender {
     if ([UserModel Instance].isLogin == NO) {
         [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
