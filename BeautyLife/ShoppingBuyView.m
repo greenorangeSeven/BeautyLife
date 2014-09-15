@@ -65,6 +65,21 @@
 
 - (void)buyOK
 {
+    FMDatabase* database=[FMDatabase databaseWithPath:[Tool databasePath]];
+    if (![database open]) {
+        NSLog(@"Open database failed");
+        return;
+    }
+    if (![database tableExists:@"shoppingcart"])
+    {
+        [database executeUpdate:createshoppingcart];
+    }
+    BOOL isOK = [database executeUpdate:@"DELETE FROM shoppingcart"];
+    if(isOK)
+    {
+        NSLog(@"数据已清空");
+    }
+    
     UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示"
                                                  message:@"支付成功"                         delegate:self
                                        cancelButtonTitle:@"确定"
@@ -86,14 +101,32 @@
 
 - (IBAction)doBuy:(UIButton *)sender
 {
+    NSString *nameStr = self.nameField.text;
+    NSString *phoneStr = self.phoneField.text;
+    NSString *addressStr = self.addressField.text;
     
+    if (nameStr == nil || [nameStr length] == 0)
+    {
+        [Tool showCustomHUD:@"请输入姓名" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
+        return;
+    }
+    if (![phoneStr isValidPhoneNum])
+    {
+        [Tool showCustomHUD:@"请输入手机号" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
+        return;
+    }
+    if (addressStr == nil || [addressStr length] == 0)
+    {
+        [Tool showCustomHUD:@"请输入地址" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
+        return;
+    }
     UserModel *user = [UserModel Instance];
     
     OrderInfo *orderInfo = [[OrderInfo alloc] init];
     orderInfo.userid = [NSNumber numberWithInt:[[user getUserValueForKey:@"id"] intValue]];
-    orderInfo.mobile = [user getUserValueForKey:@"tel"];
-    orderInfo.address = [user getUserValueForKey:@"address"];
-    orderInfo.receiver = [user getUserValueForKey:@"name"];
+    orderInfo.mobile = phoneStr;
+    orderInfo.address = addressStr;
+    orderInfo.receiver = nameStr;
     //    orderInfo.amount = [NSNumber numberWithFloat:total];
     
     if(_goods == nil)

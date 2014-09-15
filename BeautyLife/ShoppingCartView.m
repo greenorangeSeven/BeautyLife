@@ -98,7 +98,8 @@
         [database executeUpdate:createshoppingcart];
     }
     FMResultSet* resultSet=[database executeQuery:@"select * from shoppingcart where user_id = ? order by business_id", [[UserModel Instance] getUserValueForKey:@"id"]];
-    while ([resultSet next]) {
+    while ([resultSet next])
+    {
         Goods *good = [[Goods alloc] init];
         good.id = [resultSet stringForColumn:@"goodid"];
         good.title = [resultSet stringForColumn:@"title"];
@@ -110,7 +111,8 @@
         total += [good.price doubleValue] * [good.number intValue];
         [goodData addObject:good];
     }
-    if ([goodData count] > 0) {
+    if ([goodData count] > 0)
+    {
         self.totalLb.text = [NSString stringWithFormat:@"%.2f", total];
     }
     else
