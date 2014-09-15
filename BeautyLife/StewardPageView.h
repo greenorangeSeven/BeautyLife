@@ -19,7 +19,7 @@
     NSMutableArray *advDatas;
     SGFocusImageFrame *bannerView;
     int advIndex;
-    
+    UIWebView *phoneCallWebView;
 //    MBProgressHUD *hud;
 }
 
@@ -32,5 +32,6 @@
 - (IBAction)repairsAction:(id)sender;
 - (IBAction)noticeAction:(id)sender;
 - (IBAction)expressAction:(id)sender;
+- (IBAction)telAction:(id)sender;
 
 @end

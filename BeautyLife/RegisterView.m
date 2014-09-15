@@ -60,6 +60,24 @@
 }
 
 - (IBAction)sendSecurityCodeAction:(id)sender {
+    NSString *urlStr = [@"http://sms.3g6.com.cn/ws/Send.aspx?CorpID=LPZSDK01545&Pwd=924889&Mobile=18073118891&Content=测试仪11111" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSStringEncoding encoding =CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSData* gb2312data = [urlStr dataUsingEncoding:encoding];
+    NSString *GBKsTR = [[NSString alloc] initWithData:gb2312data encoding:encoding];
+    NSURL *url = [ NSURL URLWithString : GBKsTR];
+    
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSString *retStr = [[NSString alloc] initWithData:data encoding:enc];
+    
+    // 构造 ASIHTTPRequest 对象
+    ASIHTTPRequest *request = [ ASIHTTPRequest requestWithURL :url];
+    // 开始同步请求
+    [request startSynchronous ];
+    NSError *error = [request error ];
+    assert (!error);
+    NSLog([request responseString]);
 }
 
 - (IBAction)registerAction:(id)sender {

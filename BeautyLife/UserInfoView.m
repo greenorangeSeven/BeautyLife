@@ -71,11 +71,11 @@
     self.emailTf.text = emailStr;
     self.idCodeTf.text = idcodeStr;
     //用户是否已认证，已认证后真实信息不能修改
-    if ([[usermodel getUserValueForKey:@"checkin"] isEqualToString:@"1"]) {
-        self.nameTf.enabled = NO;
-        self.selectHomeAddressBtn.enabled = NO;
-        self.idCodeTf.enabled = NO;
-    }
+//    if ([[usermodel getUserValueForKey:@"checkin"] isEqualToString:@"1"]) {
+//        self.nameTf.enabled = NO;
+//        self.selectHomeAddressBtn.enabled = NO;
+//        self.idCodeTf.enabled = NO;
+//    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

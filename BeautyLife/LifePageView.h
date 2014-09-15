@@ -15,7 +15,7 @@
     NSMutableArray *advDatas;
     SGFocusImageFrame *bannerView;
     int advIndex;
-    
+    UIWebView *phoneCallWebView;
 //    MBProgressHUD *hud;
 }
 
@@ -28,5 +28,5 @@
 - (IBAction)clickRecharge:(UIButton *)sender;
 - (IBAction)clickSubtle:(UIButton *)sender;
 - (IBAction)clickBusiness:(UIButton *)sender;
-
+- (IBAction)telAction:(id)sender;
 @end

@@ -112,6 +112,12 @@
     advIndex = index;
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    bannerView.delegate = nil;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -161,5 +167,13 @@
     businessView.hidesBottomBarWhenPushed = YES;
     
     [self.navigationController pushViewController:businessView animated:YES];
+}
+
+- (IBAction)telAction:(id)sender{
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", servicephone]];
+    if (!phoneCallWebView) {
+        phoneCallWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    }
+    [phoneCallWebView loadRequest:[NSURLRequest requestWithURL:phoneUrl]];
 }
 @end

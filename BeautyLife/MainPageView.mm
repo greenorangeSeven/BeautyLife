@@ -125,6 +125,12 @@
     [self.pointsBtn setTitle:[NSString stringWithFormat:@"点赞( %@ )", adv.points] forState:UIControlStateNormal];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    bannerView.delegate = nil;
+}
+
 - (void)getInBoxRemind
 {
     if ([[UserModel Instance] isLogin]) {

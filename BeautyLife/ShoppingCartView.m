@@ -116,6 +116,7 @@
     else
     {
         self.totalLb.text = @"0.00";
+        _buyButton.enabled = NO;
         noDataLabel.hidden = NO;
     }
     [self.goodTableView reloadData];
