@@ -40,7 +40,15 @@
 //                                           otherButtonTitles:nil];
 //        [av show];
 //    }
-    
+    if ([[usermodel getUserValueForKey:@"house_number"] isEqualToString:@""]) {
+        self.submitBtn.enabled = NO;
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"温馨提醒"
+                                                     message:@"您的个人信息不完善，暂未能在线报修，请完善个人信息！"
+                                                    delegate:self
+                                           cancelButtonTitle:nil
+                                           otherButtonTitles:@"确定", nil];
+        [av show];
+    }
     [Tool roundView:self.bgView andCornerRadius:3.0];
     [Tool roundTextView:self.descTv andBorderWidth:1 andCornerRadius:4.0];
     if (!IS_IPHONE_5) {
@@ -56,16 +64,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if ([[usermodel getUserValueForKey:@"house_number"] isEqualToString:@""]) {
-        self.submitBtn.enabled = NO;
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"温馨提醒"
-                                                     message:@"您的个人信息不完善，暂未能在线缴费，请完善个人信息！"
-                                                    delegate:self
-                                           cancelButtonTitle:nil
-                                           otherButtonTitles:@"确定", nil];
-        [av show];
-    }
-    else
+    
+    if ([[usermodel getUserValueForKey:@"house_number"] isEqualToString:@""] == NO)
     {
         self.submitBtn.enabled = YES;
     }

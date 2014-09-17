@@ -39,6 +39,8 @@
 #define api_base_url @"http://114.215.145.29:8900/api"
 #define api_register @"/register"
 #define api_login @"/login"
+#define api_changepwd @"/changePwd"
+#define api_resetpwd @"/resetPwd"
 #define api_getuserinfo @"/get_member_info"
 #define api_getregion @"/get_region"
 #define api_community @"/community"
@@ -113,6 +115,11 @@
 
 #define AreaListKey @"AreList"
 #define SecurityCode @"SecurityCode"
+#define ReSetSecurityCode @"ReSetSecurityCode"
+
+#define SMSURL @"http://sms.3g6.com.cn/ws/Send.aspx"
+#define SMSCorpID @"LPZSDK01545"
+#define SMSPWD @"924889"
 
 
 #define servicephone @"0731-85824888"

@@ -1,25 +1,18 @@
 //
-//  RegisterView.m
+//  ReSetPwdView.m
 //  BeautyLife
 //
-//  Created by Seven on 14-7-30.
+//  Created by Seven on 14-9-16.
 //  Copyright (c) 2014年 Seven. All rights reserved.
 //
 
-#import "RegisterView.h"
+#import "ReSetPwdView.h"
 
-@interface RegisterView ()
+@interface ReSetPwdView ()
 
 @end
 
-@implementation RegisterView
-@synthesize scrollView;
-@synthesize mobileTf;
-@synthesize pwdTf;
-@synthesize pwdAgainTf;
-@synthesize securityCodeTf;
-@synthesize securityCodeBtn;
-@synthesize registerBtn;
+@implementation ReSetPwdView
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +20,7 @@
     if (self) {
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
         titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        titleLabel.text = @"注册";
+        titleLabel.text = @"重置密码";
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = [UIColor whiteColor];
         titleLabel.textAlignment = UITextAlignmentCenter;
@@ -50,13 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width, self.view.frame.size.height);
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.securityCodeTf.delegate = self;
 }
 
 -(int)getRandomNumber:(int)start to:(int)end
@@ -64,17 +51,39 @@
     return (int)(start + (arc4random() % (end - start + 1)));
 }
 
-- (IBAction)sendSecurityCodeAction:(id)sender {
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSString *mobileStr = self.mobileTf.text;
+    NSString *SMSStr = (NSString *)[[EGOCache currentCache] objectForKey:ReSetSecurityCode];
+    NSString *randomStr = textField.text;
+    if ([[NSString stringWithFormat:@"%@%@", randomStr, mobileStr] isEqualToString:SMSStr] == NO) {
+        [Tool showCustomHUD:@"验证码错误" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:2];
+    }
+    else
+    {
+        [Tool showCustomHUD:@"验证码成功" andView:self.view  andImage:@"37x-Checkmark.png" andAfterDelay:2];
+        [[EGOCache currentCache] removeCacheForKey:ReSetSecurityCode];
+        self.pwdTf.enabled = YES;
+        self.pwdAgainTf.enabled = YES;
+        self.resetBtn.enabled = YES;
+        self.mobileTf.enabled = NO;
+        self.securityCodeTf.enabled = NO;
+    }
+}
+
+- (IBAction)sendSecurityCodeAction:(id)sender
+{
     NSString *mobileStr = self.mobileTf.text;
     if (![mobileStr isValidPhoneNum]) {
         [Tool showCustomHUD:@"手机号错误" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
         return;
     }
+    [self.mobileTf resignFirstResponder];
     NSString *random =  [NSString stringWithFormat:@"%d" ,[self getRandomNumber:100000 to:999999]];
     NSString *securityCode = [NSString stringWithFormat:@"%@%@" ,random, mobileStr];
-    [[EGOCache currentCache] setObject:securityCode forKey:SecurityCode withTimeoutInterval:60 * 10];
+    [[EGOCache currentCache] setObject:securityCode forKey:ReSetSecurityCode withTimeoutInterval:60 * 10];
     NSString *regUrl = SMSURL;
-    NSString *content = [NSString stringWithFormat:@"注册验证码为%@, 请注意保密，此验证码10分钟内有效，请在注册页面中输入以完成注册", random];
+    NSString *content = [NSString stringWithFormat:@"重置密码验证码为%@, 请注意保密，此验证码10分钟内有效，请在重置密码页面中输入以完成密码找回", random];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:regUrl]];
     [request setUseCookiePersistence:NO];
     [request setPostValue:SMSCorpID forKey:@"CorpID"];
@@ -85,9 +94,16 @@
     [request setDidFailSelector:@selector(requestFailed:)];
     [request setDidFinishSelector:@selector(requestSend:)];
     [request startAsynchronous];
-    [securityCodeBtn setEnabled:NO];
+    [self.securityCodeBtn setEnabled:NO];
     request.hud = [[MBProgressHUD alloc] initWithView:self.view];
     [Tool showHUD:@"发送中..." andView:self.view andHUD:request.hud];
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    if (request.hud) {
+        [request.hud hide:NO];
+    }
 }
 
 - (void)requestSend:(ASIHTTPRequest *)request
@@ -103,22 +119,16 @@
     else
     {
         [Tool showCustomHUD:@"验证码发送失败，请重试" andView:self.view  andImage:@"" andAfterDelay:1];
-        [securityCodeBtn setEnabled:YES];
+        [self.securityCodeBtn setEnabled:YES];
     }
 }
 
-- (IBAction)registerAction:(id)sender {
-    NSString *mobileStr = self.mobileTf.text;
-    NSString *SMSStr = (NSString *)[[EGOCache currentCache] objectForKey:SecurityCode];
-    NSString *randomStr = self.securityCodeTf.text;
+- (IBAction)resetAction:(id)sender
+{
     NSString *pwdStr = self.pwdTf.text;
     NSString *pwdAgainStr = self.pwdAgainTf.text;
-    if (![mobileStr isValidPhoneNum]) {
-        [Tool showCustomHUD:@"手机号错误" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
-        return;
-    }
     if (pwdStr == nil || [pwdStr length] == 0) {
-        [Tool showCustomHUD:@"请输入密码" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
+        [Tool showCustomHUD:@"请输入新密码" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
         return;
     }
     if (![pwdStr isEqualToString:pwdAgainStr]) {
@@ -126,33 +136,25 @@
         self.pwdAgainTf.text = @"";
         return;
     }
-    if ([[NSString stringWithFormat:@"%@%@", randomStr, mobileStr] isEqualToString:SMSStr] == NO) {
-        [Tool showCustomHUD:@"验证码错误" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
-        return;
-    }
-    self.registerBtn.enabled = NO;
-    NSString *regUrl = [NSString stringWithFormat:@"%@%@", api_base_url, api_register];
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:regUrl]];
+    [self.pwdTf resignFirstResponder];
+    [self.pwdAgainTf resignFirstResponder];
+    self.resetBtn.enabled = NO;
+    NSString *changeUrl = [NSString stringWithFormat:@"%@%@", api_base_url, api_resetpwd];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:changeUrl]];
     [request setUseCookiePersistence:NO];
     [request setPostValue:appkey forKey:@"APPKey"];
-    [request setPostValue:mobileStr forKey:@"tel"];
-    [request setPostValue:pwdStr forKey:@"pwd"];
+    [request setPostValue:[[UserModel Instance] getUserValueForKey:@"tel"] forKey:@"userid"];
+    [request setPostValue:pwdStr forKey:@"newpwd"];
     [request setDelegate:self];
     [request setDidFailSelector:@selector(requestFailed:)];
-    [request setDidFinishSelector:@selector(requestRegister:)];
+    [request setDidFinishSelector:@selector(requestChange:)];
     [request startAsynchronous];
     
     request.hud = [[MBProgressHUD alloc] initWithView:self.view];
-    [Tool showHUD:@"正在注册" andView:self.view andHUD:request.hud];
+    [Tool showHUD:@"正在提交" andView:self.view andHUD:request.hud];
 }
 
-- (void)requestFailed:(ASIHTTPRequest *)request
-{
-    if (request.hud) {
-        [request.hud hide:NO];
-    }
-}
-- (void)requestRegister:(ASIHTTPRequest *)request
+- (void)requestChange:(ASIHTTPRequest *)request
 {
     if (request.hud) {
         [request.hud hide:YES];
@@ -177,25 +179,25 @@
     switch (errorCode) {
         case 1:
         {
-            [[EGOCache currentCache] removeCacheForKey:SecurityCode];
-            [[UserModel Instance] saveAccount:self.mobileTf.text andPwd:self.pwdTf.text];
-            [[UserModel Instance] saveValue:self.mobileTf.text ForKey:@"tel"];
-            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"注册提醒"
-                                                         message:@"注册成功，请登录并完善您的资料，以便缴费和享受更多服务。"
-                                                        delegate:nil
-                                               cancelButtonTitle:@"确定"
-                                               otherButtonTitles:nil];
-            [av show];
-            [self.navigationController popViewControllerAnimated:YES];
+            self.pwdTf.text = @"";
+            self.pwdAgainTf.text = @"";
+            [Tool showCustomHUD:errorMessage andView:self.view  andImage:@"37x-Checkmark.png" andAfterDelay:3];
         }
             break;
         case 0:
         {
             [Tool showCustomHUD:errorMessage andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:3];
-            self.registerBtn.enabled = YES;
+            self.resetBtn.enabled = YES;
         }
             break;
     }
+    
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end

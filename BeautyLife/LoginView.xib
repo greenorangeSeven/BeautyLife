@@ -61,6 +61,18 @@
                                 <action selector="loginAction:" destination="-1" eventType="touchUpInside" id="VC2-xv-Q0S"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rlm-Yh-Qsz">
+                            <rect key="frame" x="187" y="335" width="75" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="忘记密码">
+                                <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="resetPwdActon:" destination="-1" eventType="touchUpInside" id="aTg-uv-zR5"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </scrollView>
             </subviews>

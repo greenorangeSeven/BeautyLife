@@ -82,6 +82,11 @@
     [Tool showHUD:@"登录中..." andView:self.view andHUD:request.hud];
 }
 
+- (IBAction)resetPwdActon:(id)sender {
+    ReSetPwdView *resetView = [[ReSetPwdView alloc] init];
+    [self.navigationController pushViewController:resetView animated:YES];
+}
+
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     if (request.hud) {

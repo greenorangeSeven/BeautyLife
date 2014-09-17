@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NSString+STRegex.h"
+#import "ReSetPwdView.h"
 
 @interface LoginView : UIViewController
 
@@ -16,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *pwdTf;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 - (IBAction)loginAction:(id)sender;
+- (IBAction)resetPwdActon:(id)sender;
 
 @end

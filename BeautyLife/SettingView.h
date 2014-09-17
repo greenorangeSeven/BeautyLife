@@ -15,6 +15,7 @@
 #import "LoginView.h"
 #import "ShoppingCartView.h"
 #import "MySendExpressView.h"
+#import "ChangPWDView.h"
 
 @interface SettingView : UIViewController<UITableViewDataSource, UITableViewDelegate,UIAlertViewDelegate>
 {

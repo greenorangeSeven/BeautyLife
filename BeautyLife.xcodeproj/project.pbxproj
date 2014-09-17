@@ -183,6 +183,10 @@
 		14387F3819AE3E3900024966 /* OrderBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 14387F3719AE3E3900024966 /* OrderBusiness.m */; };
 		14387F3B19AE3E5600024966 /* OrderGood.m in Sources */ = {isa = PBXBuildFile; fileRef = 14387F3A19AE3E5600024966 /* OrderGood.m */; };
 		14387F3E19AE4C7E00024966 /* PrintObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 14387F3D19AE4C7E00024966 /* PrintObject.m */; };
+		143ED83219C810A8005FE0CC /* ChangPWDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 143ED83019C810A8005FE0CC /* ChangPWDView.m */; };
+		143ED83319C810A8005FE0CC /* ChangPWDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 143ED83119C810A8005FE0CC /* ChangPWDView.xib */; };
+		143ED83719C829E5005FE0CC /* ReSetPwdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 143ED83519C829E5005FE0CC /* ReSetPwdView.m */; };
+		143ED83819C829E5005FE0CC /* ReSetPwdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 143ED83619C829E5005FE0CC /* ReSetPwdView.xib */; };
 		1445B8C91986269500C4417C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1445B8C81986269500C4417C /* Foundation.framework */; };
 		1445B8CB1986269500C4417C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1445B8CA1986269500C4417C /* CoreGraphics.framework */; };
 		1445B8CD1986269500C4417C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1445B8CC1986269500C4417C /* UIKit.framework */; };
@@ -708,6 +712,12 @@
 		14387F3A19AE3E5600024966 /* OrderGood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderGood.m; sourceTree = "<group>"; };
 		14387F3C19AE4C7E00024966 /* PrintObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintObject.h; sourceTree = "<group>"; };
 		14387F3D19AE4C7E00024966 /* PrintObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintObject.m; sourceTree = "<group>"; };
+		143ED82F19C810A8005FE0CC /* ChangPWDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangPWDView.h; sourceTree = "<group>"; };
+		143ED83019C810A8005FE0CC /* ChangPWDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangPWDView.m; sourceTree = "<group>"; };
+		143ED83119C810A8005FE0CC /* ChangPWDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangPWDView.xib; sourceTree = "<group>"; };
+		143ED83419C829E5005FE0CC /* ReSetPwdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReSetPwdView.h; sourceTree = "<group>"; };
+		143ED83519C829E5005FE0CC /* ReSetPwdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReSetPwdView.m; sourceTree = "<group>"; };
+		143ED83619C829E5005FE0CC /* ReSetPwdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReSetPwdView.xib; sourceTree = "<group>"; };
 		1445B8C51986269500C4417C /* BeautyLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeautyLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1445B8C81986269500C4417C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1445B8CA1986269500C4417C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1229,7 +1239,6 @@
 				1445BAA319862EE100C4417C /* ShareSDKShareActionSheet.framework in Frameworks */,
 				1445BA4919862CC700C4417C /* SystemConfiguration.framework in Frameworks */,
 				1445BA9C19862EE100C4417C /* libSinaWeiboSDK.a in Frameworks */,
-				1445BA181986294A00C4417C /* KeyboardManager.framework in Frameworks */,
 				1445BA9219862EE100C4417C /* QZoneConnection.framework in Frameworks */,
 				1445BA4719862CB600C4417C /* QuartzCore.framework in Frameworks */,
 				1445BA9919862EE100C4417C /* ShareSDKCoreService.framework in Frameworks */,
@@ -1269,8 +1278,9 @@
 				1445BA2119862BE300C4417C /* libsqlite3.dylib in Frameworks */,
 				1445B8CB1986269500C4417C /* CoreGraphics.framework in Frameworks */,
 				1445B8CD1986269500C4417C /* UIKit.framework in Frameworks */,
-				1445BA181986294A00C4417C /* KeyboardManager.framework in Frameworks */,
 				1445B8C91986269500C4417C /* Foundation.framework in Frameworks */,
+				1445BA181986294A00C4417C /* KeyboardManager.framework in Frameworks */,
+				1445BA181986294A00C4417C /* KeyboardManager.framework in Frameworks */,
 				1445BA9619862EE100C4417C /* AGCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1367,9 +1377,15 @@
 				143069551999BF2500A1F1B1 /* LoginView.h */,
 				143069561999BF2500A1F1B1 /* LoginView.m */,
 				143069571999BF2500A1F1B1 /* LoginView.xib */,
+				143ED83419C829E5005FE0CC /* ReSetPwdView.h */,
+				143ED83519C829E5005FE0CC /* ReSetPwdView.m */,
+				143ED83619C829E5005FE0CC /* ReSetPwdView.xib */,
 				142277C81989D5EC007242A2 /* UserInfoView.h */,
 				142277C91989D5EC007242A2 /* UserInfoView.m */,
 				142277CA1989D5EC007242A2 /* UserInfoView.xib */,
+				143ED82F19C810A8005FE0CC /* ChangPWDView.h */,
+				143ED83019C810A8005FE0CC /* ChangPWDView.m */,
+				143ED83119C810A8005FE0CC /* ChangPWDView.xib */,
 				142277D71989DED9007242A2 /* ChooseAreaView.h */,
 				142277D81989DED9007242A2 /* ChooseAreaView.m */,
 				142277D91989DED9007242A2 /* ChooseAreaView.xib */,
@@ -2629,6 +2645,7 @@
 				04CAC3B7198C78CB0031E956 /* conv_ homemaking@2x.png in Resources */,
 				1448EDB919A43AFF00361C51 /* Alixpay.bundle in Resources */,
 				144B14AA19B2CB7D00494428 /* tab_shopcar@2x.png in Resources */,
+				143ED83319C810A8005FE0CC /* ChangPWDView.xib in Resources */,
 				04C9CD851991CCFA000DCDEF /* ConvCell.xib in Resources */,
 				1419F42D19889CFB00D3E5E3 /* setting_push@2x.png in Resources */,
 				14A32A0A198C85A900497E5C /* prepayBtnBg.png in Resources */,
@@ -2736,6 +2753,7 @@
 				142AE65C19AB7B6300079A9A /* ShoppingCartView.xib in Resources */,
 				04CED72D1990AB9900E35D7C /* BusinessView.xib in Resources */,
 				1445BA9719862EE100C4417C /* ShareSDKLocalizable.strings in Resources */,
+				143ED83819C829E5005FE0CC /* ReSetPwdView.xib in Resources */,
 				142277D01989D995007242A2 /* textfieldbg.png in Resources */,
 				1436058919AC24EA00AAB9FA /* loadingpic4@2x.png in Resources */,
 				142277DD1989E169007242A2 /* areaimage.png in Resources */,
@@ -2883,6 +2901,7 @@
 				1445B9A6198627A400C4417C /* ASIFormDataRequest.m in Sources */,
 				14B56CFD1991188E00F7C601 /* NoticeTableCell.m in Sources */,
 				04CED74B1990B7F700E35D7C /* SubtleCell.m in Sources */,
+				143ED83219C810A8005FE0CC /* ChangPWDView.m in Sources */,
 				142277E7198A1CC5007242A2 /* StewardFeeFrameView.m in Sources */,
 				1445B9741986278A00C4417C /* SDWebImageManager.m in Sources */,
 				14387F3B19AE3E5600024966 /* OrderGood.m in Sources */,
@@ -2911,6 +2930,7 @@
 				1448EDBB19A43AFF00361C51 /* AlixPayResult.m in Sources */,
 				0440160F19B3128C00546126 /* MyGoodsCell.m in Sources */,
 				1445BA0C1986290500C4417C /* AFPropertyListRequestOperation.m in Sources */,
+				143ED83719C829E5005FE0CC /* ReSetPwdView.m in Sources */,
 				1445B97D1986278A00C4417C /* MWGridViewController.m in Sources */,
 				1445B9771986278A00C4417C /* UIImage+GIF.m in Sources */,
 				14B56D0219912D0000F7C601 /* NewsTableView.m in Sources */,
@@ -3261,6 +3281,12 @@
 					Framework,
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
 					Framework,
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeautyLife/BeautyLife-Prefix.pch";
@@ -3307,6 +3333,12 @@
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK",
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK/UI",
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
+					Framework,
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
 					Framework,
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
