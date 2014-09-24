@@ -12,6 +12,7 @@
 #import "FMDatabase.h"
 #import "FMDatabaseAdditions.h"
 #import "FMDatabaseQueue.h"
+#import "ShoppingCartView.h"
 
 @interface GoodsDetailView : UIViewController<UIWebViewDelegate>
 {
