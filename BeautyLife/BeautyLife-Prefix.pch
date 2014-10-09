@@ -36,7 +36,7 @@
 #import "AFXMLRequestOperation.h"
 
 #define appkey @"UfeTdaI9m2esqgHQZfKT1xTsUqdwTs2z"
-#define api_base_url @"http://114.215.145.29:8900/api"
+#define api_base_url @"http://121.40.183.222:8900/api"
 #define api_register @"/register"
 #define api_login @"/login"
 #define api_changepwd @"/changePwd"
