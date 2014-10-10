@@ -11,6 +11,7 @@
 #import "MyGoods.h"
 #import "EGOImageView.h"
 #import "ResponseCode.h"
+#import "MobClick.h"
 
 //确认收货
 #define TAKE_ORDER 200
@@ -64,6 +65,17 @@
     hud = [[MBProgressHUD alloc] initWithView:self.view];
     //加载订单记录
     [self loadOrder];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"MyOrderView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"MyOrderView"];
 }
 
 //弹出框事件

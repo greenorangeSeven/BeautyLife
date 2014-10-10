@@ -7,6 +7,7 @@
 //
 
 #import "KuaiDi100View.h"
+#import "MobClick.h"
 
 @interface KuaiDi100View ()
 
@@ -56,6 +57,14 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
+    [MobClick beginLogPageView:@"KuaiDi100View"];
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"KuaiDi100View"];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ConvView.h"
+#import "MobClick.h"
 
 @interface ConvView () <UITableViewDataSource,UITableViewDelegate>
 
@@ -190,6 +191,7 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    [MobClick beginLogPageView:@"ConvView"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -253,6 +255,7 @@
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     _locService.delegate = nil;
+    [MobClick endLogPageView:@"PageOne"];
 }
 
 -(void)startLocation

@@ -18,6 +18,7 @@
 #import "PrintObject.h"
 #import "PayOrder.h"
 #import "AlipayUtils.h"
+#import "MobClick.h"
 
 @interface ShoppingBuyView () <UIAlertViewDelegate>
 
@@ -61,6 +62,17 @@
     self.phoneField.text =[user getUserValueForKey:@"tel"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyOK) name:@"buyOK" object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"ShoppingBuyView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"ShoppingBuyView"];
 }
 
 - (void)buyOK

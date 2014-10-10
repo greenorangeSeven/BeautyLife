@@ -7,6 +7,7 @@
 //
 
 #import "ADVDetailView.h"
+#import "MobClick.h"
 
 @interface ADVDetailView ()
 
@@ -97,6 +98,12 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    [MobClick beginLogPageView:@"ADVDetailView"];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"ADVDetailView"];
+}
 @end

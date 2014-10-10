@@ -7,6 +7,7 @@
 //
 
 #import "RepairsFrameView.h"
+#import "MobClick.h"
 
 @interface RepairsFrameView ()
 
@@ -80,6 +81,13 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    [MobClick beginLogPageView:@"RepairsFrameView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"RepairsFrameView"];
 }
 
 @end

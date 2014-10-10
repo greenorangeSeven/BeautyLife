@@ -11,6 +11,7 @@
 #import "RechargeView.h"
 #import "SubtleView.h"
 #import "BusinessView.h"
+#import "MobClick.h"
 
 @interface LifePageView ()
 
@@ -116,6 +117,7 @@
 {
     [super viewWillDisappear:animated];
     bannerView.delegate = nil;
+    [MobClick endLogPageView:@"LifePageView"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -130,6 +132,7 @@
     self.navigationController.navigationBar.hidden = YES;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     bannerView.delegate = self;
+    [MobClick beginLogPageView:@"LifePageView"];
 }
 
 - (IBAction)clickService:(UIButton *)sender

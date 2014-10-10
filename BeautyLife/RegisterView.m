@@ -7,6 +7,7 @@
 //
 
 #import "RegisterView.h"
+#import "MobClick.h"
 
 @interface RegisterView ()
 
@@ -51,6 +52,17 @@
 {
     [super viewDidLoad];
     self.scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width, self.view.frame.size.height);
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"RegisterView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"RegisterView"];
 }
 
 - (void)didReceiveMemoryWarning

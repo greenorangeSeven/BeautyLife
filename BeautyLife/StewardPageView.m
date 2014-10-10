@@ -7,6 +7,7 @@
 //
 
 #import "StewardPageView.h"
+#import "MobClick.h"
 
 @interface StewardPageView ()
 
@@ -112,6 +113,7 @@
 {
     [super viewWillDisappear:animated];
     bannerView.delegate = nil;
+    [MobClick endLogPageView:@"StewardPage"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -126,6 +128,7 @@
     self.navigationController.navigationBar.hidden = YES;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     bannerView.delegate = self;
+    [MobClick beginLogPageView:@"StewardPage"];
 }
 
 - (IBAction)stewardFeeAction:(id)sender {

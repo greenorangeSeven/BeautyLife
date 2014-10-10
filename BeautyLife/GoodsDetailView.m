@@ -8,6 +8,7 @@
 
 #import "GoodsDetailView.h"
 #import "ShoppingBuyView.h"
+#import "MobClick.h"
 
 @interface GoodsDetailView ()
 
@@ -103,10 +104,16 @@
     [self.webView stopLoading];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"GoodsDetailView"];
+}
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [self.webView stopLoading];
+    [MobClick endLogPageView:@"GoodsDetailView"];
 }
 
 - (IBAction)toShoppingCartAction:(id)sender {

@@ -7,6 +7,7 @@
 //
 
 #import "NewsTableView.h"
+#import "MobClick.h"
 
 @interface NewsTableView ()
 
@@ -72,6 +73,17 @@
     [news removeAllObjects];
     news = nil;
     [super viewDidUnload];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"NewsTableView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"NewsTableView"];
 }
 
 //重新载入类型

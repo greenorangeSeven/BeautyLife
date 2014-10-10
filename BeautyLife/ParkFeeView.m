@@ -10,6 +10,7 @@
 #import "PayOrder.h"
 #import "AlipayUtils.h"
 #import "FeeHistoryView.h"
+#import "MobClick.h"
 
 @interface ParkFeeView ()
 {
@@ -46,6 +47,17 @@
     [self.faceIv addSubview:faceEGOImageView];
     [self getParkFee];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlertView) name:Notification_ShowPackAlertView object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"ParkFeeView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"ParkFeeView"];
 }
 
 - (void)getParkFee

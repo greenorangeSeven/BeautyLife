@@ -11,6 +11,7 @@
 #import "RechargeView.h"
 #import "SubtleView.h"
 #import "BusinessView.h"
+#import "MobClick.h"
 
 @interface MainPageView ()
 
@@ -128,6 +129,7 @@
 {
     [super viewWillDisappear:animated];
     bannerView.delegate = nil;
+    [MobClick endLogPageView:@"MainPage"];
 }
 
 - (void)getInBoxRemind
@@ -195,6 +197,7 @@
     self.navigationController.navigationBar.hidden = YES;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     bannerView.delegate = self;
+    [MobClick beginLogPageView:@"MainPage"];
 }
 
 - (IBAction)clickService:(UIButton *)sender

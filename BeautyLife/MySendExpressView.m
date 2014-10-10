@@ -7,6 +7,7 @@
 //
 
 #import "MySendExpressView.h"
+#import "MobClick.h"
 
 @interface MySendExpressView ()
 
@@ -160,6 +161,13 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    [MobClick beginLogPageView:@"MySendExpressView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"MySendExpressView"];
 }
 
 - (void)didReceiveMemoryWarning

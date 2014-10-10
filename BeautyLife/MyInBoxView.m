@@ -7,6 +7,7 @@
 //
 
 #import "MyInBoxView.h"
+#import "MobClick.h"
 
 @interface MyInBoxView ()
 
@@ -155,6 +156,14 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    [MobClick beginLogPageView:@"MyInBoxView"];
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"MyInBoxView"];
 }
 
 - (IBAction)addMyInBoxAciton:(id)sender {

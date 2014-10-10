@@ -7,6 +7,7 @@
 //
 
 #import "AddInboxView.h"
+#import "MobClick.h"
 
 @interface AddInboxView ()
 
@@ -56,6 +57,17 @@
     expComName = [expCom valueForKey:@"name"];
     expComCode = [expCom valueForKey:@"code"];
     [self.expComBtn setTitle:[expCom valueForKey:@"name"] forState:UIControlStateNormal];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"AddInboxView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"AddInboxView"];
 }
 
 - (void)didReceiveMemoryWarning

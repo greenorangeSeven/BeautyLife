@@ -10,6 +10,7 @@
 #import "PayOrder.h"
 #import "AlipayUtils.h"
 #import "ShoppingBuyView.h"
+#import "MobClick.h"
 
 @interface ShoppingCartView ()
 
@@ -82,6 +83,13 @@
     }
     noDataLabel.hidden = YES;
     [self reloadData];
+    [MobClick beginLogPageView:@"ShoppingCartView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"ShoppingCartView"];
 }
 
 //取数方法

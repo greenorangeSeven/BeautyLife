@@ -7,6 +7,7 @@
 //
 
 #import "ChooseAreaView.h"
+#import "MobClick.h"
 
 @interface ChooseAreaView ()
 
@@ -62,6 +63,12 @@
         self.regionLb.text = [NSString stringWithFormat:@"%@%@%@", provinceStr, cityStr, regionStr];
         self.communityLb.text = communityStr;
     }
+    [MobClick beginLogPageView:@"ChooseAreaView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"ChooseAreaView"];
 }
 
 - (void)didReceiveMemoryWarning

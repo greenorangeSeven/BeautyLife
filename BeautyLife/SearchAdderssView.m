@@ -7,6 +7,7 @@
 //
 
 #import "SearchAdderssView.h"
+#import "MobClick.h"
 
 @interface SearchAdderssView ()
 
@@ -49,6 +50,17 @@
         [self.searchBar setTintColor:[Tool getBackgroundColor]];
     }
     [self.searchBar becomeFirstResponder];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"SearchAddressView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"SearchAddressView"];
 }
 
 - (void)getCommunity

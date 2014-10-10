@@ -7,6 +7,7 @@
 //
 
 #import "LoginView.h"
+#import "MobClick.h"
 
 @interface LoginView ()
 
@@ -47,6 +48,17 @@
 {
     [super viewDidLoad];
     self.scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width, self.view.frame.size.height);
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"LoginView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"LoginView"];
 }
 
 - (void)didReceiveMemoryWarning

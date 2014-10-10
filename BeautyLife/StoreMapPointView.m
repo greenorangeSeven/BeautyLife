@@ -7,6 +7,7 @@
 //
 
 #import "StoreMapPointView.h"
+#import "MobClick.h"
 
 @interface StoreMapPointView ()
 
@@ -61,11 +62,13 @@
     [_mapView viewWillAppear];
     self.navigationController.navigationBar.hidden = NO;
     _mapView.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
+    [MobClick beginLogPageView:@"StoreMapPointView"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
     [_mapView viewWillDisappear];
     _mapView.delegate = nil; // 不用时，置nil
+    [MobClick endLogPageView:@"StoreMapPointView"];
 }
 
 

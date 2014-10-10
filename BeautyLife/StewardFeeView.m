@@ -15,6 +15,7 @@
 #import "PayOrder.h"
 #import "OrdersNum.h"
 #import "FeeHistoryView.h"
+#import "MobClick.h"
 
 @interface StewardFeeView ()
 
@@ -84,6 +85,13 @@
         self.payfeeBtn.enabled = YES;
         [self getPropertyFee];
     }
+    [MobClick beginLogPageView:@"StewardFeeView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"StewardFeeView"];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

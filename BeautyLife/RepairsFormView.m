@@ -7,6 +7,7 @@
 //
 
 #import "RepairsFormView.h"
+#import "MobClick.h"
 
 #define ORIGINAL_MAX_WIDTH 640.0f
 
@@ -69,6 +70,13 @@
     {
         self.submitBtn.enabled = YES;
     }
+    [MobClick beginLogPageView:@"PageOne"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"PageOne"];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
