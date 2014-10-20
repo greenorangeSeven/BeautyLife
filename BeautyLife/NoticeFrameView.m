@@ -7,6 +7,7 @@
 //
 
 #import "NoticeFrameView.h"
+#import "MobClick.h"
 
 @interface NoticeFrameView ()
 
@@ -79,6 +80,14 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    [MobClick beginLogPageView:@"NoticeFrameView"];
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"NoticeFrameView"];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ChangPWDView.h"
+#import "MobClick.h"
 
 @interface ChangPWDView ()
 
@@ -43,6 +44,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"ChangPWDView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"ChangPWDView"];
 }
 
 - (void)didReceiveMemoryWarning

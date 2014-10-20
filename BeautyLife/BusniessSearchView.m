@@ -7,6 +7,7 @@
 //
 
 #import "BusniessSearchView.h"
+#import "MobClick.h"
 
 @interface BusniessSearchView ()
 
@@ -63,6 +64,17 @@
     noDataLabel.textAlignment = UITextAlignmentCenter;
     noDataLabel.hidden = YES;
     [self.view addSubview:noDataLabel];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"BusniessSearchView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"BusniessSearchView"];
 }
 
 //数组排序

@@ -7,6 +7,7 @@
 //
 
 #import "ConvOrderView.h"
+#import "MobClick.h"
 
 @interface ConvOrderView ()
 
@@ -108,12 +109,14 @@
 {
     [super viewWillDisappear:animated];
     [self.webView stopLoading];
+    [MobClick endLogPageView:@"ConvOrderView"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    [MobClick beginLogPageView:@"ConvOrderView"];
 }
 
 - (IBAction)telAction:(id)sender {

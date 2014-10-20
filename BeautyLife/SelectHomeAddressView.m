@@ -7,6 +7,7 @@
 //
 
 #import "SelectHomeAddressView.h"
+#import "MobClick.h"
 
 @interface SelectHomeAddressView ()
 
@@ -54,6 +55,17 @@
     {
         areaData = areaList.areaList;
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"SelectHomeAddressView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"SelectHomeAddressView"];
 }
 
 - (void)initAreaData

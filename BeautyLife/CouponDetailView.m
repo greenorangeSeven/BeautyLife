@@ -7,6 +7,7 @@
 //
 
 #import "CouponDetailView.h"
+#import "MobClick.h"
 
 @interface CouponDetailView ()
 
@@ -114,12 +115,6 @@
     [self.webView stopLoading];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self.webView stopLoading];
-}
-
 - (IBAction)getAction:(id)sender {
     if ([UserModel Instance].isLogin == NO) {
         [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
@@ -199,6 +194,13 @@
 {
     [super viewWillAppear:animated];
     [self checkIsGot];
+    [MobClick beginLogPageView:@"CouponDetailView"];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.webView stopLoading];
+    [MobClick endLogPageView:@"CouponDetailView"];
+}
 @end

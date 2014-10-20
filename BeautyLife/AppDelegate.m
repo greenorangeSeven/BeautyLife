@@ -8,6 +8,7 @@
 #import "AppDelegate.h"
 #import "AlixPayResult.h"
 #import "DataVerifier.h"
+#import "MobClick.h"
 
 BMKMapManager* _mapManager;
 
@@ -29,6 +30,9 @@ BMKMapManager* _mapManager;
     //初始化ShareSDK
     [ShareSDK registerApp:@"2cc31fa9badc"];
     [self initializePlat];
+    
+    //初始化友盟统计
+    [self initUmeng];
     
     //获取并保存用户信息
     [self saveUserInfo];
@@ -322,4 +326,8 @@ BMKMapManager* _mapManager;
     [ShareSDK connectWeChatWithAppId:@"wxd8f6b7ac215ffe1d" wechatCls:[WXApi class]];
 }
 
+- (void)initUmeng
+{
+    [MobClick startWithAppkey:@"5437335ffd98c554ef017612" reportPolicy:BATCH   channelId:@""];
+}
 @end

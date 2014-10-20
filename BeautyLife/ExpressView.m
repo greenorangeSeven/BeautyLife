@@ -7,6 +7,7 @@
 //
 
 #import "ExpressView.h"
+#import "MobClick.h"
 
 @interface ExpressView ()
 
@@ -88,6 +89,13 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    [MobClick beginLogPageView:@"ExpressView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"ExpressView"];
 }
 
 - (IBAction)mySendExpressAction:(id)sender {

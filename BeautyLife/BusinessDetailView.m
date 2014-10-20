@@ -7,6 +7,7 @@
 //
 
 #import "BusinessDetailView.h"
+#import "MobClick.h"
 
 @interface BusinessDetailView () <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -85,6 +86,17 @@
     [self.collectionView registerClass:[BusinessGoodCell class] forCellWithReuseIdentifier:BusinessGoodCellIdentifier];
     self.collectionView.backgroundColor = [UIColor colorWithRed:0.74 green:0.78 blue:0.81 alpha:1];
     [self reload];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"BusinessDetailView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"BusinessDetailView"];
 }
 
 //取数方法

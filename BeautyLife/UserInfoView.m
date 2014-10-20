@@ -7,6 +7,7 @@
 //
 
 #import "UserInfoView.h"
+#import "MobClick.h"
 
 #define ORIGINAL_MAX_WIDTH 640.0f
 
@@ -94,6 +95,12 @@
         self.homeAddressLb.text = [NSString stringWithFormat:@"%@%@%@", communityStr, buildStr, houseStr];
     }
     self.homeAddressLb.textColor = [UIColor blackColor];
+    [MobClick beginLogPageView:@"UserInfoView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"UserInfoView"];
 }
 
 - (void)didReceiveMemoryWarning

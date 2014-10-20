@@ -84,6 +84,7 @@
 		04CED7461990B6EA00E35D7C /* jingxuan2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CED7421990B6EA00E35D7C /* jingxuan2.png */; };
 		04CED7481990B70F00E35D7C /* SubtleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CED7471990B70F00E35D7C /* SubtleCell.xib */; };
 		04CED74B1990B7F700E35D7C /* SubtleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CED74A1990B7F700E35D7C /* SubtleCell.m */; };
+		04DD3F0319E770170032E2C3 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DD3F0219E770170032E2C3 /* libMobClickLibrary.a */; };
 		1419F409198881E200D3E5E3 /* LifePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1419F407198881E200D3E5E3 /* LifePageView.m */; };
 		1419F40A198881E200D3E5E3 /* LifePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1419F408198881E200D3E5E3 /* LifePageView.xib */; };
 		1419F40C198882B800D3E5E3 /* lifetop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1419F40B198882B800D3E5E3 /* lifetop@2x.png */; };
@@ -581,6 +582,9 @@
 		04CED7471990B70F00E35D7C /* SubtleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubtleCell.xib; sourceTree = "<group>"; };
 		04CED7491990B7F700E35D7C /* SubtleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubtleCell.h; sourceTree = "<group>"; };
 		04CED74A1990B7F700E35D7C /* SubtleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubtleCell.m; sourceTree = "<group>"; };
+		04DD3F0019E76FB90032E2C3 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		04DD3F0119E76FB90032E2C3 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
+		04DD3F0219E770170032E2C3 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobClickLibrary.a; path = ../../Downloads/Analytics_iOS_SDK_3.1.8/UMAnalytics_Sdk_3.1.8/libMobClickLibrary.a; sourceTree = "<group>"; };
 		1419F406198881E200D3E5E3 /* LifePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifePageView.h; sourceTree = "<group>"; };
 		1419F407198881E200D3E5E3 /* LifePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifePageView.m; sourceTree = "<group>"; };
 		1419F408198881E200D3E5E3 /* LifePageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LifePageView.xib; sourceTree = "<group>"; };
@@ -1242,6 +1246,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DD3F0319E770170032E2C3 /* libMobClickLibrary.a in Frameworks */,
 				1445BAA319862EE100C4417C /* ShareSDKShareActionSheet.framework in Frameworks */,
 				1445BA4919862CC700C4417C /* SystemConfiguration.framework in Frameworks */,
 				1445BA9C19862EE100C4417C /* libSinaWeiboSDK.a in Frameworks */,
@@ -1283,6 +1288,7 @@
 				1445BA2319862BEF00C4417C /* Security.framework in Frameworks */,
 				1445BA2119862BE300C4417C /* libsqlite3.dylib in Frameworks */,
 				1445B8CB1986269500C4417C /* CoreGraphics.framework in Frameworks */,
+				1445BA181986294A00C4417C /* KeyboardManager.framework in Frameworks */,
 				1445B8CD1986269500C4417C /* UIKit.framework in Frameworks */,
 				1445BA181986294A00C4417C /* KeyboardManager.framework in Frameworks */,
 				1445B8C91986269500C4417C /* Foundation.framework in Frameworks */,
@@ -1304,6 +1310,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04DD3EFF19E76F660032E2C3 /* Umeng */ = {
+			isa = PBXGroup;
+			children = (
+				04DD3F0019E76FB90032E2C3 /* MobClick.h */,
+				04DD3F0119E76FB90032E2C3 /* MobClickSocialAnalytics.h */,
+			);
+			name = Umeng;
+			sourceTree = "<group>";
+		};
 		1419F405198881BA00D3E5E3 /* LifePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1475,6 +1490,7 @@
 		1445B8C71986269500C4417C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04DD3F0219E770170032E2C3 /* libMobClickLibrary.a */,
 				1445BA4819862CC700C4417C /* SystemConfiguration.framework */,
 				1445BA4619862CB600C4417C /* QuartzCore.framework */,
 				1445BA4419862CAE00C4417C /* libz.dylib */,
@@ -1535,6 +1551,7 @@
 				1445BA141986294A00C4417C /* IQKeyboardManager Framework */,
 				1445B9E9198628E400C4417C /* MBProgressHUD */,
 				1445B9E5198628C900C4417C /* KxMenu */,
+				04DD3EFF19E76F660032E2C3 /* Umeng */,
 				1445BA191986298900C4417C /* SGFocusImage */,
 				1445B9ED1986290500C4417C /* AFNetwork */,
 				1445BA101986291700C4417C /* StrikeThroughLabel */,
@@ -3320,6 +3337,7 @@
 					"$(PROJECT_DIR)/BeautyLife/BaiduPush",
 					"$(PROJECT_DIR)/BeautyLife/alipay",
 					"$(PROJECT_DIR)",
+					/Users/mac/Downloads/Analytics_iOS_SDK_3.1.8/UMAnalytics_Sdk_3.1.8,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3470,6 +3488,7 @@
 					"$(PROJECT_DIR)/BeautyLife/BaiduPush",
 					"$(PROJECT_DIR)/BeautyLife/alipay",
 					"$(PROJECT_DIR)",
+					/Users/mac/Downloads/Analytics_iOS_SDK_3.1.8/UMAnalytics_Sdk_3.1.8,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

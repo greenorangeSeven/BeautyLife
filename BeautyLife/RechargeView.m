@@ -7,6 +7,7 @@
 //
 
 #import "RechargeView.h"
+#import "MobClick.h"
 
 @interface RechargeView ()
 
@@ -51,6 +52,13 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    [MobClick beginLogPageView:@"RechargeView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"RechargeView"];
 }
 
 - (void)didReceiveMemoryWarning

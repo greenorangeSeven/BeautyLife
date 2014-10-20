@@ -7,6 +7,7 @@
 //
 
 #import "ReSetPwdView.h"
+#import "MobClick.h"
 
 @interface ReSetPwdView ()
 
@@ -44,6 +45,17 @@
 {
     [super viewDidLoad];
     self.securityCodeTf.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"ReSetPwdView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"ReSetPwdView"];
 }
 
 -(int)getRandomNumber:(int)start to:(int)end

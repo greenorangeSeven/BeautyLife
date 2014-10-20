@@ -7,6 +7,7 @@
 //
 
 #import "NewsDetailView.h"
+#import "MobClick.h"
 
 @interface NewsDetailView ()
 
@@ -116,6 +117,17 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"NewsDetailView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"NewsDetailView"];
 }
 
 - (void)didReceiveMemoryWarning

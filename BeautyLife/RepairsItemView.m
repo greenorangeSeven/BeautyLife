@@ -7,6 +7,7 @@
 //
 
 #import "RepairsItemView.h"
+#import "MobClick.h"
 
 @interface RepairsItemView ()
 
@@ -51,6 +52,17 @@
     self.repairItemTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     repairsItemData = [[NSMutableArray alloc] init];
     [self reload];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"RepairsItemView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"RepairsItemView"];
 }
 
 - (void)reload

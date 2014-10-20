@@ -8,6 +8,7 @@
 
 #import "SubtleView.h"
 #import "SubtleCell.h"
+#import "MobClick.h"
 
 @interface SubtleView () <UITableViewDataSource,UITableViewDelegate>
 
@@ -127,12 +128,18 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    [MobClick beginLogPageView:@"SubtleView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"SubtleView"];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)newProductAction:(id)sender {

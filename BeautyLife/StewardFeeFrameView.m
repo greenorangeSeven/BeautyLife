@@ -7,6 +7,7 @@
 //
 
 #import "StewardFeeFrameView.h"
+#import "MobClick.h"
 
 @interface StewardFeeFrameView ()
 
@@ -64,6 +65,13 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    [MobClick beginLogPageView:@"StewardFeeFrameView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"StewardFeeFrameView"];
 }
 
 - (void)viewDidUnload

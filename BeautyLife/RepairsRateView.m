@@ -7,6 +7,7 @@
 //
 
 #import "RepairsRateView.h"
+#import "MobClick.h"
 
 @interface RepairsRateView ()
 
@@ -150,6 +151,17 @@
     
     self.startLb.text = [Tool TimestampToDateStr:self.repair.accept_time andFormatterStr:@"YYYY年MM月dd日 HH:mm"];
     self.endLb.text = [Tool TimestampToDateStr:self.repair.weixiu_time andFormatterStr:@"YYYY年MM月dd日 HH:mm"];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"RepairsRateView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"RepairsRateView"];
 }
 
 - (void)didReceiveMemoryWarning

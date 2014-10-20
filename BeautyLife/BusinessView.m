@@ -7,6 +7,7 @@
 //
 
 #import "BusinessView.h"
+#import "MobClick.h"
 
 @interface BusinessView () 
 
@@ -190,6 +191,14 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    [MobClick beginLogPageView:@"BusinessView"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    _locService.delegate = nil;
+    [MobClick endLogPageView:@"BusinessView"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -254,10 +263,6 @@
     }
 }
 
--(void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    _locService.delegate = nil;
-}
 
 -(void)startLocation
 {

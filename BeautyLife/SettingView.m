@@ -9,6 +9,7 @@
 #import "SettingView.h"
 #import "FeeHistoryView.h"
 #import "MyOrderView.h"
+#import "MobClick.h"
 
 @implementation SettingView
 @synthesize tableSettings;
@@ -321,6 +322,11 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [MobClick beginLogPageView:@"SettingView"];
 }
-
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"SettingView"];
+}
 @end

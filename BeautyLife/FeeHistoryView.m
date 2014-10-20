@@ -8,6 +8,7 @@
 
 #import "FeeHistoryView.h"
 #import "FeeHistoryCell.h"
+#import "MobClick.h"
 
 @interface FeeHistoryView () <UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 {
@@ -66,6 +67,17 @@
 
     //加载缴费历史记录
     [self loadFeeHistory];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"FeeHistoryView"];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"FeeHistoryView"];
 }
 
 //弹出框事件
