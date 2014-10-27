@@ -78,28 +78,29 @@
 #define api_lifeinfo @"/get_life_info"
 #define api_points @"/points"
 #define api_baoming @"/baoming"
+#define api_mycoupons @"/my_coupons_list"
 
 //商品下单地址
 #define api_send_order @"/send_order"
 
 //商品付款返回url
-#define api_goods_return @"http://114.215.145.29:8900/api/order_returnurl"
+#define api_goods_return @"http://121.40.183.222:8900/api/order_returnurl"
 //商品付款通知url
-#define api_goods_notify @"http://114.215.145.29:8900/api/order_notifyurl"
+#define api_goods_notify @"http://121.40.183.222:8900/api/order_notifyurl"
 
 //物业缴费订单提交地址
 #define api_pay_property_fee @"/pay_property_fee"
 //物业缴费返回url
-#define api_property_return @"http://114.215.145.29:8900/api/property_returnurl"
+#define api_property_return @"http://121.40.183.222:8900/api/property_returnurl"
 //物业缴费通知url
-#define api_property_notify @"http://114.215.145.29:8900/api/property_notifyurl"
+#define api_property_notify @"http://121.40.183.222:8900/api/property_notifyurl"
 
 //停车缴费订单提交地址
 #define api_pay_park_fee @"/pay_park_fee"
 //停车缴费返回url
-#define api_park_return @"http://114.215.145.29:8900/api/park_returnurl"
+#define api_park_return @"http://121.40.183.222:8900/api/park_returnurl"
 //停车缴费通知url
-#define api_park_notify @"http://114.215.145.29:8900/api/park_notifyurl"
+#define api_park_notify @"http://121.40.183.222:8900/api/park_notifyurl"
 
 //物业缴费历史
 #define api_pay_property_fee_record @"/pay_property_fee_record"
@@ -121,8 +122,10 @@
 #define SMSCorpID @"LPZSDK01545"
 #define SMSPWD @"924889"
 
+#define api_sendsms @"/sendSms"
 
-#define servicephone @"0731-85824888"
+
+#define servicephone @"4006967020"
 
 #define SettingTableIdentifier @"SettingTableIdentifier"
 #define MyRepairsCellIdentifier @"MyRepairsCellIdentifier"
@@ -136,6 +139,7 @@
 #define ShoppingCartCellIdentifier @"ShoppingCartCellIdentifier"
 #define ConvCellIdentifier @"ConvCellIdentifier"
 #define FeeHistoryIdentifier @"FeeHistoryIdentifier"
+#define MyCouponCellIdentifier @"MyCouponCellIdentifier"
 
 #define createshoppingcart @"create table shoppingcart (id integer primary key autoincrement not null,goodid text,title text,thumb text,price text,store_name text,business_id text,number int,user_id text)"
 
@@ -143,6 +147,8 @@
 #define Notification_RefreshMyRepairs @"Notification_RefreshMyRepairs"
 #define Notification_ShowPackAlertView @"Notification_ShowPackAlertView"
 #define Notification_RefreshSetting @"Notification_RefreshSetting"
+#define Notification_RefreshMyInbox @"Notification_RefreshMyInbox"
+
 
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 

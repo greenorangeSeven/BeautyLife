@@ -158,6 +158,8 @@
         {
             [Tool showCustomHUD:@"添加成功" andView:self.view  andImage:@"37x-Checkmark.png" andAfterDelay:3];
             self.expNumLb.text = @"";
+            //通知刷新设置
+            [[NSNotificationCenter defaultCenter] postNotificationName:Notification_RefreshMyInbox object:nil];
         }
             break;
         case 0:

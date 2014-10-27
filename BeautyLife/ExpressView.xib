@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -105,7 +105,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ilK-Wk-21N">
                                     <rect key="frame" x="156" y="281" width="136" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="onlineorderbtn.png">
+                                    <state key="normal" image="onlinejjbtn.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -173,7 +173,7 @@
     <resources>
         <image name="cuttingline.png" width="9" height="7"/>
         <image name="maillogo.png" width="20" height="19"/>
-        <image name="onlineorderbtn.png" width="136" height="50"/>
+        <image name="onlinejjbtn.png" width="204" height="76"/>
         <image name="prepayBtnBg.png" width="498" height="55"/>
         <image name="queryImg.png" width="22" height="22"/>
         <image name="telorderbtn.png" width="136" height="50"/>

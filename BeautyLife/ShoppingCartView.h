@@ -12,6 +12,9 @@
 #import "OrderInfo.h"
 #import "OrderBusiness.h"
 #import "OrderGood.h"
+#import "SGFocusImageFrame.h"
+#import "SGFocusImageItem.h"
+#import "GoodsDetailView.h"
 
 #import "FMDatabase.h"
 #import "FMDatabaseAdditions.h"
@@ -20,14 +23,19 @@
 #import "JSONKit.h"
 #import "PrintObject.h"
 
-@interface ShoppingCartView : UIViewController<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate>
+@interface ShoppingCartView : UIViewController<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,SGFocusImageFrameDelegate>
 {
     NSMutableArray *goodData;
     MBProgressHUD *hud;
     float total;
     UILabel *noDataLabel;
+    
+    NSMutableArray *goods;
+    SGFocusImageFrame *bannerView;
+    int goodIndex;
 }
 
+@property (weak, nonatomic) IBOutlet UIImageView *recommendIv;
 @property (weak, nonatomic) IBOutlet UITableView *goodTableView;
 @property (weak, nonatomic) IBOutlet UILabel *totalLb;
 - (IBAction)balanceAction:(id)sender;

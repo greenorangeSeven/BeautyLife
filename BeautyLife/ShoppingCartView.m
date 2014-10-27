@@ -62,12 +62,88 @@
     noDataLabel.hidden = YES;
     [self.view addSubview:noDataLabel];
     
+    [self initRecommend];
+    
     //适配iOS7uinavigationbar遮挡的问题
     if(IS_IOS7)
     {
         self.edgesForExtendedLayout = UIRectEdgeNone;
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+}
+
+- (void)initRecommend
+{
+    //如果有网络连接
+    if ([UserModel Instance].isNetworkRunning) {
+        [Tool showHUD:@"数据加载" andView:self.view andHUD:hud];
+        NSString *url = [NSString stringWithFormat:@"%@%@?APPKey=%@", api_base_url, api_getrecommendgoods, appkey];
+        [[AFOSCClient sharedClient]getPath:url parameters:Nil
+                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       @try {
+                                           goods = [Tool readJsonStrToGoodsArray:operation.responseString];
+                                           int length = [goods count];
+                                           NSMutableArray *itemArray = [NSMutableArray arrayWithCapacity:length+2];
+                                           if (length > 1)
+                                           {
+                                               Goods *good = [goods objectAtIndex:length-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:good.thumb tag:-1];
+                                               [itemArray addObject:item];
+                                           }
+                                           for (int i = 0; i < length; i++)
+                                           {
+                                               Goods *good = [goods objectAtIndex:i];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:good.thumb tag:-1];
+                                               [itemArray addObject:item];
+                                               
+                                           }
+                                           //添加第一张图 用于循环
+                                           if (length >1)
+                                           {
+                                               Goods *good = [goods objectAtIndex:0];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:good.thumb tag:-1];
+                                               [itemArray addObject:item];
+                                           }
+                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 188) delegate:self imageItems:itemArray isAuto:NO];
+                                           [bannerView scrollToIndex:0];
+                                           [self.recommendIv addSubview:bannerView];
+                                       }
+                                       @catch (NSException *exception) {
+                                           [NdUncaughtExceptionHandler TakeException:exception];
+                                       }
+                                       @finally {
+                                           if (hud != nil) {
+                                               [hud hide:YES];
+                                           }
+                                       }
+                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       if ([UserModel Instance].isNetworkRunning == NO) {
+                                           return;
+                                       }
+                                       if ([UserModel Instance].isNetworkRunning) {
+                                           [Tool ToastNotification:@"错误 网络无连接" andView:self.view andLoading:NO andIsBottom:NO];
+                                       }
+                                   }];
+    }
+}
+
+//顶部图片滑动点击委托协议实现事件
+- (void)foucusImageFrame:(SGFocusImageFrame *)imageFrame didSelectItem:(SGFocusImageItem *)item
+{
+    NSLog(@"%s \n click===>%@",__FUNCTION__,item.title);
+    Goods *good = (Goods *)[goods objectAtIndex:goodIndex];
+    if (good) {
+        GoodsDetailView *goodsDetail = [[GoodsDetailView alloc] init];
+        goodsDetail.good = good;
+        [self.navigationController pushViewController:goodsDetail animated:YES];
+    }
+}
+
+//顶部图片自动滑动委托协议实现事件
+- (void)foucusImageFrame:(SGFocusImageFrame *)imageFrame currentItem:(int)index;
+{
+    //    NSLog(@"%s \n scrollToIndex===>%d",__FUNCTION__,index);
+    goodIndex = index;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -84,12 +160,15 @@
     noDataLabel.hidden = YES;
     [self reloadData];
     [MobClick beginLogPageView:@"ShoppingCartView"];
+    bannerView.delegate = self;
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [MobClick endLogPageView:@"ShoppingCartView"];
+    bannerView.delegate = nil;
 }
 
 //取数方法

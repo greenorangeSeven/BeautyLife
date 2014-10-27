@@ -51,7 +51,8 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wb1434319718，wb801525635</string>
+				<string>wb1434319718</string>
+				<string>wb801548378</string>
 			</array>
 		</dict>
 	</array>

@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *selectCommunityBtn;
 @property (weak, nonatomic) IBOutlet UIButton *selectBuildBtn;
 @property (weak, nonatomic) IBOutlet UIButton *selectHouseBtn;
+@property (weak, nonatomic) IBOutlet UIButton *finishBtn;
 
 - (IBAction)selectCommunityAction:(id)sender;
 - (IBAction)selectBuildAction:(id)sender;

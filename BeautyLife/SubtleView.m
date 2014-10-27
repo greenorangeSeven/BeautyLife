@@ -10,7 +10,7 @@
 #import "SubtleCell.h"
 #import "MobClick.h"
 
-@interface SubtleView () <UITableViewDataSource,UITableViewDelegate>
+@interface SubtleView ()
 
 @end
 

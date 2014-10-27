@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SGFocusImageFrame.h"
 #import "SGFocusImageItem.h"
+#import "ADVDetailView.h"
 
 @interface LifePageView : UIViewController<SGFocusImageFrameDelegate>
 {

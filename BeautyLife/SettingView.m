@@ -10,6 +10,7 @@
 #import "FeeHistoryView.h"
 #import "MyOrderView.h"
 #import "MobClick.h"
+#import "MyCouponView.h"
 
 @implementation SettingView
 @synthesize tableSettings;
@@ -64,7 +65,7 @@
                        [[SettingModel alloc] initWith:@"我的物业费" andImg:@"setting_propertyfee" andTag:6 andTitle2:nil],
                        [[SettingModel alloc] initWith:@"我的停车费" andImg:@"setting_parkfee" andTag:7 andTitle2:nil],
                        [[SettingModel alloc] initWith:@"我的寄件箱" andImg:@"setting_mail" andTag:8 andTitle2:nil],
-                       [[SettingModel alloc] initWith:@"我的收藏" andImg:@"setting_collect" andTag:9 andTitle2:nil],
+                       [[SettingModel alloc] initWith:@"我的优惠券" andImg:@"setting_collect" andTag:9 andTitle2:nil],
                        nil];
     NSArray *third = [[NSArray alloc] initWithObjects:
                       [[SettingModel alloc] initWith:@"版本更新" andImg:@"setting_update" andTag:10 andTitle2:nil],
@@ -212,7 +213,14 @@
             break;
         case 9:
         {
-
+            if (![[UserModel Instance] isLogin])
+            {
+                [Tool showCustomHUD:@"请先登录" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:2];
+                return;
+            }
+            MyCouponView *myCoupon = [[MyCouponView alloc] init];
+            myCoupon.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:myCoupon animated:YES];
         }
             break;
         case 10:

@@ -57,7 +57,7 @@
     }
     
     self.nameLb.text = [NSString stringWithFormat:@"%@（%@）", [usermodel getUserValueForKey:@"name"], [usermodel getUserValueForKey:@"tel"]];
-    self.addressLb.text = [usermodel getUserValueForKey:@"address"];
+//    self.addressLb.text = [usermodel getUserValueForKey:@"address"];
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerFunc) userInfo:nil repeats:YES];
     [self initCateData];
 }
@@ -69,6 +69,7 @@
     if ([[usermodel getUserValueForKey:@"house_number"] isEqualToString:@""] == NO)
     {
         self.submitBtn.enabled = YES;
+        self.addressLb.text = [usermodel getUserValueForKey:@"address"];
     }
     [MobClick beginLogPageView:@"PageOne"];
 }

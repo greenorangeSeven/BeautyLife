@@ -72,11 +72,11 @@
     self.emailTf.text = emailStr;
     self.idCodeTf.text = idcodeStr;
     //用户是否已认证，已认证后真实信息不能修改
-//    if ([[usermodel getUserValueForKey:@"checkin"] isEqualToString:@"1"]) {
-//        self.nameTf.enabled = NO;
-//        self.selectHomeAddressBtn.enabled = NO;
-//        self.idCodeTf.enabled = NO;
-//    }
+    //    if ([[usermodel getUserValueForKey:@"checkin"] isEqualToString:@"1"]) {
+    //        self.nameTf.enabled = NO;
+    //        self.selectHomeAddressBtn.enabled = NO;
+    //        self.idCodeTf.enabled = NO;
+    //    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -84,17 +84,13 @@
     [super viewWillAppear:animated];
     
     UserModel *usermodel = [UserModel Instance];
-    NSString *provinceStr = [usermodel getUserValueForKey:@"selectProvinceStr"];
-    NSString *cityStr = [usermodel getUserValueForKey:@"selectCityStr"];
-    NSString *regionStr = [usermodel getUserValueForKey:@"selectRegionStr"];
-    NSString *communityStr = [usermodel getUserValueForKey:@"selectCommunityStr"];
-    NSString *buildStr = [usermodel getUserValueForKey:@"selectBuildStr"];
-    NSString *houseStr = [usermodel getUserValueForKey:@"selectHouseStr"];
-    if([communityStr length] > 0 && [buildStr length] > 0 && [houseStr length] > 0)
+    NSString *homeAddressStr = [usermodel getUserValueForKey:@"address"];
+    
+    if( homeAddressStr != nil && [homeAddressStr length] > 0)
     {
-        self.homeAddressLb.text = [NSString stringWithFormat:@"%@%@%@", communityStr, buildStr, houseStr];
+        self.homeAddressLb.text = homeAddressStr;
+        self.homeAddressLb.textColor = [UIColor blackColor];
     }
-    self.homeAddressLb.textColor = [UIColor blackColor];
     [MobClick beginLogPageView:@"UserInfoView"];
 }
 - (void)viewWillDisappear:(BOOL)animated
@@ -145,20 +141,11 @@
     [request setPostValue:appkey forKey:@"APPKey"];
     [request setPostValue:[usermodel getUserValueForKey:@"id"] forKey:@"id"];
     [request setPostValue:[usermodel getUserValueForKey:@"tel"] forKey:@"tel"];
-    NSString * selectCommunityId = [usermodel getUserValueForKey:@"selectCommunityId"];
-    NSString * selectBuildId = [usermodel getUserValueForKey:@"selectBuildId"];
-    NSString * selectHouseStr = [usermodel getUserValueForKey:@"selectHouseStr"];
-    if (![selectCommunityId isEqualToString:@""] && ![selectBuildId isEqualToString:@""] && ![selectHouseStr isEqualToString:@""]) {
-        [request setPostValue:selectCommunityId forKey:@"cid"];
-        [request setPostValue:selectBuildId forKey:@"build_id"];
-        [request setPostValue:selectHouseStr forKey:@"house_number"];
-    }
-    else
-    {
-        [request setPostValue:[usermodel getUserValueForKey:@"cid"] forKey:@"cid"];
-        [request setPostValue:[usermodel getUserValueForKey:@"build_id"] forKey:@"build_id"];
-        [request setPostValue:[usermodel getUserValueForKey:@"house_number"] forKey:@"house_number"];
-    }
+    
+    [request setPostValue:[usermodel getUserValueForKey:@"cid"] forKey:@"cid"];
+    [request setPostValue:[usermodel getUserValueForKey:@"build_id"] forKey:@"build_id"];
+    [request setPostValue:[usermodel getUserValueForKey:@"house_number"] forKey:@"house_number"];
+    
     [request setPostValue:emailStr forKey:@"email"];
     [request setPostValue:idcodeStr forKey:@"card_id"];
     [request setPostValue:nameStr forKey:@"name"];
@@ -207,20 +194,10 @@
         case 1:
         {
             UserModel *userModel = [UserModel Instance];
-            NSString * selectCommunityId = [userModel getUserValueForKey:@"selectCommunityId"];
-            NSString * selectBuildId = [userModel getUserValueForKey:@"selectBuildId"];
-            NSString * selectHouseStr = [userModel getUserValueForKey:@"selectHouseStr"];
-            if (![selectCommunityId isEqualToString:@""] && ![selectBuildId isEqualToString:@""] && ![selectHouseStr isEqualToString:@""]) {
-                [userModel saveValue:selectCommunityId ForKey:@"cid"];
-                [userModel saveValue:selectBuildId ForKey:@"build_id"];
-                [userModel saveValue:selectHouseStr ForKey:@"house_number"];
-                [userModel saveValue:[userModel getUserValueForKey:@"selectCommunityStr"] ForKey:@"comm_name"];
-                [userModel saveValue:[userModel getUserValueForKey:@"selectBuildStr"] ForKey:@"build_name"];
-            }
             
             [userModel saveValue:self.nameTf.text ForKey:@"name"];
             [userModel saveValue:self.nicknameTf.text ForKey:@"nickname"];
-            [userModel saveValue:self.homeAddressLb.text ForKey:@"address"];
+//            [userModel saveValue:self.homeAddressLb.text ForKey:@"address"];
             [userModel saveValue:self.emailTf.text ForKey:@"email"];
             [userModel saveValue:self.idCodeTf.text ForKey:@"card_id"];
             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"温馨提示"
@@ -230,18 +207,6 @@
                                                otherButtonTitles:nil];
             [av show];
             
-            [userModel saveValue:nil ForKey:@"selectProvinceId"];
-            [userModel saveValue:nil ForKey:@"selectProvinceStr"];
-            [userModel saveValue:nil ForKey:@"selectCityId"];
-            [userModel saveValue:nil ForKey:@"selectCityStr"];
-            [userModel saveValue:nil ForKey:@"selectRegionId"];
-            [userModel saveValue:nil ForKey:@"selectRegionStr"];
-            [userModel saveValue:nil ForKey:@"selectCommunityId"];
-            [userModel saveValue:nil ForKey:@"selectCommunityStr"];
-            [userModel saveValue:nil ForKey:@"selectBuildId"];
-            [userModel saveValue:nil ForKey:@"selectBuildStr"];
-            [userModel saveValue:nil ForKey:@"selectHouseId"];
-            [userModel saveValue:nil ForKey:@"selectHouseStr"];
             [self.navigationController popViewControllerAnimated:YES];
         }
             break;

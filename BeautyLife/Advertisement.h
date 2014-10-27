@@ -16,5 +16,6 @@
 @property (nonatomic, retain) NSString *pic;
 @property (nonatomic, retain) NSString *content;
 @property (nonatomic, retain) NSString *points;
+@property (nonatomic, retain) NSString *redirecturl;
 
 @end

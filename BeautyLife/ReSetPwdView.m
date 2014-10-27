@@ -98,10 +98,10 @@
     NSString *content = [NSString stringWithFormat:@"重置密码验证码为%@, 请注意保密，此验证码10分钟内有效，请在重置密码页面中输入以完成密码找回", random];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:regUrl]];
     [request setUseCookiePersistence:NO];
-    [request setPostValue:SMSCorpID forKey:@"CorpID"];
-    [request setPostValue:SMSPWD forKey:@"Pwd"];
-    [request setPostValue:mobileStr forKey:@"Mobile"];
-    [request setPostValue:content forKey:@"Content"];
+    [request setPostValue:appkey forKey:@"APPKey"];
+    [request setPostValue:mobileStr forKey:@"to"];
+    [request setPostValue:random forKey:@"datas"];
+    [request setPostValue:@"5856" forKey:@"tempId"];
     [request setDelegate:self];
     [request setDidFailSelector:@selector(requestFailed:)];
     [request setDidFinishSelector:@selector(requestSend:)];
@@ -125,13 +125,23 @@
     }
     
     [request setUseCookiePersistence:YES];
-    if ([request.responseString isEqualToString:@"0"]) {
-        [Tool showCustomHUD:@"验证码发送成功" andView:self.view  andImage:@"" andAfterDelay:1];
-    }
-    else
-    {
-        [Tool showCustomHUD:@"验证码发送失败，请重试" andView:self.view  andImage:@"" andAfterDelay:1];
-        [self.securityCodeBtn setEnabled:YES];
+    
+    // 如果请求成功，返回 Response
+    NSString *response = [request responseString ];
+    NSData *data = [response dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    int status = 0;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&err];
+    if (json) {
+        status = [[json objectForKey:@"status"] intValue];
+        if (status == 1) {
+            [Tool showCustomHUD:@"验证码发送成功" andView:self.view  andImage:@"" andAfterDelay:1];
+        }
+        else
+        {
+            [Tool showCustomHUD:@"验证码发送失败，请重试" andView:self.view  andImage:@"" andAfterDelay:1];
+            [self.securityCodeBtn setEnabled:YES];
+        }
     }
 }
 

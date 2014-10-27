@@ -145,5 +145,6 @@
 + (NSMutableArray *)readJsonStrToGoodsArray:(NSString *)str;
 + (Shop *)readJsonStrToShopInfo:(NSString *)str;
 + (NSMutableArray *)readJsonStrToFeeHistory:(NSString *)str;
++ (NSMutableArray *)readJsonStrToMyCouponArray:(NSString *)str;
 
 @end

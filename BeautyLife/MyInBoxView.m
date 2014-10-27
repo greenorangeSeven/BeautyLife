@@ -60,6 +60,12 @@
     maskLayer.path = maskPath.CGPath;
     self.bgView.layer.mask = maskLayer;
     [self reload];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:Notification_RefreshMyInbox object:nil];
+}
+
+- (void)refresh
+{
+    [self reload];
 }
 
 - (void)reload

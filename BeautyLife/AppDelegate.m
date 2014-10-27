@@ -315,9 +315,9 @@ BMKMapManager* _mapManager;
      
      如果需要实现SSO，需要导入libWeiboSDK.a，并引入WBApi.h，将WBApi类型传入接口
      **/
-    [ShareSDK connectTencentWeiboWithAppKey:@"801525635"
-                                  appSecret:@"c1affea9508aa4d0f8ac8d580d092592"
-                                redirectUri:@"http://house.nwclhn.com"
+    [ShareSDK connectTencentWeiboWithAppKey:@"801548378"
+                                  appSecret:@"dba9e9e768ceb064074774e2ac517806"
+                                redirectUri:@"http://a.app.qq.com/o/simple.jsp?pkgname=com.greenorange.blife"
                                    wbApiCls:[WeiboApi class]];
     /**
      连接微信应用以使用相关功能，此应用需要引用WeChatConnection.framework和微信官方SDK
@@ -328,6 +328,6 @@ BMKMapManager* _mapManager;
 
 - (void)initUmeng
 {
-    [MobClick startWithAppkey:@"5437335ffd98c554ef017612" reportPolicy:BATCH   channelId:@""];
+    [MobClick startWithAppkey:@"5437335ffd98c554ef017612" reportPolicy:BATCH channelId:@""];
 }
 @end

@@ -9,6 +9,7 @@
 #import "RegisterView.h"
 #import "MobClick.h"
 
+
 @interface RegisterView ()
 
 @end
@@ -31,7 +32,7 @@
         titleLabel.text = @"注册";
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = [UIColor whiteColor];
-        titleLabel.textAlignment = UITextAlignmentCenter;
+//        titleLabel.textAlignment = UITextAlignmentCenter;
         self.navigationItem.titleView = titleLabel;
         
         UIButton *lBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
@@ -85,14 +86,15 @@
     NSString *random =  [NSString stringWithFormat:@"%d" ,[self getRandomNumber:100000 to:999999]];
     NSString *securityCode = [NSString stringWithFormat:@"%@%@" ,random, mobileStr];
     [[EGOCache currentCache] setObject:securityCode forKey:SecurityCode withTimeoutInterval:60 * 10];
-    NSString *regUrl = SMSURL;
+    //    NSString *regUrl = SMSURL;
+    NSString *regUrl = [NSString stringWithFormat:@"%@%@", api_base_url, api_sendsms];
     NSString *content = [NSString stringWithFormat:@"注册验证码为%@, 请注意保密，此验证码10分钟内有效，请在注册页面中输入以完成注册", random];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:regUrl]];
     [request setUseCookiePersistence:NO];
-    [request setPostValue:SMSCorpID forKey:@"CorpID"];
-    [request setPostValue:SMSPWD forKey:@"Pwd"];
-    [request setPostValue:mobileStr forKey:@"Mobile"];
-    [request setPostValue:content forKey:@"Content"];
+    [request setPostValue:appkey forKey:@"APPKey"];
+    [request setPostValue:mobileStr forKey:@"to"];
+    [request setPostValue:random forKey:@"datas"];
+    [request setPostValue:@"5856" forKey:@"tempId"];
     [request setDelegate:self];
     [request setDidFailSelector:@selector(requestFailed:)];
     [request setDidFinishSelector:@selector(requestSend:)];
@@ -109,13 +111,23 @@
     }
     
     [request setUseCookiePersistence:YES];
-    if ([request.responseString isEqualToString:@"0"]) {
-        [Tool showCustomHUD:@"验证码发送成功" andView:self.view  andImage:@"" andAfterDelay:1];
-    }
-    else
-    {
-        [Tool showCustomHUD:@"验证码发送失败，请重试" andView:self.view  andImage:@"" andAfterDelay:1];
-        [securityCodeBtn setEnabled:YES];
+    
+    // 如果请求成功，返回 Response
+    NSString *response = [request responseString ];
+    NSData *data = [response dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    int status = 0;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&err];
+    if (json) {
+        status = [[json objectForKey:@"status"] intValue];
+        if (status == 1) {
+            [Tool showCustomHUD:@"验证码发送成功" andView:self.view  andImage:@"" andAfterDelay:1];
+        }
+        else
+        {
+            [Tool showCustomHUD:@"验证码发送失败，请重试" andView:self.view  andImage:@"" andAfterDelay:1];
+            [securityCodeBtn setEnabled:YES];
+        }
     }
 }
 

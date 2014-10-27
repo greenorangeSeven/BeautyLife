@@ -13,6 +13,7 @@
 #import "ExpressView.h"
 #import "SGFocusImageFrame.h"
 #import "SGFocusImageItem.h"
+#import "ADVDetailView.h"
 
 @interface StewardPageView : UIViewController<SGFocusImageFrameDelegate, UIActionSheetDelegate>
 {

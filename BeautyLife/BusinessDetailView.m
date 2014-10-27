@@ -229,7 +229,7 @@
     Goods *good = (Goods *)[goods objectAtIndex:[indexPath row]];
     EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"loadingpic4.png"]];
     imageView.imageURL = [NSURL URLWithString:good.thumb];
-    imageView.frame = CGRectMake(0.0f, 0.0f, 150.0f, 91.0f);
+    imageView.frame = CGRectMake(0.0f, 0.0f, 127.0f, 127.0f);
     [cell.picIv addSubview:imageView];
     
     cell.priceLb.text = [NSString stringWithFormat:@"￥%@", good.price];
@@ -241,7 +241,7 @@
         [view removeFromSuperview];
     }
     
-    StrikeThroughLabel *slabel = [[StrikeThroughLabel alloc] initWithFrame:CGRectMake(0, 0, 59, 21)];
+    StrikeThroughLabel *slabel = [[StrikeThroughLabel alloc] initWithFrame:CGRectMake(0, 0, 69, 21)];
     slabel.text = [NSString stringWithFormat:@"￥%@", good.market_price];
     slabel.font = [UIFont italicSystemFontOfSize:12.0f];
     slabel.strikeThroughEnabled = YES;
@@ -254,7 +254,7 @@
 //定义每个UICollectionView 的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(150, 172);
+    return CGSizeMake(150, 209);
 }
 
 //定义每个UICollectionView 的 margin

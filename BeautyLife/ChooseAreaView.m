@@ -54,15 +54,8 @@
 {
     [super viewWillAppear:animated];
     UserModel *usermodel = [UserModel Instance];
-    NSString *provinceStr = [usermodel getUserValueForKey:@"selectProvinceStr"];
-    NSString *cityStr = [usermodel getUserValueForKey:@"selectCityStr"];
-    NSString *regionStr = [usermodel getUserValueForKey:@"selectRegionStr"];
-    NSString *communityStr = [usermodel getUserValueForKey:@"selectCommunityStr"];
-    if (regionStr != nil && [regionStr length] > 0)
-    {
-        self.regionLb.text = [NSString stringWithFormat:@"%@%@%@", provinceStr, cityStr, regionStr];
-        self.communityLb.text = communityStr;
-    }
+    NSString *address = [usermodel getUserValueForKey:@"address"];
+    self.regionLb.text = address;
     [MobClick beginLogPageView:@"ChooseAreaView"];
 }
 - (void)viewWillDisappear:(BOOL)animated

@@ -288,14 +288,94 @@
 }
 
 - (IBAction)finishAction:(id)sender {
-    UserModel *userModel = [UserModel Instance];
-    [userModel saveValue:selectCommunityId ForKey:@"selectCommunityId"];
-    [userModel saveValue:selectCommunityStr ForKey:@"selectCommunityStr"];
-    [userModel saveValue:selectBuildId ForKey:@"selectBuildId"];
-    [userModel saveValue:selectBuildStr ForKey:@"selectBuildStr"];
-    [userModel saveValue:selectHouseId ForKey:@"selectHouseId"];
-    [userModel saveValue:selectHouseStr ForKey:@"selectHouseStr"];
-    [self.navigationController popViewControllerAnimated:YES];
+    if (selectHouseStr == nil || [selectHouseStr length] == 0) {
+        [Tool showCustomHUD:@"请完整选择您的住址" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
+        return;
+    }
+    
+    self.finishBtn.enabled = NO;
+    UserModel *usermodel = [UserModel Instance];
+    NSString *regUrl = [NSString stringWithFormat:@"%@%@", api_base_url, api_editinfo];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:regUrl]];
+    [request setUseCookiePersistence:NO];
+    [request setPostValue:appkey forKey:@"APPKey"];
+    [request setPostValue:[usermodel getUserValueForKey:@"id"] forKey:@"id"];
+    [request setPostValue:[usermodel getUserValueForKey:@"tel"] forKey:@"tel"];
+    if (![selectCommunityId isEqualToString:@""] && ![selectBuildId isEqualToString:@""] && ![selectHouseStr isEqualToString:@""]) {
+        [request setPostValue:selectCommunityId forKey:@"cid"];
+        [request setPostValue:selectBuildId forKey:@"build_id"];
+        [request setPostValue:selectHouseStr forKey:@"house_number"];
+    }
+    else
+    {
+        [request setPostValue:[usermodel getUserValueForKey:@"cid"] forKey:@"cid"];
+        [request setPostValue:[usermodel getUserValueForKey:@"build_id"] forKey:@"build_id"];
+        [request setPostValue:[usermodel getUserValueForKey:@"house_number"] forKey:@"house_number"];
+    }
+    [request setPostValue:[usermodel getUserValueForKey:@"email"] forKey:@"email"];
+    [request setPostValue:[usermodel getUserValueForKey:@"card_id"] forKey:@"card_id"];
+    [request setPostValue:[usermodel getUserValueForKey:@"name"] forKey:@"name"];
+    [request setPostValue:[usermodel getUserValueForKey:@"nickname"] forKey:@"nickname"];
+    [request setPostValue:[NSString stringWithFormat:@"%@%@%@", selectCommunityStr, selectBuildStr, selectHouseStr] forKey:@"address"];
+    [request setDelegate:self];
+    [request setDidFailSelector:@selector(requestFailed:)];
+    [request setDidFinishSelector:@selector(requestSaveInfo:)];
+    [request startAsynchronous];
+    
+    request.hud = [[MBProgressHUD alloc] initWithView:self.view];
+    [Tool showHUD:@"正在保存" andView:self.view andHUD:request.hud];
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    if (request.hud) {
+        [request.hud hide:NO];
+    }
+}
+
+- (void)requestSaveInfo:(ASIHTTPRequest *)request
+{
+    if (request.hud) {
+        [request.hud hide:YES];
+    }
+    [request setUseCookiePersistence:YES];
+    NSData *data = [request.responseString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if (!json) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"错误提示"
+                                                     message:request.responseString
+                                                    delegate:nil
+                                           cancelButtonTitle:@"确定"
+                                           otherButtonTitles:nil];
+        [av show];
+        return;
+    }
+    User *user = [Tool readJsonStrToUser:request.responseString];
+    int errorCode = [user.status intValue];
+    NSString *errorMessage = user.info;
+    switch (errorCode) {
+        case 1:
+        {
+            UserModel *userModel = [UserModel Instance];
+            if (![selectCommunityId isEqualToString:@""] && ![selectBuildId isEqualToString:@""] && ![selectHouseStr isEqualToString:@""]) {
+                [userModel saveValue:selectCommunityId ForKey:@"cid"];
+                [userModel saveValue:selectBuildId ForKey:@"build_id"];
+                [userModel saveValue:selectHouseStr ForKey:@"house_number"];
+                [userModel saveValue:selectCommunityStr ForKey:@"comm_name"];
+                [userModel saveValue:selectBuildStr ForKey:@"build_name"];
+                [userModel saveValue:[NSString stringWithFormat:@"%@%@%@", selectCommunityStr, selectBuildStr, selectHouseStr] ForKey:@"address"];
+            }
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+            break;
+        case 0:
+        {
+            [Tool showCustomHUD:errorMessage andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:3];
+            self.finishBtn.enabled = YES;
+        }
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning

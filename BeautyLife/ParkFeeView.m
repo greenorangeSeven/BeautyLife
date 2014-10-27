@@ -114,21 +114,21 @@
                                                    NSDictionary *preset0 = [NSDictionary dictionaryWithObjectsAndKeys:
                                                                             @"0.00", @"money",
                                                                             @"不预缴", @"text", nil];
-                                                   //季度预交字典，季度98折优惠
-                                                   double month3Fee = monthFee * 3 * 0.98;
+                                                   //季度预交字典，季度95折优惠
+                                                   double month3Fee = monthFee * 3 * 0.95;
                                                    NSDictionary *preset1 = [NSDictionary dictionaryWithObjectsAndKeys:
                                                                             [Tool notRounding:month3Fee afterPoint:2], @"money",
-                                                                            [NSString stringWithFormat:@"预缴一季度（9.8折优惠，%@元）", [Tool notRounding:month3Fee afterPoint:2]], @"text", nil];
+                                                                            [NSString stringWithFormat:@"预缴一季度（9.5折优惠，%@元）", [Tool notRounding:month3Fee afterPoint:2]], @"text", nil];
                                                    //半年预交字典，半年95折优惠
                                                    double month6Fee = monthFee * 6 * 0.95;
                                                    NSDictionary *preset2 = [NSDictionary dictionaryWithObjectsAndKeys:
                                                                             [Tool notRounding:month6Fee afterPoint:2], @"money",
                                                                             [NSString stringWithFormat:@"预缴半年（9.5折优惠，%@元）", [Tool notRounding:month6Fee afterPoint:2]], @"text", nil];
-                                                   //一年预交字典，半年9折优惠
-                                                   double month12Fee = monthFee * 12 * 0.9;
+                                                   //一年预交字典，半年95折优惠
+                                                   double month12Fee = monthFee * 12 * 0.95;
                                                    NSDictionary *preset3 = [NSDictionary dictionaryWithObjectsAndKeys:
                                                                             [Tool notRounding:month12Fee afterPoint:2], @"money",
-                                                                            [NSString stringWithFormat:@"预缴一年（9折优惠，%@元）", [Tool notRounding:month12Fee afterPoint:2]], @"text", nil];
+                                                                            [NSString stringWithFormat:@"预缴一年（9.5折优惠，%@元）", [Tool notRounding:month12Fee afterPoint:2]], @"text", nil];
                                                    presetData = [[NSArray alloc] initWithObjects:preset0, preset1, preset2, preset3, nil];
                                                    
                                                    NSDictionary *preset = (NSDictionary *)[presetData objectAtIndex:0];
