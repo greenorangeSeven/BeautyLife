@@ -41,6 +41,7 @@
 #import "FeeHistory.h"
 #import "MyOrder.h"
 #import "ResponseCode.h"
+#import "OnlineLink.h"
 
 @interface Tool : NSObject
 
@@ -146,5 +147,6 @@
 + (Shop *)readJsonStrToShopInfo:(NSString *)str;
 + (NSMutableArray *)readJsonStrToFeeHistory:(NSString *)str;
 + (NSMutableArray *)readJsonStrToMyCouponArray:(NSString *)str;
++ (NSMutableArray *)readJsonStrToLinksArray:(NSString *)str;
 
 @end

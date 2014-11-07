@@ -36,7 +36,7 @@
 #import "AFXMLRequestOperation.h"
 
 #define appkey @"UfeTdaI9m2esqgHQZfKT1xTsUqdwTs2z"
-#define api_base_url @"http://121.40.183.222:8900/api"
+#define api_base_url @"http://app.mmshijie.com/api"
 #define api_register @"/register"
 #define api_login @"/login"
 #define api_changepwd @"/changePwd"
@@ -79,28 +79,29 @@
 #define api_points @"/points"
 #define api_baoming @"/baoming"
 #define api_mycoupons @"/my_coupons_list"
+#define api_getlinks @"/get_links_list"
 
 //商品下单地址
 #define api_send_order @"/send_order"
 
 //商品付款返回url
-#define api_goods_return @"http://121.40.183.222:8900/api/order_returnurl"
+#define api_goods_return @"http://app.mmshijie.com/api/order_returnurl"
 //商品付款通知url
-#define api_goods_notify @"http://121.40.183.222:8900/api/order_notifyurl"
+#define api_goods_notify @"http://app.mmshijie.com/api/order_notifyurl"
 
 //物业缴费订单提交地址
 #define api_pay_property_fee @"/pay_property_fee"
 //物业缴费返回url
-#define api_property_return @"http://121.40.183.222:8900/api/property_returnurl"
+#define api_property_return @"http://app.mmshijie.com/api/property_returnurl"
 //物业缴费通知url
-#define api_property_notify @"http://121.40.183.222:8900/api/property_notifyurl"
+#define api_property_notify @"http://app.mmshijie.com/api/property_notifyurl"
 
 //停车缴费订单提交地址
 #define api_pay_park_fee @"/pay_park_fee"
 //停车缴费返回url
-#define api_park_return @"http://121.40.183.222:8900/api/park_returnurl"
+#define api_park_return @"http://app.mmshijie.com/api/park_returnurl"
 //停车缴费通知url
-#define api_park_notify @"http://121.40.183.222:8900/api/park_notifyurl"
+#define api_park_notify @"http://app.mmshijie.com/api/park_notifyurl"
 
 //物业缴费历史
 #define api_pay_property_fee_record @"/pay_property_fee_record"
@@ -140,6 +141,7 @@
 #define ConvCellIdentifier @"ConvCellIdentifier"
 #define FeeHistoryIdentifier @"FeeHistoryIdentifier"
 #define MyCouponCellIdentifier @"MyCouponCellIdentifier"
+#define RechargeCellIdentifier @"RechargeCellIdentifier"
 
 #define createshoppingcart @"create table shoppingcart (id integer primary key autoincrement not null,goodid text,title text,thumb text,price text,store_name text,business_id text,number int,user_id text)"
 

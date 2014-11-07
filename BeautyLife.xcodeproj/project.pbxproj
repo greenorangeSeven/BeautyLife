@@ -369,6 +369,9 @@
 		145236BB19A477F1008B89D5 /* MyInBoxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145236B919A477F1008B89D5 /* MyInBoxView.xib */; };
 		145236BD19A47D60008B89D5 /* addmyinbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 145236BC19A47D60008B89D5 /* addmyinbox@2x.png */; };
 		145236BF19A485D7008B89D5 /* ExpressCompany.plist in Resources */ = {isa = PBXBuildFile; fileRef = 145236BE19A485D7008B89D5 /* ExpressCompany.plist */; };
+		14552EDC19FE243C00F590EA /* OnlineLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 14552EDB19FE243C00F590EA /* OnlineLink.m */; };
+		14552EDF19FE260B00F590EA /* RechargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14552EDE19FE260B00F590EA /* RechargeCell.m */; };
+		14552EE119FE263600F590EA /* RechargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14552EE019FE263600F590EA /* RechargeCell.xib */; };
 		1455591119FB44B000CAA5D5 /* MyCouponView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1455590C19FB44B000CAA5D5 /* MyCouponView.m */; };
 		1455591219FB44B000CAA5D5 /* MyCouponView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1455590D19FB44B000CAA5D5 /* MyCouponView.xib */; };
 		1455591319FB44B000CAA5D5 /* MyCouponCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1455590F19FB44B000CAA5D5 /* MyCouponCell.m */; };
@@ -1098,6 +1101,11 @@
 		145236B919A477F1008B89D5 /* MyInBoxView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyInBoxView.xib; sourceTree = "<group>"; };
 		145236BC19A47D60008B89D5 /* addmyinbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addmyinbox@2x.png"; sourceTree = "<group>"; };
 		145236BE19A485D7008B89D5 /* ExpressCompany.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExpressCompany.plist; sourceTree = "<group>"; };
+		14552EDA19FE243C00F590EA /* OnlineLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineLink.h; sourceTree = "<group>"; };
+		14552EDB19FE243C00F590EA /* OnlineLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineLink.m; sourceTree = "<group>"; };
+		14552EDD19FE260B00F590EA /* RechargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeCell.h; sourceTree = "<group>"; };
+		14552EDE19FE260B00F590EA /* RechargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeCell.m; sourceTree = "<group>"; };
+		14552EE019FE263600F590EA /* RechargeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RechargeCell.xib; sourceTree = "<group>"; };
 		1455590B19FB44B000CAA5D5 /* MyCouponView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCouponView.h; sourceTree = "<group>"; };
 		1455590C19FB44B000CAA5D5 /* MyCouponView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCouponView.m; sourceTree = "<group>"; };
 		1455590D19FB44B000CAA5D5 /* MyCouponView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCouponView.xib; sourceTree = "<group>"; };
@@ -1351,6 +1359,9 @@
 				04CAC3CF198CB9B40031E956 /* RechargeView.h */,
 				04CAC3D0198CB9B40031E956 /* RechargeView.m */,
 				04CAC3D2198CB9CB0031E956 /* RechargeView.xib */,
+				14552EDD19FE260B00F590EA /* RechargeCell.h */,
+				14552EDE19FE260B00F590EA /* RechargeCell.m */,
+				14552EE019FE263600F590EA /* RechargeCell.xib */,
 				142B1C5D19A62BFF00FA3D4F /* RechargeDetailView.h */,
 				142B1C5E19A62BFF00FA3D4F /* RechargeDetailView.m */,
 				142B1C5F19A62BFF00FA3D4F /* RechargeDetailView.xib */,
@@ -2147,6 +2158,8 @@
 				0440160A19B306C400546126 /* MyGoods.m */,
 				0443196E19B41A4F009C494F /* ResponseCode.h */,
 				0443196F19B41A4F009C494F /* ResponseCode.m */,
+				14552EDA19FE243C00F590EA /* OnlineLink.h */,
+				14552EDB19FE243C00F590EA /* OnlineLink.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2713,6 +2726,7 @@
 				142A11F319ACC37500B51705 /* subtle_ supermarket@2x.png in Resources */,
 				146F7C3F199FBB9B00926CA2 /* ritem-5@2x.png in Resources */,
 				1419F42619889CFB00D3E5E3 /* setting_info@2x.png in Resources */,
+				14552EE119FE263600F590EA /* RechargeCell.xib in Resources */,
 				14343CEA199D9C4A00947080 /* NewsDetailView.xib in Resources */,
 				14B9057A1991C24E0087B09D /* ExpressView.xib in Resources */,
 				14A32A29198C979600497E5C /* repairslogo@2x.png in Resources */,
@@ -3024,6 +3038,7 @@
 				1445B9EC198628E400C4417C /* MBProgressHUD.m in Sources */,
 				142AE65B19AB7B6300079A9A /* ShoppingCartView.m in Sources */,
 				1445BA1F1986298900C4417C /* SGFocusImageItem.m in Sources */,
+				14552EDC19FE243C00F590EA /* OnlineLink.m in Sources */,
 				1445BA051986290500C4417C /* AFHTTPClient.m in Sources */,
 				1448EDB819A43AFF00361C51 /* AlipayUtils.m in Sources */,
 				1436058119AC1BA800AAB9FA /* CouponDetailView.m in Sources */,
@@ -3044,6 +3059,7 @@
 				1448EDBF19A43AFF00361C51 /* SBJsonBase.m in Sources */,
 				14B4C3A3199AFE1300D8591F /* HouseModel.m in Sources */,
 				146F7C2A199FB26500926CA2 /* RepairsItem.m in Sources */,
+				14552EDF19FE260B00F590EA /* RechargeCell.m in Sources */,
 				1445BA6119862E0E00C4417C /* Tool.m in Sources */,
 				04952CD6199364250030534B /* GoodsDetailView.m in Sources */,
 				148195F219B6F9CD0024C5B1 /* SearchAdderssView.m in Sources */,

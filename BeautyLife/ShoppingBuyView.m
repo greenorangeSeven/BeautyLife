@@ -172,6 +172,7 @@
             }
             business.goodlist = goodArray;
             business.amount = [NSNumber numberWithFloat:businessAmount];
+            self.countPrice = businessAmount;
             [orderBusinessArray addObject:business];
         }
         orderInfo.businessOrderList = orderBusinessArray;
@@ -195,6 +196,7 @@
         
         business.goodlist = goodArray;
         business.amount = [NSNumber numberWithFloat:businessAmount];
+        self.countPrice = businessAmount;
         [orderBusinessArray addObject:business];
         
         orderInfo.businessOrderList = orderBusinessArray;
@@ -263,7 +265,8 @@
             pro.out_no = num.serial_no;
             pro.subject = @"美世界订单付款";
             pro.body = @"美世界订单在线付款";
-            pro.price = 0.01;
+//            pro.price = 0.01;
+            pro.price = self.countPrice;
             pro.partnerID = [usermodel getUserValueForKey:@"DEFAULT_PARTNER"];
             pro.partnerPrivKey = [usermodel getUserValueForKey:@"PRIVATE"];
             pro.sellerID = [usermodel getUserValueForKey:@"DEFAULT_SELLER"];

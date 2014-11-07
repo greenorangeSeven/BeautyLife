@@ -168,7 +168,7 @@
 {
     [super viewWillDisappear:animated];
     [MobClick endLogPageView:@"ShoppingCartView"];
-    bannerView.delegate = nil;
+//    bannerView.delegate = nil;
 }
 
 //取数方法

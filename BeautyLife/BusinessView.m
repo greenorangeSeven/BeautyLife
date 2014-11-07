@@ -113,7 +113,6 @@
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                        [shopData removeAllObjects];
                                        @try {
-                                           [shopData removeAllObjects];
                                            noDataLabel.hidden = YES;
                                            shopData = [Tool readJsonStrToShopArray:operation.responseString];
                                            if (shopData != nil && [shopData count] > 0) {
@@ -163,7 +162,7 @@
         NSString *url = [NSString stringWithFormat:@"%@%@?APPKey=%@", api_base_url, api_shopcate, appkey];
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                       [shopData removeAllObjects];
+                                       [shopCateData removeAllObjects];
                                        @try {
                                            shopCateData = [Tool readJsonStrToShopsCate:operation.   responseString];
                                            [self.cateCollection reloadData];

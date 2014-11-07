@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RechargeView">
             <connections>
+                <outlet property="bgLb" destination="XQN-K2-SXB" id="PLl-sP-Bn7"/>
+                <outlet property="collectionView" destination="cTw-SV-qzV" id="70z-n6-yCO"/>
                 <outlet property="view" destination="Slz-GW-g70" id="oHn-SE-PqQ"/>
             </connections>
         </placeholder>
@@ -15,69 +17,28 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="recharge_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Pp-yS-gxH">
-                    <rect key="frame" x="2" y="20" width="316" height="323"/>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZT-5T-0QA">
-                    <rect key="frame" x="31" y="80" width="51" height="71"/>
-                    <state key="normal" image="online_huoche.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="huocheAction:" destination="-1" eventType="touchUpInside" id="i2l-uZ-KuC"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UfE-kK-1fe">
-                    <rect key="frame" x="135" y="80" width="51" height="71"/>
-                    <state key="normal" image="online_jipiao.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="jipiaoAction:" destination="-1" eventType="touchUpInside" id="nIO-MG-9aG"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPZ-tb-Aag">
-                    <rect key="frame" x="239" y="80" width="51" height="71"/>
-                    <state key="normal" image="online_yidong.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="yidongAction:" destination="-1" eventType="touchUpInside" id="Wu2-CK-o5s"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47m-Z3-hN5">
-                    <rect key="frame" x="31" y="172" width="51" height="71"/>
-                    <state key="normal" image="online_dianxing.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="dianxinAction:" destination="-1" eventType="touchUpInside" id="pDa-2S-vLv"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vua-qw-zBD">
-                    <rect key="frame" x="135" y="172" width="51" height="71"/>
-                    <state key="normal" image="online_liantong.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="liantongAction:" destination="-1" eventType="touchUpInside" id="bYS-AO-tJ9"/>
-                    </connections>
-                </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="online_title.png" translatesAutoresizingMaskIntoConstraints="NO" id="9E8-BG-XsX">
-                    <rect key="frame" x="15" y="28" width="97" height="31"/>
-                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XQN-K2-SXB">
+                    <rect key="frame" x="7" y="7" width="306" height="554"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" id="cTw-SV-qzV">
+                    <rect key="frame" x="7" y="7" width="306" height="554"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sSc-2i-Lyi">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" red="0.75294117647058822" green="0.76470588235294112" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
-    <resources>
-        <image name="online_dianxing.png" width="51" height="70"/>
-        <image name="online_huoche.png" width="51" height="70"/>
-        <image name="online_jipiao.png" width="51" height="70"/>
-        <image name="online_liantong.png" width="51" height="70"/>
-        <image name="online_title.png" width="167" height="56"/>
-        <image name="online_yidong.png" width="51" height="70"/>
-        <image name="recharge_bg.png" width="303" height="296"/>
-    </resources>
 </document>
