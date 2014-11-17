@@ -73,7 +73,7 @@
     }
     else
     {
-        [Tool showCustomHUD:@"验证码成功" andView:self.view  andImage:@"37x-Checkmark.png" andAfterDelay:2];
+        [Tool showCustomHUD:@"验证成功" andView:self.view  andImage:@"37x-Checkmark.png" andAfterDelay:2];
         [[EGOCache currentCache] removeCacheForKey:ReSetSecurityCode];
         self.pwdTf.enabled = YES;
         self.pwdAgainTf.enabled = YES;
