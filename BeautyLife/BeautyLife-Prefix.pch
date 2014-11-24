@@ -128,6 +128,9 @@
 
 #define servicephone @"4006967020"
 
+#define dpAppkey @"1201410056"
+#define dpSecret @"f2cdb91c66594520b8ab708313f01be0"
+
 #define SettingTableIdentifier @"SettingTableIdentifier"
 #define MyRepairsCellIdentifier @"MyRepairsCellIdentifier"
 #define NoticeTableCellIdentifier @"NoticeTableCellIdentifier"
@@ -142,6 +145,7 @@
 #define FeeHistoryIdentifier @"FeeHistoryIdentifier"
 #define MyCouponCellIdentifier @"MyCouponCellIdentifier"
 #define RechargeCellIdentifier @"RechargeCellIdentifier"
+#define DZDPTableCellIdentifier @"DZDPTableCellIdentifier"
 
 #define createshoppingcart @"create table shoppingcart (id integer primary key autoincrement not null,goodid text,title text,thumb text,price text,store_name text,business_id text,number int,user_id text)"
 

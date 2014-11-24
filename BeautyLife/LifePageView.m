@@ -12,6 +12,7 @@
 #import "SubtleView.h"
 #import "BusinessView.h"
 #import "MobClick.h"
+#import "DZDPTableView.h"
 
 @interface LifePageView ()
 
@@ -148,6 +149,12 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     bannerView.delegate = self;
     [MobClick beginLogPageView:@"LifePageView"];
+}
+
+- (IBAction)dzdpAction:(id)sender {
+    DZDPTableView *dzdp = [[DZDPTableView alloc] init];
+    dzdp.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:dzdp animated:YES];
 }
 
 - (IBAction)clickService:(UIButton *)sender

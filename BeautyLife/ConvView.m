@@ -264,7 +264,7 @@
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     _locService.delegate = nil;
-    [MobClick endLogPageView:@"PageOne"];
+    [MobClick endLogPageView:@"ConvView"];
 }
 
 -(void)startLocation

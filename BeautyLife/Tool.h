@@ -42,6 +42,7 @@
 #import "MyOrder.h"
 #import "ResponseCode.h"
 #import "OnlineLink.h"
+#import "DZbusinesses.h"
 
 @interface Tool : NSObject
 
@@ -148,5 +149,10 @@
 + (NSMutableArray *)readJsonStrToFeeHistory:(NSString *)str;
 + (NSMutableArray *)readJsonStrToMyCouponArray:(NSString *)str;
 + (NSMutableArray *)readJsonStrToLinksArray:(NSString *)str;
+
+//大众点评生成验签
++ (NSDictionary *)parseQueryString:(NSString *)query;
++ (NSString *)serializeURL:(NSString *)baseURL params:(NSDictionary *)params;
++ (NSMutableArray *)readJsonStrToDZDPShop:(NSString *)str;
 
 @end

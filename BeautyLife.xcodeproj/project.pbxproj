@@ -448,6 +448,11 @@
 		14AF581519908CF3000B4BB7 /* NoticeFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AF581319908CF3000B4BB7 /* NoticeFrameView.m */; };
 		14AF581619908CF3000B4BB7 /* NoticeFrameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14AF581419908CF3000B4BB7 /* NoticeFrameView.xib */; };
 		14B26779199C9B7F005159EA /* Advertisement.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B26778199C9B7F005159EA /* Advertisement.m */; };
+		14B3C2351A20268C003673A3 /* DZDPTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B3C2331A20268C003673A3 /* DZDPTableView.m */; };
+		14B3C2361A20268C003673A3 /* DZDPTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B3C2341A20268C003673A3 /* DZDPTableView.xib */; };
+		14B3C23A1A2039CC003673A3 /* DZbusinesses.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B3C2391A2039CC003673A3 /* DZbusinesses.m */; };
+		14B3C2401A204395003673A3 /* DZDPTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B3C23E1A204394003673A3 /* DZDPTableCell.m */; };
+		14B3C2411A204395003673A3 /* DZDPTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B3C23F1A204394003673A3 /* DZDPTableCell.xib */; };
 		14B4C39D199AFD2000D8591F /* CommunityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B4C39C199AFD2000D8591F /* CommunityModel.m */; };
 		14B4C3A0199AFDCF00D8591F /* BuildModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B4C39F199AFDCF00D8591F /* BuildModel.m */; };
 		14B4C3A3199AFE1300D8591F /* HouseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B4C3A2199AFE1300D8591F /* HouseModel.m */; };
@@ -1224,6 +1229,14 @@
 		14AF581419908CF3000B4BB7 /* NoticeFrameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeFrameView.xib; sourceTree = "<group>"; };
 		14B26777199C9B7F005159EA /* Advertisement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Advertisement.h; sourceTree = "<group>"; };
 		14B26778199C9B7F005159EA /* Advertisement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Advertisement.m; sourceTree = "<group>"; };
+		14B3C2321A20268C003673A3 /* DZDPTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZDPTableView.h; sourceTree = "<group>"; };
+		14B3C2331A20268C003673A3 /* DZDPTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZDPTableView.m; sourceTree = "<group>"; };
+		14B3C2341A20268C003673A3 /* DZDPTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZDPTableView.xib; sourceTree = "<group>"; };
+		14B3C2381A2039CC003673A3 /* DZbusinesses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZbusinesses.h; sourceTree = "<group>"; };
+		14B3C2391A2039CC003673A3 /* DZbusinesses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZbusinesses.m; sourceTree = "<group>"; };
+		14B3C23D1A204394003673A3 /* DZDPTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZDPTableCell.h; sourceTree = "<group>"; };
+		14B3C23E1A204394003673A3 /* DZDPTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZDPTableCell.m; sourceTree = "<group>"; };
+		14B3C23F1A204394003673A3 /* DZDPTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZDPTableCell.xib; sourceTree = "<group>"; };
 		14B4C39B199AFD2000D8591F /* CommunityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityModel.h; sourceTree = "<group>"; };
 		14B4C39C199AFD2000D8591F /* CommunityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityModel.m; sourceTree = "<group>"; };
 		14B4C39E199AFDCF00D8591F /* BuildModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildModel.h; sourceTree = "<group>"; };
@@ -1358,6 +1371,12 @@
 				1419F406198881E200D3E5E3 /* LifePageView.h */,
 				1419F407198881E200D3E5E3 /* LifePageView.m */,
 				1419F408198881E200D3E5E3 /* LifePageView.xib */,
+				14B3C2321A20268C003673A3 /* DZDPTableView.h */,
+				14B3C2331A20268C003673A3 /* DZDPTableView.m */,
+				14B3C2341A20268C003673A3 /* DZDPTableView.xib */,
+				14B3C23D1A204394003673A3 /* DZDPTableCell.h */,
+				14B3C23E1A204394003673A3 /* DZDPTableCell.m */,
+				14B3C23F1A204394003673A3 /* DZDPTableCell.xib */,
 				04CAC3A7198C78AC0031E956 /* ConvView.h */,
 				04CAC3A8198C78AC0031E956 /* ConvView.m */,
 				04CAC3A9198C78AC0031E956 /* ConvView.xib */,
@@ -2182,6 +2201,8 @@
 				0443196F19B41A4F009C494F /* ResponseCode.m */,
 				14552EDA19FE243C00F590EA /* OnlineLink.h */,
 				14552EDB19FE243C00F590EA /* OnlineLink.m */,
+				14B3C2381A2039CC003673A3 /* DZbusinesses.h */,
+				14B3C2391A2039CC003673A3 /* DZbusinesses.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2781,6 +2802,7 @@
 				04CAC3CE198C92540031E956 /* conv_order_map@2x.png in Resources */,
 				1436058E19AC2A7F00AAB9FA /* loading@2x.png in Resources */,
 				1419F42419889CFB00D3E5E3 /* setting_register@2x.png in Resources */,
+				14B3C2411A204395003673A3 /* DZDPTableCell.xib in Resources */,
 				14B56D0319912D0000F7C601 /* NewsTableView.xib in Resources */,
 				1447195C19A5E1C600957066 /* savebtnbg@2x.png in Resources */,
 				142277CE1989D7AC007242A2 /* userface.png in Resources */,
@@ -2817,6 +2839,7 @@
 				149ED4B6198778440097F2AF /* praise@2x.png in Resources */,
 				1424A5D8198FDC0D00446273 /* repairspic@2x.png in Resources */,
 				14343CF2199DBC8600947080 /* detail_menubg.png in Resources */,
+				14B3C2361A20268C003673A3 /* DZDPTableView.xib in Resources */,
 				04CED7441990B6EA00E35D7C /* jingxuan1.png in Resources */,
 				04CAC3B8198C78CB0031E956 /* conv_water@2x.png in Resources */,
 				1419F42819889CFB00D3E5E3 /* setting_propertyfee@2x.png in Resources */,
@@ -2955,6 +2978,7 @@
 				1445B9B7198627D000C4417C /* NSUserDefaults+RMSaveCustomObject.m in Sources */,
 				1445BA6C19862E5A00C4417C /* JSNotifier.m in Sources */,
 				1445BA131986291700C4417C /* StrikeThroughLabel.m in Sources */,
+				14B3C23A1A2039CC003673A3 /* DZbusinesses.m in Sources */,
 				14B8874E19A8D516004842A8 /* ShopsCate.m in Sources */,
 				14B4C39D199AFD2000D8591F /* CommunityModel.m in Sources */,
 				1445BA071986290500C4417C /* AFImageRequestOperation.m in Sources */,
@@ -3106,6 +3130,7 @@
 				14A32A26198C96E500497E5C /* RepairsFormView.m in Sources */,
 				142277DA1989DED9007242A2 /* ChooseAreaView.m in Sources */,
 				0412D9F319B866A10026D527 /* ShoppingBuyView.m in Sources */,
+				14B3C2351A20268C003673A3 /* DZDPTableView.m in Sources */,
 				1445B9C21986281900C4417C /* AESCrypt.m in Sources */,
 				1445BA0E1986290500C4417C /* AFXMLRequestOperation.m in Sources */,
 				146F7C33199FB90500926CA2 /* RepairsItemCell.m in Sources */,
@@ -3117,6 +3142,7 @@
 				14B8875419A8D75B004842A8 /* BusinessCateCell.m in Sources */,
 				141D62EC19A108BF008B0945 /* PropertyFeeInfo.m in Sources */,
 				143481271A19F0B000398363 /* PSTGridLayoutItem.m in Sources */,
+				14B3C2401A204395003673A3 /* DZDPTableCell.m in Sources */,
 				1448EDC019A43AFF00361C51 /* SBJsonParser.m in Sources */,
 				1434813A1A19F0B000398363 /* UIImageView+WebCache.m in Sources */,
 				14B26779199C9B7F005159EA /* Advertisement.m in Sources */,
@@ -3222,8 +3248,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3241,7 +3267,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "e004157c-d4d5-4236-b478-dce706b30209";
+				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3262,8 +3288,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3275,7 +3301,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "e004157c-d4d5-4236-b478-dce706b30209";
+				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3290,7 +3316,7 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
@@ -3324,7 +3350,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e004157c-d4d5-4236-b478-dce706b30209";
+				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3338,7 +3364,7 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
@@ -3372,7 +3398,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e004157c-d4d5-4236-b478-dce706b30209";
+				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

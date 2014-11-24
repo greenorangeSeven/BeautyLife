@@ -8,6 +8,7 @@
 
 #import "Tool.h"
 #import "MyGoods.h"
+#import <CommonCrypto/CommonDigest.h>
 
 @implementation Tool
 
@@ -893,6 +894,79 @@
     }
     NSMutableArray *linkArray = [RMMapper mutableArrayOfClass:[OnlineLink class] fromArrayOfDictionary:linkJsonArray];
     return linkArray;
+}
+
+//大众点评生成验签
++ (NSDictionary *)parseQueryString:(NSString *)query {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:6];
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    
+    for (NSString *pair in pairs) {
+        NSArray *elements = [pair componentsSeparatedByString:@"="];
+        
+        if ([elements count] <= 1) {
+            return nil;
+        }
+        
+        NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *val = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        [dict setObject:val forKey:key];
+    }
+    return dict;
+}
+//大众点评生成验签
++ (NSString *)serializeURL:(NSString *)baseURL params:(NSDictionary *)params
+{
+    NSURL* parsedURL = [NSURL URLWithString:[baseURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSMutableDictionary *paramsDic = [NSMutableDictionary dictionaryWithDictionary:[self parseQueryString:[parsedURL query]]];
+    if (params) {
+        [paramsDic setValuesForKeysWithDictionary:params];
+    }
+    
+    NSMutableString *signString = [NSMutableString stringWithString:dpAppkey];
+    NSMutableString *paramsString = [NSMutableString stringWithFormat:@"appkey=%@", dpAppkey];
+    NSArray *sortedKeys = [[paramsDic allKeys] sortedArrayUsingSelector: @selector(compare:)];
+    for (NSString *key in sortedKeys) {
+        [signString appendFormat:@"%@%@", key, [paramsDic objectForKey:key]];
+        [paramsString appendFormat:@"&%@=%@", key, [paramsDic objectForKey:key]];
+    }
+    [signString appendString:dpSecret];
+    unsigned char digest[CC_SHA1_DIGEST_LENGTH];
+    NSData *stringBytes = [signString dataUsingEncoding: NSUTF8StringEncoding];
+    if (CC_SHA1([stringBytes bytes], [stringBytes length], digest)) {
+        /* SHA-1 hash has been calculated and stored in 'digest'. */
+        NSMutableString *digestString = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH];
+        for (int i=0; i<CC_SHA1_DIGEST_LENGTH; i++) {
+            unsigned char aChar = digest[i];
+            [digestString appendFormat:@"%02X", aChar];
+        }
+        [paramsString appendFormat:@"&sign=%@", [digestString uppercaseString]];
+        return [NSString stringWithFormat:@"%@://%@%@?%@", [parsedURL scheme], [parsedURL host], [parsedURL path], [paramsString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    } else {
+        return nil;
+    }
+}
+
+//解析大众点评JSON
++ (NSMutableArray *)readJsonStrToDZDPShop:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *newsJsonDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if ( newsJsonDic == nil || [newsJsonDic count] <= 0) {
+        return nil;
+    }
+    NSString *status = [newsJsonDic objectForKey:@"status"];
+    if ([status isEqualToString:@"OK"] == YES) {
+        NSArray *businessesJson = [newsJsonDic objectForKey:@"businesses"];
+        NSMutableArray *businessesArray = [RMMapper mutableArrayOfClass:[DZbusinesses class] fromArrayOfDictionary:businessesJson];
+        return businessesArray;
+    }
+    else
+    {
+        return nil;
+    }
 }
 
 @end

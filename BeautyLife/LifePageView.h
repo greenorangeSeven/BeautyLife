@@ -25,6 +25,8 @@
 @property (strong, nonatomic) IBOutlet UIView *menuBg;
 @property (strong, nonatomic) IBOutlet UILabel *telBg;
 
+- (IBAction)dzdpAction:(id)sender;
+
 - (IBAction)clickService:(UIButton *)sender;
 - (IBAction)clickRecharge:(UIButton *)sender;
 - (IBAction)clickSubtle:(UIButton *)sender;
