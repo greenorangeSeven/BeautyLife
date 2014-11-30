@@ -12,6 +12,8 @@
 #import "ProvinceModel.h"
 #import "CityModel.h"
 #import "RegionModel.h"
+#import "XGPush.h"
+#import "XGSetting.h"
 
 @interface SelectHomeAddressView : UIViewController< UIActionSheetDelegate, UIPickerViewDelegate>
 {

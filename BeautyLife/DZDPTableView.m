@@ -342,13 +342,12 @@
     }
     else
     {
-//        News *n = [news objectAtIndex:[indexPath row]];
-//        if (n) {
-//            NewsDetailView *newsDetail = [[NewsDetailView alloc] init];
-//            newsDetail.news = n;
-//            newsDetail.catalog = catalog;
-//            [self.navigationController pushViewController:newsDetail animated:YES];
-//        }
+        DZbusinesses *n = [shops objectAtIndex:[indexPath row]];
+        if (n) {
+            DZDPDetailView *detail = [[DZDPDetailView alloc] init];
+            detail.urlStr = n.business_url;
+            [self.navigationController pushViewController:detail animated:YES];
+        }
     }
 }
 

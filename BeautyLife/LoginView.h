@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "NSString+STRegex.h"
 #import "ReSetPwdView.h"
+#import "XGPush.h"
+#import "XGSetting.h"
 
 @interface LoginView : UIViewController
 

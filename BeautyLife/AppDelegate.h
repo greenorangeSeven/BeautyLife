@@ -18,8 +18,9 @@
 #import "WXApi.h"
 #import "WeiboApi.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, BMKGeneralDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, BMKGeneralDelegate,UIAlertViewDelegate>
 
+@property BOOL isForeground;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UITabBarController *tabBarController;
 

@@ -423,12 +423,19 @@
         {
             UserModel *userModel = [UserModel Instance];
             if (![selectCommunityId isEqualToString:@""] && ![selectBuildId isEqualToString:@""] && ![selectHouseStr isEqualToString:@""]) {
+                NSString *oldTag = [userModel getUserValueForKey:@"cid"];
+                if (oldTag != nil && [oldTag length] > 0) {
+                    [XGPush delTag:oldTag];
+                }
+                
                 [userModel saveValue:selectCommunityId ForKey:@"cid"];
                 [userModel saveValue:selectBuildId ForKey:@"build_id"];
                 [userModel saveValue:selectHouseStr ForKey:@"house_number"];
                 [userModel saveValue:selectCommunityStr ForKey:@"comm_name"];
                 [userModel saveValue:selectBuildStr ForKey:@"build_name"];
                 [userModel saveValue:[NSString stringWithFormat:@"%@%@%@", selectCommunityStr, selectBuildStr, selectHouseStr] ForKey:@"address"];
+
+                [XGPush setTag:selectCommunityId];
             }
             [self.navigationController popViewControllerAnimated:YES];
         }

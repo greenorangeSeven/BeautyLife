@@ -182,7 +182,8 @@
         [alert addAction:[UIAlertAction actionWithTitle:@"确定"
                                                   style:UIAlertActionStyleDefault
                                                 handler:^(UIAlertAction *action) {
-                                                    
+                                                    double sumMoney = shouldMoney + presetMoney;
+                                                    self.sumMoneyLb.text = [NSString stringWithFormat:@"￥%0.2f元", sumMoney];
                                                 }]];
         [self presentViewController:alert animated:YES completion:nil];
     }

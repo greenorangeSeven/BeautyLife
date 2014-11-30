@@ -236,7 +236,6 @@
 		1445B8D51986269500C4417C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445B8D41986269500C4417C /* main.m */; };
 		1445B8D91986269500C4417C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445B8D81986269500C4417C /* AppDelegate.m */; };
 		1445B8DB1986269500C4417C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1445B8DA1986269500C4417C /* Images.xcassets */; };
-		1445B8E21986269500C4417C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1445B8E11986269500C4417C /* XCTest.framework */; };
 		1445B8E31986269500C4417C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1445B8C81986269500C4417C /* Foundation.framework */; };
 		1445B8E41986269500C4417C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1445B8CC1986269500C4417C /* UIKit.framework */; };
 		1445B8EC1986269500C4417C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1445B8EA1986269500C4417C /* InfoPlist.strings */; };
@@ -333,12 +332,6 @@
 		1445BAAA19862F1A00C4417C /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445BAA819862F1A00C4417C /* UserModel.m */; };
 		1445BAF01986304700C4417C /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1445BAEC1986304700C4417C /* libbaidumapapi.a */; };
 		1445BAF11986304700C4417C /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1445BAED1986304700C4417C /* mapapi.bundle */; };
-		1445BAFF1986315C00C4417C /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445BAF41986315C00C4417C /* Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		1445BB001986315C00C4417C /* BPushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1445BAF71986315C00C4417C /* BPushConfig.plist */; };
-		1445BB011986315C00C4417C /* GzipCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445BAF91986315C00C4417C /* GzipCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		1445BB021986315C00C4417C /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445BAFB1986315C00C4417C /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		1445BB031986315C00C4417C /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1445BAFC1986315C00C4417C /* libBPush.a */; };
-		1445BB041986315C00C4417C /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445BAFE1986315C00C4417C /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1447195C19A5E1C600957066 /* savebtnbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1447195B19A5E1C600957066 /* savebtnbg@2x.png */; };
 		1447B15B19D2C0A000492D55 /* alipayBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1447B15919D2C0A000492D55 /* alipayBtn@2x.png */; };
 		1447B15C19D2C0A000492D55 /* alipayFeeBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1447B15A19D2C0A000492D55 /* alipayFeeBtn@2x.png */; };
@@ -408,6 +401,11 @@
 		1475AA8119AB0B3B00AE904F /* BusinessGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 1475AA8019AB0B3B00AE904F /* BusinessGoods.m */; };
 		1475AA8419AB200300AE904F /* BusinessGoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1475AA8319AB200300AE904F /* BusinessGoodCell.m */; };
 		1475AA8619AB202200AE904F /* BusinessGoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1475AA8519AB202200AE904F /* BusinessGoodCell.xib */; };
+		14793ACF1A22C448000F8C31 /* dzdplogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14793ACD1A22C448000F8C31 /* dzdplogo@2x.png */; };
+		14793AD01A22C448000F8C31 /* dzdppic@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 14793ACE1A22C448000F8C31 /* dzdppic@2x.jpg */; };
+		14793AD51A22CC2E000F8C31 /* DZDPDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14793AD31A22CC2E000F8C31 /* DZDPDetailView.m */; };
+		14793AD61A22CC2E000F8C31 /* DZDPDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14793AD41A22CC2E000F8C31 /* DZDPDetailView.xib */; };
+		14793AE11A241DC6000F8C31 /* libXG-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14793ADE1A241DC6000F8C31 /* libXG-SDK.a */; };
 		148195F219B6F9CD0024C5B1 /* SearchAdderssView.m in Sources */ = {isa = PBXBuildFile; fileRef = 148195F019B6F9CD0024C5B1 /* SearchAdderssView.m */; };
 		148195F319B6F9CD0024C5B1 /* SearchAdderssView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 148195F119B6F9CD0024C5B1 /* SearchAdderssView.xib */; };
 		149BA3FE19F5353900153436 /* KeyboardManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1445BA161986294A00C4417C /* KeyboardManager.framework */; };
@@ -846,7 +844,6 @@
 		1445B8D81986269500C4417C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1445B8DA1986269500C4417C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1445B8E01986269500C4417C /* BeautyLifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeautyLifeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1445B8E11986269500C4417C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1445B8E91986269500C4417C /* BeautyLifeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BeautyLifeTests-Info.plist"; sourceTree = "<group>"; };
 		1445B8EB1986269500C4417C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1445B8ED1986269500C4417C /* BeautyLifeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyLifeTests.m; sourceTree = "<group>"; };
@@ -1054,18 +1051,6 @@
 		1445BAE71986304700C4417C /* BMKVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKVersion.h; sourceTree = "<group>"; };
 		1445BAEC1986304700C4417C /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
 		1445BAED1986304700C4417C /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
-		1445BAF31986315C00C4417C /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
-		1445BAF41986315C00C4417C /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
-		1445BAF51986315C00C4417C /* Base64Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Defines.h; sourceTree = "<group>"; };
-		1445BAF61986315C00C4417C /* BPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPush.h; sourceTree = "<group>"; };
-		1445BAF71986315C00C4417C /* BPushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BPushConfig.plist; sourceTree = "<group>"; };
-		1445BAF81986315C00C4417C /* GzipCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GzipCompressor.h; sourceTree = "<group>"; };
-		1445BAF91986315C00C4417C /* GzipCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GzipCompressor.m; sourceTree = "<group>"; };
-		1445BAFA1986315C00C4417C /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		1445BAFB1986315C00C4417C /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		1445BAFC1986315C00C4417C /* libBPush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBPush.a; sourceTree = "<group>"; };
-		1445BAFD1986315C00C4417C /* OpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
-		1445BAFE1986315C00C4417C /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
 		1447195B19A5E1C600957066 /* savebtnbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "savebtnbg@2x.png"; sourceTree = "<group>"; };
 		1447B15919D2C0A000492D55 /* alipayBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alipayBtn@2x.png"; sourceTree = "<group>"; };
 		1447B15A19D2C0A000492D55 /* alipayFeeBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alipayFeeBtn@2x.png"; sourceTree = "<group>"; };
@@ -1182,6 +1167,14 @@
 		1475AA8219AB200300AE904F /* BusinessGoodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessGoodCell.h; sourceTree = "<group>"; };
 		1475AA8319AB200300AE904F /* BusinessGoodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessGoodCell.m; sourceTree = "<group>"; };
 		1475AA8519AB202200AE904F /* BusinessGoodCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessGoodCell.xib; sourceTree = "<group>"; };
+		14793ACD1A22C448000F8C31 /* dzdplogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dzdplogo@2x.png"; sourceTree = "<group>"; };
+		14793ACE1A22C448000F8C31 /* dzdppic@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "dzdppic@2x.jpg"; sourceTree = "<group>"; };
+		14793AD21A22CC2E000F8C31 /* DZDPDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZDPDetailView.h; sourceTree = "<group>"; };
+		14793AD31A22CC2E000F8C31 /* DZDPDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZDPDetailView.m; sourceTree = "<group>"; };
+		14793AD41A22CC2E000F8C31 /* DZDPDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZDPDetailView.xib; sourceTree = "<group>"; };
+		14793ADE1A241DC6000F8C31 /* libXG-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libXG-SDK.a"; sourceTree = "<group>"; };
+		14793ADF1A241DC6000F8C31 /* XGPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGPush.h; sourceTree = "<group>"; };
+		14793AE01A241DC6000F8C31 /* XGSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGSetting.h; sourceTree = "<group>"; };
 		148195EF19B6F9CD0024C5B1 /* SearchAdderssView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchAdderssView.h; sourceTree = "<group>"; };
 		148195F019B6F9CD0024C5B1 /* SearchAdderssView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAdderssView.m; sourceTree = "<group>"; };
 		148195F119B6F9CD0024C5B1 /* SearchAdderssView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchAdderssView.xib; sourceTree = "<group>"; };
@@ -1302,7 +1295,6 @@
 				1445BA9519862EE100C4417C /* WeChatConnection.framework in Frameworks */,
 				1445BA4519862CAE00C4417C /* libz.dylib in Frameworks */,
 				1445BA9A19862EE100C4417C /* TencentOpenAPI.framework in Frameworks */,
-				1445BB031986315C00C4417C /* libBPush.a in Frameworks */,
 				1445BA4319862CA200C4417C /* MobileCoreServices.framework in Frameworks */,
 				1445BA4119862C9500C4417C /* CFNetwork.framework in Frameworks */,
 				1445BA3F19862C8C00C4417C /* CoreData.framework in Frameworks */,
@@ -1315,6 +1307,7 @@
 				1445BA9119862EE100C4417C /* QQConnection.framework in Frameworks */,
 				1445BAA019862EE100C4417C /* ShareSDK.framework in Frameworks */,
 				1445BA9419862EE100C4417C /* TencentWeiboConnection.framework in Frameworks */,
+				14793AE11A241DC6000F8C31 /* libXG-SDK.a in Frameworks */,
 				1445BA3719862C5900C4417C /* libxml2.dylib in Frameworks */,
 				1445BA3519862C4F00C4417C /* libicucore.dylib in Frameworks */,
 				145236B519A47673008B89D5 /* libssl.a in Frameworks */,
@@ -1346,7 +1339,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1445B8E21986269500C4417C /* XCTest.framework in Frameworks */,
 				1445B8E41986269500C4417C /* UIKit.framework in Frameworks */,
 				1445B8E31986269500C4417C /* Foundation.framework in Frameworks */,
 			);
@@ -1377,6 +1369,9 @@
 				14B3C23D1A204394003673A3 /* DZDPTableCell.h */,
 				14B3C23E1A204394003673A3 /* DZDPTableCell.m */,
 				14B3C23F1A204394003673A3 /* DZDPTableCell.xib */,
+				14793AD21A22CC2E000F8C31 /* DZDPDetailView.h */,
+				14793AD31A22CC2E000F8C31 /* DZDPDetailView.m */,
+				14793AD41A22CC2E000F8C31 /* DZDPDetailView.xib */,
 				04CAC3A7198C78AC0031E956 /* ConvView.h */,
 				04CAC3A8198C78AC0031E956 /* ConvView.m */,
 				04CAC3A9198C78AC0031E956 /* ConvView.xib */,
@@ -1725,7 +1720,6 @@
 				1445B8C81986269500C4417C /* Foundation.framework */,
 				1445B8CA1986269500C4417C /* CoreGraphics.framework */,
 				1445B8CC1986269500C4417C /* UIKit.framework */,
-				1445B8E11986269500C4417C /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1745,7 +1739,7 @@
 				1445BA4B19862DC700C4417C /* Helper */,
 				14753A9D19F60636002D5A2D /* ASIHttp */,
 				1445BAAB1986303600C4417C /* BaiduMapSDK */,
-				1445BAF21986315C00C4417C /* BaiduPush */,
+				14793ADD1A241DC6000F8C31 /* XGPush */,
 				1448ED9A19A43AFE00361C51 /* alipay */,
 				1437BD4F1993417600E467DC /* AMRatingControl */,
 				1445BA6F19862EE100C4417C /* ShareSDK */,
@@ -2283,25 +2277,6 @@
 			path = inc;
 			sourceTree = "<group>";
 		};
-		1445BAF21986315C00C4417C /* BaiduPush */ = {
-			isa = PBXGroup;
-			children = (
-				1445BAF31986315C00C4417C /* Base64.h */,
-				1445BAF41986315C00C4417C /* Base64.m */,
-				1445BAF51986315C00C4417C /* Base64Defines.h */,
-				1445BAF61986315C00C4417C /* BPush.h */,
-				1445BAF71986315C00C4417C /* BPushConfig.plist */,
-				1445BAF81986315C00C4417C /* GzipCompressor.h */,
-				1445BAF91986315C00C4417C /* GzipCompressor.m */,
-				1445BAFA1986315C00C4417C /* JSONKit.h */,
-				1445BAFB1986315C00C4417C /* JSONKit.m */,
-				1445BAFC1986315C00C4417C /* libBPush.a */,
-				1445BAFD1986315C00C4417C /* OpenUDID.h */,
-				1445BAFE1986315C00C4417C /* OpenUDID.m */,
-			);
-			path = BaiduPush;
-			sourceTree = "<group>";
-		};
 		1448ED9A19A43AFE00361C51 /* alipay */ = {
 			isa = PBXGroup;
 			children = (
@@ -2395,9 +2370,21 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		14793ADD1A241DC6000F8C31 /* XGPush */ = {
+			isa = PBXGroup;
+			children = (
+				14793ADE1A241DC6000F8C31 /* libXG-SDK.a */,
+				14793ADF1A241DC6000F8C31 /* XGPush.h */,
+				14793AE01A241DC6000F8C31 /* XGSetting.h */,
+			);
+			path = XGPush;
+			sourceTree = "<group>";
+		};
 		149ED4A7198773170097F2AF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				14793ACD1A22C448000F8C31 /* dzdplogo@2x.png */,
+				14793ACE1A22C448000F8C31 /* dzdppic@2x.jpg */,
 				1475441119F4A0B500F96308 /* onlinebxbtn@2x.png */,
 				1475441219F4A0B500F96308 /* onlinejjbtn@2x.png */,
 				1447B15919D2C0A000492D55 /* alipayBtn@2x.png */,
@@ -2738,6 +2725,7 @@
 				04CED72619908BC600E35D7C /* SubtleView.xib in Resources */,
 				1430694F1999B7DF00A1F1B1 /* 37x-Failure.png in Resources */,
 				14B8875619A8D7C6004842A8 /* BusinessCateCell.xib in Resources */,
+				14793AD61A22CC2E000F8C31 /* DZDPDetailView.xib in Resources */,
 				142277DB1989DED9007242A2 /* ChooseAreaView.xib in Resources */,
 				145049F0199CEFF100C24440 /* ADVDetailView.xib in Resources */,
 				04952CD2199354110030534B /* business_buy@2x.png in Resources */,
@@ -2811,7 +2799,6 @@
 				1419F4101988950F00D3E5E3 /* top_bg@2x.png in Resources */,
 				04952CAB199313620030534B /* conv_cell_left.png in Resources */,
 				04CAC3DC198CC29C0031E956 /* online_huoche@2x.png in Resources */,
-				1445BB001986315C00C4417C /* BPushConfig.plist in Resources */,
 				142277E8198A1CC5007242A2 /* StewardFeeFrameView.xib in Resources */,
 				1421EA3819A4DB6C00FD21BF /* AddInboxView.xib in Resources */,
 				149ED4CB198781750097F2AF /* tab_main@2x.png in Resources */,
@@ -2822,6 +2809,7 @@
 				149ED4CA198781750097F2AF /* tab_steward@2x.png in Resources */,
 				14A32A0E198C87C600497E5C /* payfeequery@2x.png in Resources */,
 				149FDA7D199A03D500BAA6D4 /* SelectHomeAddressView.xib in Resources */,
+				14793ACF1A22C448000F8C31 /* dzdplogo@2x.png in Resources */,
 				14EF64331987EEB00006257D /* tellogo@2x.png in Resources */,
 				1419F42E19889CFB00D3E5E3 /* setting_logout@2x.png in Resources */,
 				14B9057C1991C3FC0087B09D /* maillogo@2x.png in Resources */,
@@ -2900,6 +2888,7 @@
 				04CAC3B6198C78CB0031E956 /* conv_fix@2x.png in Resources */,
 				14EF64311987EC100006257D /* stewardtop@2x.png in Resources */,
 				1419F40F1988950F00D3E5E3 /* top_bg7@2x.png in Resources */,
+				14793AD01A22C448000F8C31 /* dzdppic@2x.jpg in Resources */,
 				1445BA6E19862E5A00C4417C /* NotifyX@2x.png in Resources */,
 				0443196D19B40187009C494F /* order_top_bg@2x.png in Resources */,
 				142277DF1989E265007242A2 /* areaarrows@2x.png in Resources */,
@@ -3079,10 +3068,10 @@
 				1455591319FB44B000CAA5D5 /* MyCouponCell.m in Sources */,
 				14387F3819AE3E3900024966 /* OrderBusiness.m in Sources */,
 				14753ABA19F60636002D5A2D /* ASIAuthenticationDialog.m in Sources */,
-				1445BB041986315C00C4417C /* OpenUDID.m in Sources */,
 				143481371A19F0B000398363 /* UIImage+MultiFormat.m in Sources */,
 				1445BA6019862E0E00C4417C /* NdUncaughtExceptionHandler.m in Sources */,
 				1419F409198881E200D3E5E3 /* LifePageView.m in Sources */,
+				14793AD51A22CC2E000F8C31 /* DZDPDetailView.m in Sources */,
 				1445B8FA1986274800C4417C /* VPImageCropperViewController.m in Sources */,
 				14B905891991DBB10087B09D /* MySendExpressCell.m in Sources */,
 				1445B9DA1986288400C4417C /* EGOImageButton.m in Sources */,
@@ -3110,10 +3099,8 @@
 				142AE65719AB626F00079A9A /* FMResultSet.m in Sources */,
 				143481191A19F0B000398363 /* MWTapDetectingImageView.m in Sources */,
 				14B4C3A0199AFDCF00D8591F /* BuildModel.m in Sources */,
-				1445BB021986315C00C4417C /* JSONKit.m in Sources */,
 				1445B8FE1986276A00C4417C /* ZJSwitch.m in Sources */,
 				1426246E198BEBBF00EA891F /* StewardFeeView.m in Sources */,
-				1445BAFF1986315C00C4417C /* Base64.m in Sources */,
 				14B905841991D7910087B09D /* MySendExpressView.m in Sources */,
 				149ED4AC1987737D0097F2AF /* MainPageView.mm in Sources */,
 				1445BA6719862E4B00C4417C /* TQImageCache.m in Sources */,
@@ -3178,7 +3165,6 @@
 				143481311A19F0B000398363 /* SDWebImageDownloader.m in Sources */,
 				1448A1E0199EF74900C3A1EE /* RepairsCate.m in Sources */,
 				142AE65619AB626F00079A9A /* FMDatabaseQueue.m in Sources */,
-				1445BB011986315C00C4417C /* GzipCompressor.m in Sources */,
 				04C9CD881991CD38000DCDEF /* ConvCell.m in Sources */,
 				1419F4321988C5E100D3E5E3 /* RegisterView.m in Sources */,
 				1434811A1A19F0B000398363 /* MWTapDetectingView.m in Sources */,
@@ -3267,7 +3253,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
+				PROVISIONING_PROFILE = "98c81855-c457-4ce5-9321-483c4eb65650";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3301,7 +3287,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
+				PROVISIONING_PROFILE = "98c81855-c457-4ce5-9321-483c4eb65650";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3347,10 +3333,11 @@
 					"$(PROJECT_DIR)/BeautyLife/alipay",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/BeautyLife/yuntongxunSMS",
+					"$(PROJECT_DIR)/BeautyLife/XGPush",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
+				PROVISIONING_PROFILE = "98c81855-c457-4ce5-9321-483c4eb65650";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3395,10 +3382,11 @@
 					"$(PROJECT_DIR)/BeautyLife/alipay",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/BeautyLife/yuntongxunSMS",
+					"$(PROJECT_DIR)/BeautyLife/XGPush",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
+				PROVISIONING_PROFILE = "98c81855-c457-4ce5-9321-483c4eb65650";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

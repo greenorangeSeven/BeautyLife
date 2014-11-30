@@ -11,6 +11,7 @@
 #import "TQImageCache.h"
 #import "DZDPTableCell.h"
 #import "DZbusinesses.h"
+#import "DZDPDetailView.h"
 
 @interface DZDPTableView : UIViewController<UITableViewDelegate,UITableViewDataSource,EGORefreshTableHeaderDelegate,IconDownloaderDelegate,CLLocationManagerDelegate>
 {
