@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DZDPTableView">
@@ -16,31 +17,47 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="vsF-cf-nkg">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vsF-cf-nkg">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="以下数据来自大众点评" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zm3-I6-clg">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="以下数据来自大众点评" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zm3-I6-clg">
                             <rect key="frame" x="200" y="5" width="112" height="53"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="112" id="2np-Wi-IdP"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dzdppic.jpg" id="Zm6-8T-JEh">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="dzdppic.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Zm6-8T-JEh">
                             <rect key="frame" x="46" y="4" width="122" height="55"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Zm3-I6-clg" firstAttribute="leading" secondItem="Zm6-8T-JEh" secondAttribute="trailing" constant="32" id="2E0-nl-FlE"/>
+                        <constraint firstItem="Zm6-8T-JEh" firstAttribute="top" secondItem="vsF-cf-nkg" secondAttribute="top" constant="4" id="882-tw-PIM"/>
+                        <constraint firstAttribute="bottom" secondItem="Zm6-8T-JEh" secondAttribute="bottom" constant="1" id="P0w-Jx-8yH"/>
+                        <constraint firstItem="Zm3-I6-clg" firstAttribute="centerY" secondItem="Zm6-8T-JEh" secondAttribute="centerY" id="bw8-iN-fP1"/>
+                        <constraint firstItem="Zm3-I6-clg" firstAttribute="trailing" secondItem="vsF-cf-nkg" secondAttribute="trailingMargin" id="owm-S9-kvV"/>
+                        <constraint firstItem="Zm3-I6-clg" firstAttribute="top" secondItem="vsF-cf-nkg" secondAttribute="top" constant="5" id="qGM-zb-wmR"/>
+                    </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="psB-sF-BxQ">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="psB-sF-BxQ">
                     <rect key="frame" x="0.0" y="60" width="320" height="508"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="psB-sF-BxQ" secondAttribute="bottom" id="9zu-eQ-qqN"/>
+                <constraint firstItem="vsF-cf-nkg" firstAttribute="leading" secondItem="psB-sF-BxQ" secondAttribute="leading" id="TtH-SW-YMW"/>
+                <constraint firstItem="psB-sF-BxQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Z5Z-Ix-Prw"/>
+                <constraint firstItem="psB-sF-BxQ" firstAttribute="top" secondItem="vsF-cf-nkg" secondAttribute="bottom" id="pBV-Lx-JTU"/>
+                <constraint firstAttribute="trailing" secondItem="vsF-cf-nkg" secondAttribute="trailing" id="pWA-Dk-hND"/>
+                <constraint firstItem="vsF-cf-nkg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rBv-IQ-FCp"/>
+                <constraint firstItem="psB-sF-BxQ" firstAttribute="trailing" secondItem="vsF-cf-nkg" secondAttribute="trailing" id="ypJ-Iu-UHV"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="-112" y="-22"/>
         </view>
@@ -48,9 +65,4 @@
     <resources>
         <image name="dzdppic.jpg" width="122" height="55"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

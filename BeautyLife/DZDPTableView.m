@@ -44,6 +44,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    
     //适配iOS7uinavigationbar遮挡的问题
     if(IS_IOS7)
     {
@@ -53,9 +55,14 @@
     
     self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
     self.thumbDownloadsInProgress = [NSMutableDictionary dictionary];
+    
     // 判断定位操作是否被允许
     if([CLLocationManager locationServicesEnabled]) {
         self.locationManager = [[CLLocationManager alloc] init];
+        if (IS_IOS8) {
+            [self.locationManager requestAlwaysAuthorization];        //NSLocationAlwaysUsageDescription
+            [self.locationManager requestWhenInUseAuthorization];
+        }
         self.locationManager.delegate = self;
     }else {
         //提示用户无法进行定位操作

@@ -129,6 +129,8 @@ BMKMapManager* _mapManager;
         [[self.tabBarController tabBar] setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
     }
     
+    
+    
     // 要使用百度地图，请先启动BaiduMapManager
     _mapManager = [[BMKMapManager alloc]init];
     BOOL ret = [_mapManager start:@"cBj05GkdddmsGNrG853UXGnO" generalDelegate:self];

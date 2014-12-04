@@ -243,6 +243,12 @@
             {
                 [ASIHTTPRequest setSessionCookies:nil];
                 [ASIHTTPRequest clearSession];
+                //注销删除标签
+                NSString *cidTag = [[UserModel Instance] getUserValueForKey:@"cid"];
+                if (cidTag != nil && [cidTag length] > 0) {
+                    [XGPush delTag:cidTag];
+                }
+                [XGPush delTag:[NSString stringWithFormat:@"userid%@", [[UserModel Instance] getUserValueForKey:@"id"]]];
                 [[UserModel Instance] saveIsLogin:NO];
                 [Tool showCustomHUD:@"注销成功" andView:self.view andImage:@"37x-Checkmark.png" andAfterDelay:2];
             }
