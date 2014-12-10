@@ -43,6 +43,7 @@
 #import "ResponseCode.h"
 #import "OnlineLink.h"
 #import "DZbusinesses.h"
+#import "DZTuan.h"
 
 @interface Tool : NSObject
 
@@ -154,5 +155,9 @@
 + (NSDictionary *)parseQueryString:(NSString *)query;
 + (NSString *)serializeURL:(NSString *)baseURL params:(NSDictionary *)params;
 + (NSMutableArray *)readJsonStrToDZDPShop:(NSString *)str;
+//解析大众点评团购ID列表JSON
++ (NSMutableArray *)readJsonStrToDZDPTuanIDList:(NSString *)str;
+//解析大众点评团购列表JSON
++ (NSMutableArray *)readJsonStrToDZDPTuanList:(NSString *)str;
 
 @end

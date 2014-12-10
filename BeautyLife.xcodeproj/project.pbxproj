@@ -475,6 +475,12 @@
 		14B9ACDD198F5A1F00F67E97 /* MyRepairsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B9ACDB198F5A1F00F67E97 /* MyRepairsView.xib */; };
 		14B9ACE1198F5C3500F67E97 /* MyRepairsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B9ACDF198F5C3500F67E97 /* MyRepairsCell.m */; };
 		14B9ACE2198F5C3500F67E97 /* MyRepairsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B9ACE0198F5C3500F67E97 /* MyRepairsCell.xib */; };
+		14C117921A31F7BC009CAC7E /* DZTuanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C117901A31F7BC009CAC7E /* DZTuanView.m */; };
+		14C117931A31F7BC009CAC7E /* DZTuanView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C117911A31F7BC009CAC7E /* DZTuanView.xib */; };
+		14C117991A33EB89009CAC7E /* DZTuan.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C117981A33EB89009CAC7E /* DZTuan.m */; };
+		14C1179F1A33FBC7009CAC7E /* DZTuanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C1179D1A33FBC7009CAC7E /* DZTuanCell.m */; };
+		14C117A01A33FBC7009CAC7E /* DZTuanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C1179E1A33FBC7009CAC7E /* DZTuanCell.xib */; };
+		14C117A21A34057B009CAC7E /* dztuanlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C117A11A34057B009CAC7E /* dztuanlogo@2x.png */; };
 		14CDD39419B0B9A6004FDAD2 /* BusniessSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDD39219B0B9A6004FDAD2 /* BusniessSearchView.m */; };
 		14CDD39519B0B9A6004FDAD2 /* BusniessSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14CDD39319B0B9A6004FDAD2 /* BusniessSearchView.xib */; };
 		14EF64251987E5E00006257D /* cuttingline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14EF64241987E5E00006257D /* cuttingline@2x.png */; };
@@ -1269,6 +1275,15 @@
 		14B9ACDE198F5C3500F67E97 /* MyRepairsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRepairsCell.h; sourceTree = "<group>"; };
 		14B9ACDF198F5C3500F67E97 /* MyRepairsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRepairsCell.m; sourceTree = "<group>"; };
 		14B9ACE0198F5C3500F67E97 /* MyRepairsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyRepairsCell.xib; sourceTree = "<group>"; };
+		14C1178F1A31F7BC009CAC7E /* DZTuanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZTuanView.h; sourceTree = "<group>"; };
+		14C117901A31F7BC009CAC7E /* DZTuanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZTuanView.m; sourceTree = "<group>"; };
+		14C117911A31F7BC009CAC7E /* DZTuanView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZTuanView.xib; sourceTree = "<group>"; };
+		14C117971A33EB89009CAC7E /* DZTuan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZTuan.h; sourceTree = "<group>"; };
+		14C117981A33EB89009CAC7E /* DZTuan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZTuan.m; sourceTree = "<group>"; };
+		14C1179C1A33FBC7009CAC7E /* DZTuanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZTuanCell.h; sourceTree = "<group>"; };
+		14C1179D1A33FBC7009CAC7E /* DZTuanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZTuanCell.m; sourceTree = "<group>"; };
+		14C1179E1A33FBC7009CAC7E /* DZTuanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZTuanCell.xib; sourceTree = "<group>"; };
+		14C117A11A34057B009CAC7E /* dztuanlogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dztuanlogo@2x.png"; sourceTree = "<group>"; };
 		14CDD39119B0B9A6004FDAD2 /* BusniessSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusniessSearchView.h; sourceTree = "<group>"; };
 		14CDD39219B0B9A6004FDAD2 /* BusniessSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusniessSearchView.m; sourceTree = "<group>"; };
 		14CDD39319B0B9A6004FDAD2 /* BusniessSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusniessSearchView.xib; sourceTree = "<group>"; };
@@ -1374,6 +1389,12 @@
 				14793AD21A22CC2E000F8C31 /* DZDPDetailView.h */,
 				14793AD31A22CC2E000F8C31 /* DZDPDetailView.m */,
 				14793AD41A22CC2E000F8C31 /* DZDPDetailView.xib */,
+				14C1178F1A31F7BC009CAC7E /* DZTuanView.h */,
+				14C117901A31F7BC009CAC7E /* DZTuanView.m */,
+				14C117911A31F7BC009CAC7E /* DZTuanView.xib */,
+				14C1179C1A33FBC7009CAC7E /* DZTuanCell.h */,
+				14C1179D1A33FBC7009CAC7E /* DZTuanCell.m */,
+				14C1179E1A33FBC7009CAC7E /* DZTuanCell.xib */,
 				04CAC3A7198C78AC0031E956 /* ConvView.h */,
 				04CAC3A8198C78AC0031E956 /* ConvView.m */,
 				04CAC3A9198C78AC0031E956 /* ConvView.xib */,
@@ -2199,6 +2220,8 @@
 				14552EDB19FE243C00F590EA /* OnlineLink.m */,
 				14B3C2381A2039CC003673A3 /* DZbusinesses.h */,
 				14B3C2391A2039CC003673A3 /* DZbusinesses.m */,
+				14C117971A33EB89009CAC7E /* DZTuan.h */,
+				14C117981A33EB89009CAC7E /* DZTuan.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2387,6 +2410,7 @@
 		149ED4A7198773170097F2AF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				14C117A11A34057B009CAC7E /* dztuanlogo@2x.png */,
 				14793ACD1A22C448000F8C31 /* dzdplogo@2x.png */,
 				14793ACE1A22C448000F8C31 /* dzdppic@2x.jpg */,
 				1475441119F4A0B500F96308 /* onlinebxbtn@2x.png */,
@@ -2922,6 +2946,7 @@
 				1419F40A198881E200D3E5E3 /* LifePageView.xib in Resources */,
 				14A32A27198C96E500497E5C /* RepairsFormView.xib in Resources */,
 				142A11EF19ACC37500B51705 /* subtle_new@2x.png in Resources */,
+				14C117A01A33FBC7009CAC7E /* DZTuanCell.xib in Resources */,
 				04952CE719936C110030534B /* goods_buy@2x.png in Resources */,
 				145049F6199D189C00C24440 /* blueArrow.png in Resources */,
 				1475441419F4A0B500F96308 /* onlinejjbtn@2x.png in Resources */,
@@ -2934,6 +2959,7 @@
 				145236BD19A47D60008B89D5 /* addmyinbox@2x.png in Resources */,
 				1436058A19AC24EA00AAB9FA /* loadingpic3@2x.png in Resources */,
 				1445B8DB1986269500C4417C /* Images.xcassets in Resources */,
+				14C117931A31F7BC009CAC7E /* DZTuanView.xib in Resources */,
 				1445BA6D19862E5A00C4417C /* NotifyCheck@2x.png in Resources */,
 				041869F719B056C2009063C7 /* FeeHistoryCell.xib in Resources */,
 				04CAC3CD198C92540031E956 /* conv_order_share.png in Resources */,
@@ -2943,6 +2969,7 @@
 				14A32A2C198CBB2600497E5C /* telorderbtn@2x.png in Resources */,
 				14A32A2D198CBB2600497E5C /* onlineorderbtn@2x.png in Resources */,
 				1436058219AC1BA800AAB9FA /* CouponDetailView.xib in Resources */,
+				14C117A21A34057B009CAC7E /* dztuanlogo@2x.png in Resources */,
 				04CAC3D5198CBDF10031E956 /* recharge_bg@2x.png in Resources */,
 				145236BF19A485D7008B89D5 /* ExpressCompany.plist in Resources */,
 			);
@@ -2985,6 +3012,7 @@
 				143481181A19F0B000398363 /* MWPhotoBrowser.m in Sources */,
 				041869F619B056C2009063C7 /* FeeHistoryCell.m in Sources */,
 				1434811C1A19F0B000398363 /* DACircularProgressView.m in Sources */,
+				14C117921A31F7BC009CAC7E /* DZTuanView.m in Sources */,
 				1434811F1A19F0B000398363 /* PSTCollectionViewCell.m in Sources */,
 				143481241A19F0B000398363 /* PSTCollectionViewLayout.m in Sources */,
 				14343CF5199DF7F400947080 /* Shop.m in Sources */,
@@ -3016,6 +3044,7 @@
 				14A32A12198C8D3B00497E5C /* ParkFeeView.m in Sources */,
 				1448EDBC19A43AFF00361C51 /* NSObject+SBJSON.m in Sources */,
 				14B905791991C24E0087B09D /* ExpressView.m in Sources */,
+				14C117991A33EB89009CAC7E /* DZTuan.m in Sources */,
 				04CED72E1990AB9900E35D7C /* BusinessView.m in Sources */,
 				1445BA081986290500C4417C /* AFJSONRequestOperation.m in Sources */,
 				14343CE9199D9C4A00947080 /* NewsDetailView.m in Sources */,
@@ -3170,6 +3199,7 @@
 				1448A1E0199EF74900C3A1EE /* RepairsCate.m in Sources */,
 				142AE65619AB626F00079A9A /* FMDatabaseQueue.m in Sources */,
 				04C9CD881991CD38000DCDEF /* ConvCell.m in Sources */,
+				14C1179F1A33FBC7009CAC7E /* DZTuanCell.m in Sources */,
 				1419F4321988C5E100D3E5E3 /* RegisterView.m in Sources */,
 				1434811A1A19F0B000398363 /* MWTapDetectingView.m in Sources */,
 			);
@@ -3257,7 +3287,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
+				PROVISIONING_PROFILE = "6c2175ae-a9f1-4afe-9cc4-4a3704a93bd4";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3291,7 +3321,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
+				PROVISIONING_PROFILE = "6c2175ae-a9f1-4afe-9cc4-4a3704a93bd4";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3341,7 +3371,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
+				PROVISIONING_PROFILE = "6c2175ae-a9f1-4afe-9cc4-4a3704a93bd4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3390,7 +3420,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
+				PROVISIONING_PROFILE = "6c2175ae-a9f1-4afe-9cc4-4a3704a93bd4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

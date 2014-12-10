@@ -12,6 +12,8 @@
 #import "SubtleView.h"
 #import "BusinessView.h"
 #import "MobClick.h"
+#import "DZDPTableView.h"
+#import "DZTuanView.h"
 
 @interface MainPageView ()
 
@@ -313,6 +315,18 @@
             [self.pointsBtn setTitle:[NSString stringWithFormat:@"点赞( %@ )", adv.points] forState:UIControlStateNormal];
         }
     }
+}
+
+- (IBAction)dzdpAction:(id)sender {
+    DZDPTableView *dzdp = [[DZDPTableView alloc] init];
+    dzdp.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:dzdp animated:YES];
+}
+
+- (IBAction)dzTuanAction:(id)sender {
+    DZTuanView *dzdp = [[DZTuanView alloc] init];
+    dzdp.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:dzdp animated:YES];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

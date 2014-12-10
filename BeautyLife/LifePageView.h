@@ -26,6 +26,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *telBg;
 
 - (IBAction)dzdpAction:(id)sender;
+- (IBAction)dzTuanAction:(id)sender;
 
 - (IBAction)clickService:(UIButton *)sender;
 - (IBAction)clickRecharge:(UIButton *)sender;

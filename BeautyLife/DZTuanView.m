@@ -1,19 +1,19 @@
 //
-//  DZDPTableView.m
+//  DZTuanView.m
 //  BeautyLife
 //
-//  Created by Seven on 14-11-22.
+//  Created by Seven on 14-12-5.
 //  Copyright (c) 2014年 Seven. All rights reserved.
 //
 
-#import "DZDPTableView.h"
+#import "DZTuanView.h"
 #import "MobClick.h"
 
-@interface DZDPTableView ()
+@interface DZTuanView ()
 
 @end
 
-@implementation DZDPTableView
+@implementation DZTuanView
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -21,7 +21,7 @@
     if (self) {
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
         titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        titleLabel.text = @"大众点评";
+        titleLabel.text = @"大众团购";
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = [UIColor whiteColor];
         titleLabel.textAlignment = UITextAlignmentCenter;
@@ -52,64 +52,77 @@
     }
     
     self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
-    self.thumbDownloadsInProgress = [NSMutableDictionary dictionary];
     
-    // 判断定位操作是否被允许
-    if([CLLocationManager locationServicesEnabled]) {
-        self.locationManager = [[CLLocationManager alloc] init];
-        if (IS_IOS8) {
-            [self.locationManager requestAlwaysAuthorization];        //NSLocationAlwaysUsageDescription
-        }
-        self.locationManager.delegate = self;
-    }else {
-        //提示用户无法进行定位操作
-    }
+    self.tuanTable.frame = CGRectMake(self.tuanTable.frame.origin.x, self.tuanTable.frame.origin.y, self.tuanTable.frame.size.width, self.tuanTable.frame.size.height-33);
     
-    // 开始定位
-    [self.locationManager startUpdatingLocation];
-
-    
-    self.shopsTable.frame = CGRectMake(self.shopsTable.frame.origin.x, self.shopsTable.frame.origin.y, self.shopsTable.frame.size.width, self.shopsTable.frame.size.height-33);
-    
-    self.shopsTable.dataSource = self;
-    self.shopsTable.delegate = self;
-    //    设置无分割线
-//    self.shopsTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tuanTable.dataSource = self;
+    self.tuanTable.delegate = self;
     
     allCount = 0;
     //添加的代码
     if (_refreshHeaderView == nil) {
         EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, -320.0f, self.view.frame.size.width, 320)];
         view.delegate = self;
-        [self.shopsTable addSubview:view];
+        [self.tuanTable addSubview:view];
         _refreshHeaderView = view;
     }
     [_refreshHeaderView refreshLastUpdatedDate];
     
-    shops = [[NSMutableArray alloc] initWithCapacity:20];
-//    [self reload:YES];
+    tuans = [[NSMutableArray alloc] initWithCapacity:20];
+    
+    [self getTuanIdList];
 }
 
-- (NSString *)generateDZDPUrl
+- (NSString *)generateDZTuanIdUrl
 {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd"];
+    NSString *timestamp = [formatter stringFromDate:[NSDate date]];
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-    [param setValue:[NSString stringWithFormat:@"%f", latitude] forKey:@"latitude"];
-    [param setValue:[NSString stringWithFormat:@"%f", longitude] forKey:@"longitude"];
-    [param setValue:@"1" forKey:@"offset_type"];
-    [param setValue:@"5000" forKey:@"radius"];
-    [param setValue:@"2" forKey:@"platform"];
-    [param setValue:@"20" forKey:@"limit"];
-    [param setValue:@"1" forKey:@"page"];
+    [param setValue:@"长沙" forKey:@"city"];
+    [param setValue:timestamp forKey:@"date"];
     
-    NSString *dzurl = [Tool serializeURL:@"http://api.dianping.com/v1/business/find_businesses" params:param];
+    NSString *dzurl = [Tool serializeURL:@"http://api.dianping.com/v1/deal/get_daily_new_id_list" params:param];
     return dzurl;
+}
+
+- (void)getTuanIdList
+{
+    //如果有网络连接
+    if ([UserModel Instance].isNetworkRunning) {
+        NSString *dzurl = [self generateDZTuanIdUrl];
+        [[AFOSCClient sharedClient]getPath:dzurl parameters:Nil
+                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       @try {
+                                           tuanIdList = [Tool readJsonStrToDZDPTuanIDList:operation.responseString];
+                                           [self reload:YES];
+                                       }
+                                       @catch (NSException *exception) {
+                                           [NdUncaughtExceptionHandler TakeException:exception];
+                                       }
+                                       @finally {
+                                           
+                                       }
+                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       NSLog(@"列表获取出错");
+                                       
+                                       
+                                       if ([UserModel Instance].isNetworkRunning == NO) {
+                                           return;
+                                       }
+                                       if ([UserModel Instance].isNetworkRunning) {
+                                           //                                           [Tool ToastNotification:@"错误 网络无连接" andView:self.view andLoading:NO andIsBottom:NO];
+                                       }
+                                   }];
+        
+    }
 }
 
 - (void)refreshed:(NSNotification *)notification
 {
     if (notification.object) {
         if ([(NSString *)notification.object isEqualToString:@"0"]) {
-            [self.shopsTable setContentOffset:CGPointMake(0, -75) animated:YES];
+            [self.tuanTable setContentOffset:CGPointMake(0, -75) animated:YES];
             [self performSelector:@selector(doneManualRefresh) withObject:nil afterDelay:0.4];
         }
     }
@@ -117,19 +130,18 @@
 
 - (void)doneManualRefresh
 {
-    [_refreshHeaderView egoRefreshScrollViewDidScroll:self.shopsTable];
-    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:self.shopsTable];
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:self.tuanTable];
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:self.tuanTable];
 }
 
 - (void)viewDidUnload
 {
-    [self setShopsTable:nil];
+    [self setTuanTable:nil];
     _refreshHeaderView = nil;
-    [shops removeAllObjects];
-    shops = nil;
+    [tuans removeAllObjects];
+    tuans = nil;
     
     [_imageDownloadsInProgress removeAllObjects];
-    [_thumbDownloadsInProgress removeAllObjects];
     
     [super viewDidUnload];
 }
@@ -138,16 +150,15 @@
 - (void)reloadType:(int)ncatalog
 {
     [self clear];
-    [self.shopsTable reloadData];
+    [self.tuanTable reloadData];
     [self reload:NO];
 }
 
 - (void)clear
 {
     allCount = 0;
-    [shops removeAllObjects];
+    [tuans removeAllObjects];
     [_imageDownloadsInProgress removeAllObjects];
-    [_thumbDownloadsInProgress removeAllObjects];
     isLoadOver = NO;
 }
 
@@ -161,25 +172,20 @@
         if (!noRefresh) {
             allCount = 0;
         }
-        int pageIndex = allCount/20 + 1;
+        int pageIndex = allCount/20;
+        
+        NSRange range = NSMakeRange(pageIndex * 20, 20);
+        NSArray *newarrays = [tuanIdList subarrayWithRange:range];
+        NSString *idStrings = [newarrays componentsJoinedByString:@","];
+        
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-        if (latitude > 0 && longitude > 0) {
-            [param setValue:[NSString stringWithFormat:@"%f", latitude] forKey:@"latitude"];
-            [param setValue:[NSString stringWithFormat:@"%f", longitude] forKey:@"longitude"];
-            [param setValue:@"5000" forKey:@"radius"];
-//            [param setValue:@"1" forKey:@"offset_type"];
-        }
-        if ([city isEqualToString:@""] == NO) {
-            [param setValue:city forKey:@"city"];
-        }
-        [param setValue:@"2" forKey:@"platform"];
-        [param setValue:@"20" forKey:@"limit"];
-        [param setValue:[NSString stringWithFormat:@"%d", pageIndex] forKey:@"page"];
-        NSString *dzurl = [Tool serializeURL:@"http://api.dianping.com/v1/business/find_businesses" params:param];
+        [param setValue:idStrings forKey:@"deal_ids"];
+        
+        NSString *dzurl = [Tool serializeURL:@"http://api.dianping.com/v1/deal/get_batch_deals_by_id" params:param];
         [[AFOSCClient sharedClient]getPath:dzurl parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                        
-                                       NSMutableArray *newNews = [Tool readJsonStrToDZDPShop:operation.responseString];
+                                       NSMutableArray *newNews = [Tool readJsonStrToDZDPTuanList:operation.responseString];
                                        isLoading = NO;
                                        if (!noRefresh) {
                                            [self clear];
@@ -192,8 +198,8 @@
                                            {
                                                isLoadOver = YES;
                                            }
-                                           [shops addObjectsFromArray:newNews];
-                                           [self.shopsTable reloadData];
+                                           [tuans addObjectsFromArray:newNews];
+                                           [self.tuanTable reloadData];
                                            [self doneLoadingTableViewData];
                                        }
                                        @catch (NSException *exception) {
@@ -220,18 +226,19 @@
     }
 }
 
+
 #pragma TableView的处理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if ([UserModel Instance].isNetworkRunning) {
         if (isLoadOver) {
-            return shops.count == 0 ? 1 : shops.count;
+            return tuans.count == 0 ? 1 : tuans.count;
         }
         else
-            return shops.count + 1;
+            return tuans.count + 1;
     }
     else
-        return shops.count;
+        return tuans.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -247,76 +254,64 @@
 //列表数据渲染
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([shops count] > 0) {
-        if ([indexPath row] < [shops count])
+    if ([tuans count] > 0) {
+        if ([indexPath row] < [tuans count])
         {
-            DZDPTableCell *cell = [tableView dequeueReusableCellWithIdentifier:DZDPTableCellIdentifier];
+            DZTuanCell *cell = [tableView dequeueReusableCellWithIdentifier:DZTuanCellIdentifier];
             if (!cell) {
-                NSArray *objects = [[NSBundle mainBundle] loadNibNamed:@"DZDPTableCell" owner:self options:nil];
+                NSArray *objects = [[NSBundle mainBundle] loadNibNamed:@"DZTuanCell" owner:self options:nil];
                 for (NSObject *o in objects) {
-                    if ([o isKindOfClass:[DZDPTableCell class]]) {
-                        cell = (DZDPTableCell *)o;
+                    if ([o isKindOfClass:[DZTuanCell class]]) {
+                        cell = (DZTuanCell *)o;
                         break;
                     }
                 }
             }
-            DZbusinesses *shop = [shops objectAtIndex:[indexPath row]];
-            cell.nameLb.text = shop.name;
+            DZTuan *shop = [tuans objectAtIndex:[indexPath row]];
+            cell.titleLb.text = shop.title;
             
-            if (shop.distance > 0 && shop.distance < 1000) {
-                cell.distanceLb.text = [NSString stringWithFormat:@"%dm", shop.distance];
-            }
-            else if (shop.distance > 1000)
+            cell.descLb.text = shop.desc;
+            cell.tuanPriLb.text = [NSString stringWithFormat:@"￥%.2f", shop.current_price];
+            
+            //去除所以子视图
+            for(UIView *view in [cell.yuanPriLb subviews])
             {
-                cell.distanceLb.text = [NSString stringWithFormat:@"%.1fkm", ((float)shop.distance)/1000];
+                [view removeFromSuperview];
             }
             
-//            cell.distanceLb.text = [NSString stringWithFormat:@"%d", shop.distance];
-            cell.addressLb.text = shop.address;
-            cell.telLb.text = shop.telephone;
+            StrikeThroughLabel *slabel = [[StrikeThroughLabel alloc] initWithFrame:CGRectMake(0, 0, 56, 21)];
+            slabel.text = [NSString stringWithFormat:@"￥%.2f", shop.list_price];
+            slabel.font = [UIFont italicSystemFontOfSize:12.0f];
+            slabel.strikeThroughEnabled = YES;
+            [cell.yuanPriLb addSubview:slabel];
             
             //店铺图片
             if (shop.photoImgData) {
-                cell.sphotoIV.image = shop.photoImgData;
+                cell.picIv.image = shop.photoImgData;
             }
             else
             {
-                if ([shop.s_photo_url isEqualToString:@""]) {
+                if ([shop.s_image_url isEqualToString:@""]) {
                     shop.photoImgData = [UIImage imageNamed:@"loadingpic2"];
                 }
                 else
                 {
-                    NSData * imageData = [_iconCache getImage:[TQImageCache parseUrlForCacheName:shop.s_photo_url]];
+                    NSData * imageData = [_iconCache getImage:[TQImageCache parseUrlForCacheName:shop.s_image_url]];
                     if (imageData)
                     {
                         shop.photoImgData = [UIImage imageWithData:imageData];
-                        cell.sphotoIV.image = shop.photoImgData;
+                        cell.picIv.image = shop.photoImgData;
                     }
                     else
                     {
                         IconDownloader *downloader = [_imageDownloadsInProgress objectForKey:[NSString stringWithFormat:@"%d", [indexPath row]]];
                         if (downloader == nil) {
                             ImgRecord *record = [ImgRecord new];
-                            record.url = shop.s_photo_url;
+                            record.url = shop.s_image_url;
                             [self startIconDownload:record forIndexPath:indexPath];
                         }
                     }
                 }
-            }
-            
-            //加载星级图片
-            if (shop.ratingImgData == nil)
-            {
-                IconDownloader *d = [_thumbDownloadsInProgress objectForKey:[NSString stringWithFormat:@"%d", [indexPath row]]];
-                if (d == nil) {
-                    ImgRecord *r = [ImgRecord new];
-                    r.url = shop.rating_s_img_url;
-                    [self startIconDownload2:r forIndexPath:indexPath];
-                }
-            }
-            else
-            {
-                cell.ratingimgIV.image = shop.ratingImgData;
             }
             
             return cell;
@@ -338,7 +333,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     int row = [indexPath row];
     //点击“下面20条”
-    if (row >= [shops count]) {
+    if (row >= [tuans count]) {
         //启动刷新
         if (!isLoading) {
             [self performSelector:@selector(reload:)];
@@ -346,10 +341,10 @@
     }
     else
     {
-        DZbusinesses *n = [shops objectAtIndex:[indexPath row]];
+        DZTuan *n = [tuans objectAtIndex:[indexPath row]];
         if (n) {
             DZDPDetailView *detail = [[DZDPDetailView alloc] init];
-            detail.urlStr = n.business_url;
+            detail.urlStr = n.deal_h5_url;
             [self.navigationController pushViewController:detail animated:YES];
         }
     }
@@ -370,41 +365,22 @@
     }
 }
 
-- (void)startIconDownload2:(ImgRecord *)imgRecord forIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *key = [NSString stringWithFormat:@"%d",[indexPath row]];
-    IconDownloader *iconDownloader = [_thumbDownloadsInProgress objectForKey:key];
-    if (iconDownloader == nil) {
-        iconDownloader = [[IconDownloader alloc] init];
-        iconDownloader.imgRecord = imgRecord;
-        iconDownloader.index = key;
-        iconDownloader.delegate = self;
-        [_thumbDownloadsInProgress setObject:iconDownloader forKey:key];
-        [iconDownloader startDownload];
-    }
-}
-
 - (void)appImageDidLoad:(NSString *)index
 {
     int _index = [index intValue];
-    if (_index >= [shops count]) {
+    if (_index >= [tuans count]) {
         return;
     }
-    DZbusinesses *t = [shops objectAtIndex:[index intValue]];
+    DZTuan *t = [tuans objectAtIndex:[index intValue]];
     if (t) {
         IconDownloader *iconDownloader = [_imageDownloadsInProgress objectForKey:index];
         if (iconDownloader) {
             t.photoImgData = iconDownloader.imgRecord.img;
         }
-        
-        IconDownloader *iconTweet = [_thumbDownloadsInProgress objectForKey:index];
-        if (iconTweet) {
-            t.ratingImgData = iconTweet.imgRecord.img;
-        }
         // cache it
         NSData * imageData = UIImagePNGRepresentation(t.photoImgData);
-        [_iconCache putImage:imageData withName:[TQImageCache parseUrlForCacheName:t.s_photo_url]];
-        [self.shopsTable reloadData];
+        [_iconCache putImage:imageData withName:[TQImageCache parseUrlForCacheName:t.s_image_url]];
+        [self.tuanTable reloadData];
         
     }
 }
@@ -418,7 +394,7 @@
 - (void)doneLoadingTableViewData
 {
     _reloading = NO;
-    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.shopsTable];
+    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tuanTable];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -464,47 +440,23 @@
 
 - (void)dealloc
 {
-    [self.shopsTable setDelegate:nil];
-}
-
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    //此处locations存储了持续更新的位置坐标值，取最后一个值为最新位置，如果不想让其持续更新位置，则在此方法中获取到一个值之后让locationManager stopUpdatingLocation
-    CLLocation *currentLocation = [locations lastObject];
-    
-    CLLocationCoordinate2D coor = currentLocation.coordinate;
-    latitude =  coor.latitude;
-    longitude = coor.longitude;
-    city = @"";
-    
-    [self.locationManager stopUpdatingLocation];
-    [self reload:YES];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    latitude = 0;
-    longitude = 0;
-    city = @"长沙";
-    [self reload:YES];
+    [self.tuanTable setDelegate:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
-    [MobClick beginLogPageView:@"DZDPTableView"];
+    [MobClick beginLogPageView:@"DZDPTuanView"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [MobClick endLogPageView:@"DZDPTableView"];
+    [MobClick endLogPageView:@"DZDPTuanView"];
     
     if (self.imageDownloadsInProgress != nil) {
         NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
         [allDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
-        
-        NSArray *thumbAllDownloads = [self.thumbDownloadsInProgress allValues];
-        [thumbAllDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
     }
 }
 
@@ -513,12 +465,9 @@
     NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
     [allDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
     
-    NSArray *thumbAllDownloads = [self.thumbDownloadsInProgress allValues];
-    [thumbAllDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
     //清空
-    for (DZbusinesses *c in shops) {
+    for (DZTuan *c in tuans) {
         c.photoImgData = nil;
-        c.ratingImgData = nil;
     }
     
     [super didReceiveMemoryWarning];
@@ -526,13 +475,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

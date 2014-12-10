@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -11,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.greenorange.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.mmshijie.$(PRODUCT_NAME:rfc1034identifier)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -30,7 +28,7 @@
 			<key>CFBundleURLIconFile</key>
 			<string>mainlogo@2x</string>
 			<key>CFBundleURLName</key>
-			<string>com.greenorange.beautylife.alipay</string>
+			<string>com.mmshijie.beautylife.alipay</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>BeautyLifeAlipay</string>
@@ -42,7 +40,7 @@
 			<key>CFBundleURLIconFile</key>
 			<string>mainlogo@2x</string>
 			<key>CFBundleURLName</key>
-			<string>com.greenorange.BeautyLife</string>
+			<string>com.mmshijie.BeautyLife</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wxd8f6b7ac215ffe1d</string>
@@ -60,10 +58,12 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

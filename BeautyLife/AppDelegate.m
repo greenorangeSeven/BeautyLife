@@ -175,12 +175,23 @@ BMKMapManager* _mapManager;
     //[XGPush setAccount:@"testAccount1"];
     
     //推送反馈(app不在前台运行时，点击推送激活时)
-    //[XGPush handleLaunching:launchOptions];
+    [XGPush handleLaunching:launchOptions];
     
     //推送反馈回调版本示例
     void (^successBlock)(void) = ^(void){
         //成功之后的处理
         NSLog(@"[XGPush]handleLaunching's successBlock");
+        //角标清0
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+        //清除所有通知(包含本地通知)
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        NoticeFrameView *noticeView = [[NoticeFrameView alloc] initWithNibName:@"NoticeFrameView" bundle:nil];
+        noticeView.presentType = @"present";
+        UINavigationController *noticeViewNav = [[UINavigationController alloc] initWithRootViewController:noticeView];
+        
+        [self.window.rootViewController presentViewController:noticeViewNav animated:YES completion:^{
+            _isForeground = NO;
+        }];
     };
     
     void (^errorBlock)(void) = ^(void){

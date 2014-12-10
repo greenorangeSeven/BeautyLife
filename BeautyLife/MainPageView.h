@@ -53,5 +53,7 @@
 
 - (IBAction)advDetailAction:(id)sender;
 - (IBAction)pointsAction:(id)sender;
+- (IBAction)dzdpAction:(id)sender;
+- (IBAction)dzTuanAction:(id)sender;
 
 @end

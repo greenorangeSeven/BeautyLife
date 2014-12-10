@@ -969,4 +969,50 @@
     }
 }
 
+//解析大众点评团购ID列表JSON
++ (NSMutableArray *)readJsonStrToDZDPTuanIDList:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *tuanIdJsonDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if ( tuanIdJsonDic == nil || [tuanIdJsonDic count] <= 0) {
+        return nil;
+    }
+    NSString *status = [tuanIdJsonDic objectForKey:@"status"];
+    if ([status isEqualToString:@"OK"] == YES) {
+        NSMutableArray *tuanIdList = [tuanIdJsonDic objectForKey:@"id_list"];
+        return tuanIdList;
+    }
+    else
+    {
+        return nil;
+    }
+}
+
+//解析大众点评团购列表JSON
++ (NSMutableArray *)readJsonStrToDZDPTuanList:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *tuanJsonDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if ( tuanJsonDic == nil || [tuanJsonDic count] <= 0) {
+        return nil;
+    }
+    NSString *status = [tuanJsonDic objectForKey:@"status"];
+    if ([status isEqualToString:@"OK"] == YES) {
+        NSArray *tuanJson = [tuanJsonDic objectForKey:@"deals"];
+        NSMutableArray *tuanArray = [RMMapper mutableArrayOfClass:[DZTuan class] fromArrayOfDictionary:tuanJson];
+        for (int i = 0; i < [tuanArray count]; i++) {
+            DZTuan *tuan = [tuanArray objectAtIndex:i];
+            NSDictionary *tuandic = [tuanJson objectAtIndex:i];
+            tuan.desc = [tuandic valueForKey:@"description"];
+        }
+        return tuanArray;
+    }
+    else
+    {
+        return nil;
+    }
+}
+
 @end

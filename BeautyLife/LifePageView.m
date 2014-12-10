@@ -13,6 +13,7 @@
 #import "BusinessView.h"
 #import "MobClick.h"
 #import "DZDPTableView.h"
+#import "DZTuanView.h"
 
 @interface LifePageView ()
 
@@ -153,6 +154,12 @@
 
 - (IBAction)dzdpAction:(id)sender {
     DZDPTableView *dzdp = [[DZDPTableView alloc] init];
+    dzdp.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:dzdp animated:YES];
+}
+
+- (IBAction)dzTuanAction:(id)sender {
+    DZTuanView *dzdp = [[DZTuanView alloc] init];
     dzdp.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:dzdp animated:YES];
 }
