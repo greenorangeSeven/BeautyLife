@@ -44,11 +44,13 @@
     return self;
 }
 
+#pragma mark 回退事件
 - (void)backAction
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark 分享事件
 - (IBAction)shareAction:(id)sender {
     NSDictionary *contentDic = [NSDictionary dictionaryWithObjectsAndKeys:
                                 _adv.content , @"title",

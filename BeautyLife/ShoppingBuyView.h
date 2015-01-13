@@ -4,6 +4,7 @@
 //
 //  Created by mac on 14-9-4.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  商品购买
 //
 
 #import <UIKit/UIKit.h>
@@ -16,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *addressField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
 - (IBAction)doBuy:(UIButton *)sender;
-
+@property (weak, nonatomic) IBOutlet UIButton *payfeeBtn;
 
 @end

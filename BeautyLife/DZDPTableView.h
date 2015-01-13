@@ -4,6 +4,7 @@
 //
 //  Created by Seven on 14-11-22.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  大众点评页面
 //
 
 #import <UIKit/UIKit.h>
@@ -15,10 +16,13 @@
 
 @interface DZDPTableView : UIViewController<UITableViewDelegate,UITableViewDataSource,EGORefreshTableHeaderDelegate,IconDownloaderDelegate,CLLocationManagerDelegate>
 {
+    //经纬度
     double latitude;
     double longitude;
+    //城市
     NSString *city;
     
+    //商家数据
     NSMutableArray * shops;
     BOOL isLoading;
     BOOL isLoadOver;
@@ -48,6 +52,7 @@
 @property (nonatomic, retain) NSMutableDictionary *imageDownloadsInProgress;
 @property (nonatomic, retain) NSMutableDictionary *thumbDownloadsInProgress;
 
+//定位控件
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end

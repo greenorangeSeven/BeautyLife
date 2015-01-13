@@ -72,11 +72,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+//生成随机数
 -(int)getRandomNumber:(int)start to:(int)end
 {
     return (int)(start + (arc4random() % (end - start + 1)));
 }
 
+//获取短信验证码
 - (IBAction)sendSecurityCodeAction:(id)sender {
     NSString *mobileStr = self.mobileTf.text;
     if (![mobileStr isValidPhoneNum]) {
@@ -131,6 +133,7 @@
     }
 }
 
+//注册事件
 - (IBAction)registerAction:(id)sender {
     NSString *mobileStr = self.mobileTf.text;
     NSString *SMSStr = (NSString *)[[EGOCache currentCache] objectForKey:SecurityCode];

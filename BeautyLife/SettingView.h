@@ -4,6 +4,7 @@
 //
 //  Created by wangjun on 12-3-5.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//  设置界面
 //
 
 #import <UIKit/UIKit.h>
@@ -25,6 +26,7 @@
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableSettings;
+//设置数组
 @property (retain,nonatomic) NSArray * settings;
 @property (retain,nonatomic) NSMutableDictionary * settingsInSection;
 

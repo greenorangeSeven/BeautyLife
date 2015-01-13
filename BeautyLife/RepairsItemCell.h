@@ -4,6 +4,7 @@
 //
 //  Created by Seven on 14-8-17.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  报修详情行模型
 //
 
 #import <UIKit/UIKit.h>

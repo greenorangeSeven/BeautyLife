@@ -7,7 +7,7 @@
 //
 
 #import "ConvOrderView.h"
-#import "MobClick.h"
+#import "RouteSearchView.h"
 
 @interface ConvOrderView ()
 
@@ -33,9 +33,9 @@
         UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
         self.navigationItem.leftBarButtonItem = btnBack;
         
-        UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 58, 26)];
+        UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 52, 27)];
         [rBtn addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
-        [rBtn setImage:[UIImage imageNamed:@"conv_order_share"] forState:UIControlStateNormal];
+        [rBtn setImage:[UIImage imageNamed:@"head_share"] forState:UIControlStateNormal];
         UIBarButtonItem *btnShare = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
         self.navigationItem.rightBarButtonItem = btnShare;
     }
@@ -47,6 +47,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+//分享
 - (void)shareAction:(id)sender
 {
     NSDictionary *contentDic = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -109,14 +110,12 @@
 {
     [super viewWillDisappear:animated];
     [self.webView stopLoading];
-    [MobClick endLogPageView:@"ConvOrderView"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
-    [MobClick beginLogPageView:@"ConvOrderView"];
 }
 
 - (IBAction)telAction:(id)sender {
@@ -137,13 +136,26 @@
 
 - (IBAction)mapPointAction:(id)sender {
     if (_shop) {
+        
         CLLocationCoordinate2D coor;
         coor.longitude = [_shop.longitude doubleValue];
         coor.latitude = [_shop.latitude doubleValue];
-        StoreMapPointView *pointView = [[StoreMapPointView alloc] init];
-        pointView.storeCoor = coor;
-        pointView.storeTitle = _shop.title;
-        [self.navigationController pushViewController:pointView animated:YES];
+        //如果允许定位就进行线路规划，否则只是进行商家地图描点
+        if (self.mycoor.latitude > 0) {
+            RouteSearchView *routeSearch = [[RouteSearchView alloc] init];
+            routeSearch.startCoor = self.mycoor;
+            routeSearch.endCoor = coor;
+            routeSearch.storeTitle = _shop.title;
+            [self.navigationController pushViewController:routeSearch animated:YES];
+        }
+        else
+        {
+            StoreMapPointView *pointView = [[StoreMapPointView alloc] init];
+            pointView.storeCoor = coor;
+            pointView.storeTitle = _shop.title;
+            [self.navigationController pushViewController:pointView animated:YES];
+        }
+        
     }
 }
 @end

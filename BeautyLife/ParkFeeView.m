@@ -52,8 +52,17 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    if ([Tool testAlipayInstall]) {
+        self.payfeeBtn.hidden = NO;
+    }
+    else
+    {
+        self.payfeeBtn.hidden = YES;
+    }
     [MobClick beginLogPageView:@"ParkFeeView"];
 }
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -154,18 +163,6 @@
                                    }];
     }
 }
-
-//-(void)showAlertView
-//{
-//    if (!havePackFee) {
-//        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"温馨提醒"
-//                                                     message:@"没有找到您的车辆信息!"
-//                                                    delegate:nil
-//                                           cancelButtonTitle:@"确定"
-//                                           otherButtonTitles:nil];
-//        [av show];
-//    }
-//}
 
 - (IBAction)showPresetAction:(id)sender
 {

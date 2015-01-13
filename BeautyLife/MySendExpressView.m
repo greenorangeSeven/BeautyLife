@@ -63,6 +63,7 @@
     [self reload];
 }
 
+#pragma -mark 我的收件箱
 - (void)inboxClick
 {
     MyInBoxView *inboxView = [[MyInBoxView alloc] init];
@@ -70,6 +71,7 @@
     [self.navigationController pushViewController:inboxView animated:YES];
 }
 
+#pragma -mark 初始化我的收件数据
 - (void)reload
 {
     UserModel *usermodel = [UserModel Instance];

@@ -4,6 +4,7 @@
 //
 //  Created by Seven on 14-12-7.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  团购行模型
 //
 
 #import <UIKit/UIKit.h>

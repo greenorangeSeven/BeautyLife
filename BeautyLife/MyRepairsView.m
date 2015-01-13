@@ -46,6 +46,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:Notification_RefreshMyRepairs object:nil];
 }
 
+#pragma -mark 初始化我的报修数组
 - (void)reload
 {
     //如果有网络连接

@@ -69,6 +69,7 @@
     [self loadData];
 }
 
+//获取我的优惠券数据集合
 - (void)loadData
 {
     

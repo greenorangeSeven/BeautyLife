@@ -21,7 +21,7 @@
     if (self) {
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
         titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        titleLabel.text = @"大众点评";
+        titleLabel.text = @"商户点评";
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = [UIColor whiteColor];
         titleLabel.textAlignment = UITextAlignmentCenter;
@@ -87,9 +87,9 @@
     [_refreshHeaderView refreshLastUpdatedDate];
     
     shops = [[NSMutableArray alloc] initWithCapacity:20];
-//    [self reload:YES];
 }
 
+#pragma mark 生成大众点评URL
 - (NSString *)generateDZDPUrl
 {
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
@@ -105,6 +105,7 @@
     return dzurl;
 }
 
+#pragma mark 刷新
 - (void)refreshed:(NSNotification *)notification
 {
     if (notification.object) {
@@ -151,6 +152,7 @@
     isLoadOver = NO;
 }
 
+#pragma mark 初始化大众点评数据初始化大众点评数据
 - (void)reload:(BOOL)noRefresh
 {
     //如果有网络连接

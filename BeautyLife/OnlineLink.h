@@ -4,6 +4,7 @@
 //
 //  Created by Seven on 14-10-27.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  在线服务数据模型
 //
 
 #import <Foundation/Foundation.h>

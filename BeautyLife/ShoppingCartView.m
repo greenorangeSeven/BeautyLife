@@ -72,11 +72,12 @@
     }
 }
 
+//初始化广告
 - (void)initRecommend
 {
     //如果有网络连接
     if ([UserModel Instance].isNetworkRunning) {
-        [Tool showHUD:@"数据加载" andView:self.view andHUD:hud];
+//        [Tool showHUD:@"数据加载" andView:self.view andHUD:hud];
         NSString *url = [NSString stringWithFormat:@"%@%@?APPKey=%@", api_base_url, api_getrecommendgoods, appkey];
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -112,9 +113,9 @@
                                            [NdUncaughtExceptionHandler TakeException:exception];
                                        }
                                        @finally {
-                                           if (hud != nil) {
-                                               [hud hide:YES];
-                                           }
+//                                           if (hud != nil) {
+//                                               [hud hide:YES];
+//                                           }
                                        }
                                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                        if ([UserModel Instance].isNetworkRunning == NO) {
@@ -135,6 +136,7 @@
     if (good) {
         GoodsDetailView *goodsDetail = [[GoodsDetailView alloc] init];
         goodsDetail.good = good;
+        goodsDetail.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:goodsDetail animated:YES];
     }
 }
@@ -157,6 +159,18 @@
         [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
         return;
     }
+    
+    if ([Tool testAlipayInstall]) {
+        //        self.addShopCarBtn.hidden = NO;
+        self.buyButton.hidden = NO;
+    }
+    else
+    {
+        //        self.addShopCarBtn.hidden = YES;
+        self.buyButton.hidden = YES;
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
     noDataLabel.hidden = YES;
     [self reloadData];
     [MobClick beginLogPageView:@"ShoppingCartView"];
@@ -171,7 +185,7 @@
 //    bannerView.delegate = nil;
 }
 
-//取数方法
+//购物车取数方法
 - (void)reloadData
 {
     [goodData removeAllObjects];
@@ -268,6 +282,7 @@
 
 }
 
+//所选商品减少数量
 - (IBAction)minusAction:(id)sender {
     UIButton *tap = (UIButton *)sender;
     if (tap) {
@@ -289,6 +304,7 @@
     }
 }
 
+//所选商品添加数量
 - (IBAction)addAction:(id)sender {
     UIButton *tap = (UIButton *)sender;
     if (tap) {
@@ -310,6 +326,7 @@
     }
 }
 
+//删除商品
 - (IBAction)deleteAction:(id)sender {
     UIButton *tap = (UIButton *)sender;
     if (tap) {

@@ -66,14 +66,24 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    if ([Tool testAlipayInstall]) {
+        self.payfeeBtn.hidden = NO;
+    }
+    else
+    {
+        self.payfeeBtn.hidden = YES;
+    }
     [MobClick beginLogPageView:@"ShoppingBuyView"];
 }
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [MobClick endLogPageView:@"ShoppingBuyView"];
 }
 
+//支付宝支付成功回调
 - (void)buyOK
 {
     FMDatabase* database=[FMDatabase databaseWithPath:[Tool databasePath]];
@@ -110,6 +120,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//支付宝支付计算并跳转至支付宝
 - (IBAction)doBuy:(UIButton *)sender
 {
     NSString *nameStr = self.nameField.text;

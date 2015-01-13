@@ -4,6 +4,7 @@
 //
 //  Created by mac on 14-8-7.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  商家数据行模型
 //
 
 #import <UIKit/UIKit.h>

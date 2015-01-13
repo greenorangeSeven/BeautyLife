@@ -115,6 +115,7 @@
     [self.webView stopLoading];
 }
 
+//领取优惠券
 - (IBAction)getAction:(id)sender {
     if ([UserModel Instance].isLogin == NO) {
         [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
@@ -167,6 +168,7 @@
     }
 }
 
+//检查当前用户是否已领取优惠券
 - (void)checkIsGot
 {
     if ([[UserModel Instance] isLogin]) {

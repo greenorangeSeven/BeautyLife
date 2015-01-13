@@ -439,27 +439,27 @@
     //                                    nil]];
     
     //自定义新浪微博分享菜单项
-    id<ISSShareActionSheetItem> sinaItem = [ShareSDK shareActionSheetItemWithTitle:[ShareSDK getClientNameWithType:ShareTypeSinaWeibo]
-                                                                              icon:[ShareSDK getClientIconWithType:ShareTypeSinaWeibo]
-                                                                      clickHandler:^{
-                                                                          [ShareSDK shareContent:publishContent
-                                                                                            type:ShareTypeSinaWeibo
-                                                                                     authOptions:nil
-                                                                                   statusBarTips:NO
-                                                                                          result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-                                                                                              
-                                                                                              if (state == SSPublishContentStateSuccess)
-                                                                                              {
-                                                                                                  [self showCustomHUD:@"分享成功" andView:view andImage:@"37x-Checkmark.png" andAfterDelay:1];
-                                                                                                  NSLog(NSLocalizedString(@"TEXT_SHARE_SUC", @"分享成功"));
-                                                                                              }
-                                                                                              else if (state == SSPublishContentStateFail)
-                                                                                              {
-                                                                                                  [self showCustomHUD:@"分享失败" andView:view andImage:@"37x-Failure.png" andAfterDelay:1];
-                                                                                                  NSLog(NSLocalizedString(@"TEXT_SHARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription]);
-                                                                                              }
-                                                                                          }];
-                                                                      }];
+//    id<ISSShareActionSheetItem> sinaItem = [ShareSDK shareActionSheetItemWithTitle:[ShareSDK getClientNameWithType:ShareTypeSinaWeibo]
+//                                                                              icon:[ShareSDK getClientIconWithType:ShareTypeSinaWeibo]
+//                                                                      clickHandler:^{
+//                                                                          [ShareSDK shareContent:publishContent
+//                                                                                            type:ShareTypeSinaWeibo
+//                                                                                     authOptions:nil
+//                                                                                   statusBarTips:NO
+//                                                                                          result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+//                                                                                              
+//                                                                                              if (state == SSPublishContentStateSuccess)
+//                                                                                              {
+//                                                                                                  [self showCustomHUD:@"分享成功" andView:view andImage:@"37x-Checkmark.png" andAfterDelay:1];
+//                                                                                                  NSLog(NSLocalizedString(@"TEXT_SHARE_SUC", @"分享成功"));
+//                                                                                              }
+//                                                                                              else if (state == SSPublishContentStateFail)
+//                                                                                              {
+//                                                                                                  [self showCustomHUD:@"分享失败" andView:view andImage:@"37x-Failure.png" andAfterDelay:1];
+//                                                                                                  NSLog(NSLocalizedString(@"TEXT_SHARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription]);
+//                                                                                              }
+//                                                                                          }];
+//                                                                      }];
     
     //自定义腾讯微博分享菜单项
     id<ISSShareActionSheetItem> tencentItem = [ShareSDK shareActionSheetItemWithTitle:[ShareSDK getClientNameWithType:ShareTypeTencentWeibo]
@@ -485,17 +485,27 @@
                                                                          }];
     
     //创建自定义分享列表
-    NSArray *shareList = [ShareSDK customShareListWithType:
-                          sinaItem,
-                          tencentItem,
-                          SHARE_TYPE_NUMBER(ShareTypeWeixiSession),
-                          SHARE_TYPE_NUMBER(ShareTypeWeixiTimeline),
-                          nil];
+    NSArray *shareList = [[NSArray alloc] init];
+    
+    if ([self testWeiXinInstall]) {
+        shareList = [ShareSDK customShareListWithType:
+                     //                          sinaItem,
+                     tencentItem,
+                     SHARE_TYPE_NUMBER(ShareTypeWeixiSession),
+                     SHARE_TYPE_NUMBER(ShareTypeWeixiTimeline),
+                     nil];
+    }
+    else
+    {
+        shareList = [ShareSDK customShareListWithType:
+                     tencentItem,
+                     nil];
+    }
     
     
     
     NSArray *oneKeyShareList = [ShareSDK getShareListWithType:
-                                ShareTypeSinaWeibo,
+//                                ShareTypeSinaWeibo,
                                 ShareTypeTencentWeibo,
                                 ShareTypeWeixiFav,
                                 nil];
@@ -530,6 +540,43 @@
                                     NSLog(@"分享失败,错误码:%d,错误描述:%@", [error errorCode], [error errorDescription]);
                                 }
                             }];
+}
+
+//过滤HTML标签
++ (NSString *)flattenHTML:(NSString *)html {
+    NSScanner *theScanner;
+    NSString *text = nil;
+    theScanner = [NSScanner scannerWithString:html];
+    while ([theScanner isAtEnd] == NO) {
+        [theScanner scanUpToString:@"<" intoString:NULL] ;
+        [theScanner scanUpToString:@">" intoString:&text] ;
+        html = [html stringByReplacingOccurrencesOfString:
+                [NSString stringWithFormat:@"%@>", text]
+                                               withString:@""];
+    }
+    return html;
+}
+
++ (BOOL)testAlipayInstall
+{
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"alipay://"]]) {
+        NSLog(@"支付宝install--");
+        return YES;
+    }else{
+        NSLog(@"支付宝no---");
+        return NO;
+    }
+}
+
++ (BOOL)testWeiXinInstall
+{
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"weixin://"]]) {
+        NSLog(@"微信install--");
+        return YES;
+    }else{
+        NSLog(@"微信no---");
+        return NO;
+    }
 }
 
 + (NSString* )databasePath

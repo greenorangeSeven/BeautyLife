@@ -68,6 +68,7 @@
     [self reload];
 }
 
+#pragma -mark 初始化我的收件
 - (void)reload
 {
     [Tool showHUD:@"数据加载" andView:self.view andHUD:hud];

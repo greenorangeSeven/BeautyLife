@@ -4,6 +4,7 @@
 //
 //  Created by Seven on 14-12-5.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  大众点评团购
 //
 
 #import <UIKit/UIKit.h>
@@ -15,14 +16,16 @@
 
 @interface DZTuanView : UIViewController<UITableViewDelegate,UITableViewDataSource,EGORefreshTableHeaderDelegate,IconDownloaderDelegate>
 {
+    //团购ID数组
     NSMutableArray *tuanIdList;
-    
+    //团购对象数组
     NSMutableArray * tuans;
     BOOL isLoading;
     BOOL isLoadOver;
     int allCount;
     
     BOOL isInitialize;
+    //图片缓存
     TQImageCache * _iconCache;
     
     //下拉刷新

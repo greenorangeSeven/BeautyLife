@@ -65,6 +65,7 @@
     [MobClick endLogPageView:@"RepairsItemView"];
 }
 
+//初始化报修详情数组
 - (void)reload
 {
     //如果有网络连接

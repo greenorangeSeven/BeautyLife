@@ -4,6 +4,7 @@
 //
 //  Created by Seven on 14-8-17.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  报修评价
 //
 
 #import <UIKit/UIKit.h>
@@ -14,7 +15,7 @@
 {
     NSString *rateValue;
 }
-
+//报修传递对象
 @property (weak, nonatomic) RepairsList *repair;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scollView;

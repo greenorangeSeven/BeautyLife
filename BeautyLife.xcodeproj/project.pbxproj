@@ -192,7 +192,6 @@
 		143481281A19F0B000398363 /* PSTGridLayoutRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 143480E81A19F0AF00398363 /* PSTGridLayoutRow.m */; };
 		143481291A19F0B000398363 /* PSTGridLayoutSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 143480EA1A19F0AF00398363 /* PSTGridLayoutSection.m */; };
 		1434812A1A19F0B000398363 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 143480EC1A19F0AF00398363 /* LICENSE */; };
-		1434812B1A19F0B000398363 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 143480ED1A19F0AF00398363 /* README.md */; };
 		1434812C1A19F0B000398363 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 143480F01A19F0AF00398363 /* MKAnnotationView+WebCache.m */; };
 		1434812D1A19F0B000398363 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 143480F21A19F0AF00398363 /* NSData+ImageContentType.m */; };
 		1434812E1A19F0B000398363 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 143480F41A19F0AF00398363 /* SDImageCache.m */; };
@@ -454,6 +453,8 @@
 		14B4C39D199AFD2000D8591F /* CommunityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B4C39C199AFD2000D8591F /* CommunityModel.m */; };
 		14B4C3A0199AFDCF00D8591F /* BuildModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B4C39F199AFDCF00D8591F /* BuildModel.m */; };
 		14B4C3A3199AFE1300D8591F /* HouseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B4C3A2199AFE1300D8591F /* HouseModel.m */; };
+		14B4D40A1A38469900933A5A /* RouteSearchView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14B4D4081A38469900933A5A /* RouteSearchView.mm */; };
+		14B4D40B1A38469900933A5A /* RouteSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B4D4091A38469900933A5A /* RouteSearchView.xib */; };
 		14B56CFD1991188E00F7C601 /* NoticeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B56CFB1991188E00F7C601 /* NoticeTableCell.m */; };
 		14B56CFE1991188E00F7C601 /* NoticeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B56CFC1991188E00F7C601 /* NoticeTableCell.xib */; };
 		14B56D0219912D0000F7C601 /* NewsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B56D0019912D0000F7C601 /* NewsTableView.m */; };
@@ -774,7 +775,6 @@
 		143480E91A19F0AF00398363 /* PSTGridLayoutSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTGridLayoutSection.h; sourceTree = "<group>"; };
 		143480EA1A19F0AF00398363 /* PSTGridLayoutSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTGridLayoutSection.m; sourceTree = "<group>"; };
 		143480EC1A19F0AF00398363 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		143480ED1A19F0AF00398363 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		143480EF1A19F0AF00398363 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		143480F01A19F0AF00398363 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		143480F11A19F0AF00398363 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -1244,6 +1244,9 @@
 		14B4C39F199AFDCF00D8591F /* BuildModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildModel.m; sourceTree = "<group>"; };
 		14B4C3A1199AFE1300D8591F /* HouseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseModel.h; sourceTree = "<group>"; };
 		14B4C3A2199AFE1300D8591F /* HouseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseModel.m; sourceTree = "<group>"; };
+		14B4D4071A38469900933A5A /* RouteSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteSearchView.h; sourceTree = "<group>"; };
+		14B4D4081A38469900933A5A /* RouteSearchView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RouteSearchView.mm; sourceTree = "<group>"; };
+		14B4D4091A38469900933A5A /* RouteSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteSearchView.xib; sourceTree = "<group>"; };
 		14B56CFA1991188E00F7C601 /* NoticeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeTableCell.h; sourceTree = "<group>"; };
 		14B56CFB1991188E00F7C601 /* NoticeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeTableCell.m; sourceTree = "<group>"; };
 		14B56CFC1991188E00F7C601 /* NoticeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeTableCell.xib; sourceTree = "<group>"; };
@@ -1437,6 +1440,9 @@
 				1432768119B83A8900C18B71 /* StoreMapPointView.h */,
 				1432768219B83A8900C18B71 /* StoreMapPointView.m */,
 				1432768319B83A8900C18B71 /* StoreMapPointView.xib */,
+				14B4D4071A38469900933A5A /* RouteSearchView.h */,
+				14B4D4081A38469900933A5A /* RouteSearchView.mm */,
+				14B4D4091A38469900933A5A /* RouteSearchView.xib */,
 				1475AA8219AB200300AE904F /* BusinessGoodCell.h */,
 				1475AA8319AB200300AE904F /* BusinessGoodCell.m */,
 				1475AA8519AB202200AE904F /* BusinessGoodCell.xib */,
@@ -1633,7 +1639,6 @@
 			isa = PBXGroup;
 			children = (
 				143480EC1A19F0AF00398363 /* LICENSE */,
-				143480ED1A19F0AF00398363 /* README.md */,
 				143480EE1A19F0AF00398363 /* SDWebImage */,
 			);
 			path = SDWebImage;
@@ -2811,6 +2816,7 @@
 				14B905801991CEAD0087B09D /* queryImg@2x.png in Resources */,
 				14343CEF199DBBB600947080 /* detail_join@2x.png in Resources */,
 				142277E11989E2D3007242A2 /* arealine.png in Resources */,
+				14B4D40B1A38469900933A5A /* RouteSearchView.xib in Resources */,
 				149ED4CF1987901E0097F2AF /* publicservice.png in Resources */,
 				142277D21989DAAA007242A2 /* saveinfobtn@2x.png in Resources */,
 				04952CAD1993142A0030534B /* conv_cell_loc.png in Resources */,
@@ -3084,6 +3090,7 @@
 				1448EDBB19A43AFF00361C51 /* AlixPayResult.m in Sources */,
 				0440160F19B3128C00546126 /* MyGoodsCell.m in Sources */,
 				14753ABF19F60636002D5A2D /* ASIHTTPRequest.m in Sources */,
+				14B4D40A1A38469900933A5A /* RouteSearchView.mm in Sources */,
 				1445BA0C1986290500C4417C /* AFPropertyListRequestOperation.m in Sources */,
 				143ED83719C829E5005FE0CC /* ReSetPwdView.m in Sources */,
 				14B56D0219912D0000F7C601 /* NewsTableView.m in Sources */,
@@ -3183,7 +3190,6 @@
 				14B9ACE1198F5C3500F67E97 /* MyRepairsCell.m in Sources */,
 				145049EF199CEFF100C24440 /* ADVDetailView.m in Sources */,
 				1448EDC119A43AFF00361C51 /* SBJsonWriter.m in Sources */,
-				1434812B1A19F0B000398363 /* README.md in Sources */,
 				143481361A19F0B000398363 /* UIImage+GIF.m in Sources */,
 				145236BA19A477F1008B89D5 /* MyInBoxView.m in Sources */,
 				1445B9B8198627D000C4417C /* RMMapper.m in Sources */,
@@ -3268,8 +3274,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hunan Beautiful World Beautiful Life E-Commerce Co., Ltd. (Q96H472ZEK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hunan Beautiful World Beautiful Life E-Commerce Co., Ltd. (Q96H472ZEK)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3285,9 +3291,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6c2175ae-a9f1-4afe-9cc4-4a3704a93bd4";
+				PROVISIONING_PROFILE = "181edf91-c333-4873-8fbc-dd9a0e258a86";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3308,8 +3314,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hunan Beautiful World Beautiful Life E-Commerce Co., Ltd. (Q96H472ZEK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hunan Beautiful World Beautiful Life E-Commerce Co., Ltd. (Q96H472ZEK)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3319,9 +3325,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6c2175ae-a9f1-4afe-9cc4-4a3704a93bd4";
+				PROVISIONING_PROFILE = "181edf91-c333-4873-8fbc-dd9a0e258a86";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3336,7 +3342,7 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hunan Beautiful World Beautiful Life E-Commerce Co., Ltd. (Q96H472ZEK)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
@@ -3356,7 +3362,7 @@
 					"${SDK_DIR}/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "BeautyLife/BeautyLife-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK/Extend/SinaWeiboSDK",
@@ -3371,7 +3377,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6c2175ae-a9f1-4afe-9cc4-4a3704a93bd4";
+				PROVISIONING_PROFILE = "181edf91-c333-4873-8fbc-dd9a0e258a86";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3385,7 +3391,7 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hunan Beautiful World Beautiful Life E-Commerce Co., Ltd. (Q96H472ZEK)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyLife/IQKeyboardManager",
@@ -3405,7 +3411,7 @@
 					"${SDK_DIR}/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "BeautyLife/BeautyLife-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyLife/ShareSDK/Extend/SinaWeiboSDK",
@@ -3420,7 +3426,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6c2175ae-a9f1-4afe-9cc4-4a3704a93bd4";
+				PROVISIONING_PROFILE = "181edf91-c333-4873-8fbc-dd9a0e258a86";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

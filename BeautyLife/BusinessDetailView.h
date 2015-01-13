@@ -4,6 +4,7 @@
 //
 //  Created by mac on 14-8-7.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  商家详情（商家商品、优惠券）
 //
 
 #import <UIKit/UIKit.h>
@@ -22,16 +23,23 @@
 @interface BusinessDetailView : UIViewController<SGFocusImageFrameDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 {
     UIWebView *phoneCallWebView;
+    //商品数据
     NSMutableArray *goods;
+//优惠券数据
     NSMutableArray *coupons;
     MBProgressHUD *hud;
+    //排序字段
     NSString *orderByStr;
     SGFocusImageFrame *bannerView;
+    //优惠券数组指针
     int couponIndex;
 }
 
+//传递的商家模型
 @property (weak, nonatomic) Shop *shop;
+//商家名称
 @property (weak, nonatomic) NSString *tjTitle;
+//商家类型ID
 @property (weak, nonatomic) NSString *tjCatId;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *orderSegmented;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

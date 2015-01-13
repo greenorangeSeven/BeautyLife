@@ -123,6 +123,10 @@
 + (NSString *)notRounding:(float)price afterPoint:(int)position;
 + (void)shareAction:(UIButton *)sender andShowView:(UIView *)view andContent:(NSDictionary *)shareContent;
 
++ (NSString *)flattenHTML:(NSString *)html;
++ (BOOL)testAlipayInstall;
++ (BOOL)testWeiXinInstall;
+
 + (NSString *)databasePath;
 
 + (User *)readJsonStrToUser:(NSString *)str;

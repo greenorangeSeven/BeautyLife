@@ -4,6 +4,7 @@
 //
 //  Created by Seven on 14-7-7.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  优惠券数据模型
 //
 
 #import <Foundation/Foundation.h>

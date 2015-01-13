@@ -4,6 +4,7 @@
 //
 //  Created by mac on 14-8-28.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  支付宝支付数据模型
 //
 
 #import <Foundation/Foundation.h>

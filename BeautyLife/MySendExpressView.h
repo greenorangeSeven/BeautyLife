@@ -4,6 +4,7 @@
 //
 //  Created by Seven on 14-8-6.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  我的发件箱
 //
 
 #import <UIKit/UIKit.h>
@@ -13,7 +14,9 @@
 
 @interface MySendExpressView : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {
+    //我的发件数组
     NSArray *myOutExpressData;
+    //提示kuang
     MBProgressHUD *hud;
 }
 

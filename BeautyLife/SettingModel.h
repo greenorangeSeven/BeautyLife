@@ -4,6 +4,7 @@
 //
 //  Created by wangjun on 12-3-5.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//  设置数据模型
 //
 
 #import <Foundation/Foundation.h>

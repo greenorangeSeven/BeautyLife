@@ -3,6 +3,7 @@
 //  zhxq
 //
 //  Created by Seven on 13-9-21.
+//  用户缓存数据模型
 //
 //
 

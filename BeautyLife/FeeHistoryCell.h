@@ -4,6 +4,7 @@
 //
 //  Created by mac on 14-8-29.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  历史缴费页面行模型
 //
 
 #import <UIKit/UIKit.h>

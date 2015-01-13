@@ -4,6 +4,7 @@
 //
 //  Created by Seven on 14-8-4.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  我的报修
 //
 
 #import <UIKit/UIKit.h>
@@ -15,6 +16,7 @@
 
 @interface MyRepairsView : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {
+    //我的报修数组
     NSArray *myRepairsData;
 }
 

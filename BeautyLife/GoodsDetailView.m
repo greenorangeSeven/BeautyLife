@@ -28,17 +28,17 @@
         titleLabel.textAlignment = UITextAlignmentCenter;
         self.navigationItem.titleView = titleLabel;
         
-        UIButton *lBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
-        [lBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
-        [lBtn setImage:[UIImage imageNamed:@"backBtn"] forState:UIControlStateNormal];
-        UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
-        self.navigationItem.leftBarButtonItem = btnBack;
-        
         UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
         [rBtn addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
         [rBtn setImage:[UIImage imageNamed:@"head_shopcar"] forState:UIControlStateNormal];
         UIBarButtonItem *btnShopCar = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
         self.navigationItem.rightBarButtonItem = btnShopCar;
+        
+        UIButton *lBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
+        [lBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+        [lBtn setImage:[UIImage imageNamed:@"backBtn"] forState:UIControlStateNormal];
+        UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
+        self.navigationItem.leftBarButtonItem = btnBack;
     }
     return self;
 }
@@ -107,8 +107,19 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    if ([Tool testAlipayInstall]) {
+//        self.addShopCarBtn.hidden = NO;
+        self.buyNowBtn.hidden = NO;
+    }
+    else
+    {
+//        self.addShopCarBtn.hidden = YES;
+        self.buyNowBtn.hidden = YES;
+//        self.navigationItem.rightBarButtonItem = nil;
+    }
     [MobClick beginLogPageView:@"GoodsDetailView"];
 }
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -122,6 +133,7 @@
         [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
         return;
     }
+    //检查SQLLIET数据库
     FMDatabase* database=[FMDatabase databaseWithPath:[Tool databasePath]];
     if (![database open]) {
         NSLog(@"Open database failed");
@@ -131,6 +143,7 @@
         [database executeUpdate:createshoppingcart];
     }
     BOOL addGood;
+    //插入或更新数据库商品信息
     FMResultSet* resultSet=[database executeQuery:@"select * from shoppingcart where goodid = ? and user_id = ?", goodDetail.id, [[UserModel Instance] getUserValueForKey:@"id"]];
     if ([resultSet next]) {
         addGood = [database executeUpdate:@"update shoppingcart set number = number + 1 where id= ?", [resultSet stringForColumn:@"id"]];

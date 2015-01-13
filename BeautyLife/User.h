@@ -4,6 +4,7 @@
 //
 //  Created by Seven on 14-8-12.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  用户信息数据模型
 //
 
 #import <Foundation/Foundation.h>

@@ -48,6 +48,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+//提交评价
 - (void)submitAction
 {
     NSString *commentStr = self.commentTv.text;
@@ -60,10 +61,7 @@
     [request setUseCookiePersistence:[[UserModel Instance] isLogin]];
     [request setPostValue:appkey forKey:@"APPKey"];
     [request setPostValue:[[UserModel Instance] getUserValueForKey:@"id"] forKey:@"userid"];
-    NSLog([[UserModel Instance] getUserValueForKey:@"id"]);
-    NSLog(appkey);
     [request setPostValue:self.repair.order_no forKey:@"order_no"];
-    NSLog(self.repair.order_no);
     [request setPostValue:commentStr forKey:@"comment"];
     [request setPostValue:rateValue forKey:@"rate"];
     request.delegate = self;
@@ -91,7 +89,6 @@
     NSData *data = [request.responseString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-    NSLog(request.responseString);
     if (!json) {
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"错误提示"
                                                      message:request.responseString

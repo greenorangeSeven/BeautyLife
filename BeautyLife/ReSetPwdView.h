@@ -4,6 +4,7 @@
 //
 //  Created by Seven on 14-9-16.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  重置密码界面
 //
 
 #import <UIKit/UIKit.h>
@@ -17,7 +18,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *securityCodeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *resetBtn;
 
+//获取短信验证码
 - (IBAction)sendSecurityCodeAction:(id)sender;
+//重置密码
 - (IBAction)resetAction:(id)sender;
 
 @end

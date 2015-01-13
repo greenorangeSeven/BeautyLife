@@ -58,11 +58,13 @@
     [MobClick endLogPageView:@"ReSetPwdView"];
 }
 
+//生成随机数
 -(int)getRandomNumber:(int)start to:(int)end
 {
     return (int)(start + (arc4random() % (end - start + 1)));
 }
 
+//textField控件委托，验证验证码
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
     NSString *mobileStr = self.mobileTf.text;
@@ -83,6 +85,7 @@
     }
 }
 
+//获取短信验证码
 - (IBAction)sendSecurityCodeAction:(id)sender
 {
     NSString *mobileStr = self.mobileTf.text;
@@ -145,6 +148,7 @@
     }
 }
 
+//重置密码
 - (IBAction)resetAction:(id)sender
 {
     NSString *pwdStr = self.pwdTf.text;

@@ -84,7 +84,7 @@
     shopData = [[NSMutableArray alloc]initWithArray:[shopData sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortByA]]];
 }
 
-//取数方法
+//商家取数方法
 - (void)reload
 {
     //如果有网络连接

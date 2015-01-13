@@ -21,7 +21,7 @@
     if (self) {
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
         titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        titleLabel.text = @"大众团购";
+        titleLabel.text = @"周边团购";
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = [UIColor whiteColor];
         titleLabel.textAlignment = UITextAlignmentCenter;
@@ -86,6 +86,8 @@
     return dzurl;
 }
 
+
+//获取大众点评团购id数据
 - (void)getTuanIdList
 {
     //如果有网络连接
@@ -118,6 +120,7 @@
     }
 }
 
+//刷新通知事件
 - (void)refreshed:(NSNotification *)notification
 {
     if (notification.object) {
@@ -162,6 +165,7 @@
     isLoadOver = NO;
 }
 
+//获取大众点评团购数据模型数组
 - (void)reload:(BOOL)noRefresh
 {
     //如果有网络连接

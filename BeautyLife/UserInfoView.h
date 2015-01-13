@@ -4,6 +4,7 @@
 //
 //  Created by Seven on 14-7-31.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//个人信息页面
 //
 
 #import <UIKit/UIKit.h>
@@ -28,8 +29,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveInfoBtn;
 @property (weak, nonatomic) IBOutlet UIButton *selectHomeAddressBtn;
 
+//选择房间按钮事件
 - (IBAction)selectHomeAddressAction:(id)sender;
+//保存用户信息
 - (IBAction)saveInfoAction:(id)sender;
+//更换头像
 - (IBAction)uploadFaceAction:(id)sender;
 
 @end

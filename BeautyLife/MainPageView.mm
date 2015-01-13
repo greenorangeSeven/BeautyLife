@@ -40,10 +40,10 @@
     hud = [[MBProgressHUD alloc] initWithView:self.view];
     [self initMainADV];
     [self getInBoxRemind];
-    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-    [param setValue:@"长沙" forKey:@"city"];
+//    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
 //    [param setValue:@"长沙" forKey:@"city"];
-    NSString *dzurl = [Tool serializeURL:@"http://api.dianping.com/v1/business/get_search_result_url" params:param];
+//    [param setValue:@"长沙" forKey:@"city"];
+//    NSString *dzurl = [Tool serializeURL:@"http://api.dianping.com/v1/business/get_search_result_url" params:param];
 }
 
 - (void)initMainADV

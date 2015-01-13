@@ -17,6 +17,7 @@
 
 @interface SelectHomeAddressView : UIViewController< UIActionSheetDelegate, UIPickerViewDelegate>
 {
+    //省市区小区、楼栋、单元、房间模型对象
     NSArray *areaData;
     NSArray *communityData;
     NSArray *buildData;
@@ -52,11 +53,16 @@
 @property (weak, nonatomic) IBOutlet UIButton *selectHouseBtn;
 @property (weak, nonatomic) IBOutlet UIButton *finishBtn;
 
+//选择小区
 - (IBAction)selectCommunityAction:(id)sender;
+//选择单元
 - (IBAction)selectBuildAction:(id)sender;
+//选择房间
 - (IBAction)selectHouseAction:(id)sender;
+//选择市区
 - (IBAction)selectRegionAction:(id)sender;
 
+//完成
 - (IBAction)finishAction:(id)sender;
 
 @end

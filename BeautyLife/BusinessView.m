@@ -7,9 +7,8 @@
 //
 
 #import "BusinessView.h"
-#import "MobClick.h"
 
-@interface BusinessView () 
+@interface BusinessView ()
 
 @end
 
@@ -21,7 +20,7 @@
     if (self) {
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
         titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        titleLabel.text = @"联盟商家";
+        titleLabel.text = @"社区超市";
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = [UIColor whiteColor];
         titleLabel.textAlignment = UITextAlignmentCenter;
@@ -33,11 +32,11 @@
         UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
         self.navigationItem.leftBarButtonItem = btnBack;
         
-//        UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 63, 22)];
-//        [rBtn addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
-//        [rBtn setImage:[UIImage imageNamed:@"conv_search"] forState:UIControlStateNormal];
-//        UIBarButtonItem *btnSearch = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
-//        self.navigationItem.rightBarButtonItem = btnSearch;
+        UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 63, 22)];
+        [rBtn addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
+        [rBtn setImage:[UIImage imageNamed:@"conv_search"] forState:UIControlStateNormal];
+        UIBarButtonItem *btnSearch = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
+        self.navigationItem.rightBarButtonItem = btnSearch;
     }
     return self;
 }
@@ -49,12 +48,10 @@
 
 - (void)searchAction
 {
-    if (myPoint.x > 0) {
-        BusniessSearchView *searchView = [[BusniessSearchView alloc] init];
-        searchView.myPoint = myPoint;
-        searchView.viewType = @"shop";
-        [self.navigationController pushViewController:searchView animated:YES];
-    }
+    BusniessSearchView *searchView = [[BusniessSearchView alloc] init];
+    searchView.myPoint = myPoint;
+    searchView.viewType = @"shop";
+    [self.navigationController pushViewController:searchView animated:YES];
 }
 
 - (void)viewDidLoad
@@ -62,20 +59,21 @@
     [super viewDidLoad];
     
     hud = [[MBProgressHUD alloc] initWithView:self.view];
-    [Tool showHUD:@"正在定位" andView:self.view andHUD:hud];
+    //    [Tool showHUD:@"正在定位" andView:self.view andHUD:hud];
     _locService = [[BMKLocationService alloc]init];
     _locService.delegate = self;
+    [self reload];
     [self startLocation];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundColor = [UIColor colorWithRed:0.74 green:0.78 blue:0.81 alpha:1];
+    self.tableView.backgroundColor = [UIColor colorWithRed:234.0/255 green:234.0/255 blue:234.0/255 alpha:1.0];
     
     self.cateCollection.delegate = self;
     self.cateCollection.dataSource = self;
     [self.cateCollection registerClass:[BusinessCateCell class] forCellWithReuseIdentifier:BusinessCateCellIdentifier];
-    self.cateCollection.backgroundColor = [UIColor whiteColor];
+    self.cateCollection.backgroundColor = [UIColor clearColor];
     [self reloadCate];
     
     noDataLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height/2, 320, 44)];
@@ -86,6 +84,13 @@
     noDataLabel.textAlignment = UITextAlignmentCenter;
     noDataLabel.hidden = YES;
     [self.view addSubview:noDataLabel];
+    
+    //适配iOS7  scrollView计算uinavigationbar高度的问题
+    if(IS_IOS7)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 
 //数组排序
@@ -95,7 +100,7 @@
     shopData = [[NSMutableArray alloc]initWithArray:[shopData sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortByA]]];
 }
 
-//取数方法
+//商家取数方法
 - (void)reload
 {
     //如果有网络连接
@@ -105,9 +110,9 @@
         if (catid != nil && [catid intValue] > 0) {
             [urlTemp appendString:[NSString stringWithFormat:@"&catid=%@", catid]];
         }
-//        if (keyword != nil && [keyword length] > 0) {
-//            [urlTemp appendString:[NSString stringWithFormat:@"?name=%@", keyword]];
-//        }
+        //        if (keyword != nil && [keyword length] > 0) {
+        //            [urlTemp appendString:[NSString stringWithFormat:@"?name=%@", keyword]];
+        //        }
         NSString *url = [[NSString stringWithString:urlTemp] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -115,21 +120,7 @@
                                        @try {
                                            noDataLabel.hidden = YES;
                                            shopData = [Tool readJsonStrToShopArray:operation.responseString];
-                                           if (shopData != nil && [shopData count] > 0) {
-                                               //计算当前位置与商家距离
-                                               for (int i = 0; i < [shopData count]; i++) {
-                                                   Shop *temp =[shopData objectAtIndex:(i)];
-                                                   CLLocationCoordinate2D coor;
-                                                   coor.longitude = [temp.longitude doubleValue];
-                                                   coor.latitude = [temp.latitude doubleValue];
-                                                   BMKMapPoint shopPoint = BMKMapPointForCoordinate(coor);
-                                                   CLLocationDistance distanceTmp = BMKMetersBetweenMapPoints(myPoint,shopPoint);
-                                                   temp.distance =(int)distanceTmp;
-                                               }
-                                               [self startArraySort:@"distance" isAscending:YES];
-                                           }
-                                           else
-                                           {
+                                           if (shopData == nil || [shopData count] == 0) {
                                                noDataLabel.hidden = NO;
                                            }
                                            [self.tableView reloadData];
@@ -147,18 +138,38 @@
                                            return;
                                        }
                                        if ([UserModel Instance].isNetworkRunning) {
-                                           [Tool ToastNotification:@"错误 网络无连接" andView:self.view andLoading:NO andIsBottom:NO];
+                                           [Tool showCustomHUD:@"网络不给力" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
                                        }
                                    }];
     }
 }
 
-//取数方法
+//商家距离排序
+- (void)distanceShop
+{
+    //计算当前位置与商家距离
+    for (int i = 0; i < [shopData count]; i++) {
+        Shop *temp =[shopData objectAtIndex:(i)];
+        CLLocationCoordinate2D coor;
+        coor.longitude = [temp.longitude doubleValue];
+        coor.latitude = [temp.latitude doubleValue];
+        BMKMapPoint shopPoint = BMKMapPointForCoordinate(coor);
+        CLLocationDistance distanceTmp = BMKMetersBetweenMapPoints(myPoint,shopPoint);
+        temp.distance =(int)distanceTmp;
+    }
+    [self startArraySort:@"distance" isAscending:YES];
+    [self.tableView reloadData];
+    if (hud != nil) {
+        [hud hide:YES];
+    }
+}
+
+//分类取数方法
 - (void)reloadCate
 {
     //如果有网络连接
     if ([UserModel Instance].isNetworkRunning) {
-//        [Tool showHUD:@"正在加载" andView:self.view andHUD:hud];
+        //        [Tool showHUD:@"正在加载" andView:self.view andHUD:hud];
         NSString *url = [NSString stringWithFormat:@"%@%@?APPKey=%@", api_base_url, api_shopcate, appkey];
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -171,16 +182,16 @@
                                            [NdUncaughtExceptionHandler TakeException:exception];
                                        }
                                        @finally {
-//                                           if (hud != nil) {
-//                                               [hud hide:YES];
-//                                           }
+                                           //                                           if (hud != nil) {
+                                           //                                               [hud hide:YES];
+                                           //                                           }
                                        }
                                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                        if ([UserModel Instance].isNetworkRunning == NO) {
                                            return;
                                        }
                                        if ([UserModel Instance].isNetworkRunning) {
-                                           [Tool ToastNotification:@"错误 网络无连接" andView:self.view andLoading:NO andIsBottom:NO];
+                                           [Tool showCustomHUD:@"网络不给力" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
                                        }
                                    }];
     }
@@ -190,14 +201,6 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
-    [MobClick beginLogPageView:@"BusinessView"];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    _locService.delegate = nil;
-    [MobClick endLogPageView:@"BusinessView"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -233,13 +236,19 @@
     cell.shopTitleLb.text = shop.name;
     cell.summaryLb.text = shop.summary;
     
-    if (shop.distance > 1000) {
-        float disf = ((float)shop.distance)/1000;
-        cell.distanceLb.text = [NSString stringWithFormat:@"距您%.2f千米", disf];
+    if (shop.distance == 0) {
+        cell.distanceLb.hidden = YES;
     }
     else
     {
-        cell.distanceLb.text = [NSString stringWithFormat:@"距您%d米", shop.distance];
+        if (shop.distance > 1000) {
+            float disf = ((float)shop.distance)/1000;
+            cell.distanceLb.text = [NSString stringWithFormat:@"距您%.2f千米", disf];
+        }
+        else
+        {
+            cell.distanceLb.text = [NSString stringWithFormat:@"距您%d米", shop.distance];
+        }
     }
     [Tool roundView:cell.cellbackgroudView andCornerRadius:3.0];
     
@@ -248,7 +257,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 102;
+    return 99;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -262,6 +271,10 @@
     }
 }
 
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    _locService.delegate = nil;
+}
 
 -(void)startLocation
 {
@@ -275,7 +288,7 @@
  */
 - (void)mapViewWillStartLocatingUser:(BMKMapView *)mapView
 {
-	NSLog(@"start locate");
+    NSLog(@"start locate");
 }
 
 /**
@@ -293,11 +306,12 @@
  */
 - (void)didUpdateUserLocation:(BMKUserLocation *)userLocation
 {
+    [Tool showHUD:@"正在定位" andView:self.view andHUD:hud];
     CLLocationCoordinate2D mycoord = userLocation.location.coordinate;
     myPoint = BMKMapPointForCoordinate(mycoord);
     //    如果经纬度大于0表单表示定位成功，停止定位
     if (userLocation.location.coordinate.latitude > 0) {
-        [self reload];
+        [self distanceShop];
         [_locService stopUserLocationService];
     }
 }

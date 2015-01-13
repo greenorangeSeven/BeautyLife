@@ -42,6 +42,7 @@
     [self initTopADV];
 }
 
+#pragma mark初始化广告数据
 - (void)initTopADV
 {
     //如果有网络连接

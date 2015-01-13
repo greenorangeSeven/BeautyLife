@@ -72,6 +72,7 @@
 	[self.inboxBtnLb addGestureRecognizer:inboxTap];
 }
 
+#pragma -mark 我的收件箱
 - (void)inboxClick
 {
     MyInBoxView *inboxView = [[MyInBoxView alloc] init];

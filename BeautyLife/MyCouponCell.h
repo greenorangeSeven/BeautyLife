@@ -4,6 +4,7 @@
 //
 //  Created by Seven on 14-10-15.
 //  Copyright (c) 2014年 greenorange. All rights reserved.
+//我的优惠券行模型
 //
 
 #import <UIKit/UIKit.h>

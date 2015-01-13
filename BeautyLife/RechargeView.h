@@ -4,6 +4,7 @@
 //
 //  Created by mac on 14-8-2.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  在线服务页面
 //
 
 #import <UIKit/UIKit.h>
@@ -13,6 +14,7 @@
 
 @interface RechargeView : UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, IconDownloaderDelegate>
 {
+    //在线服务数据
     NSMutableArray *links;
     TQImageCache * _iconCache;
 }

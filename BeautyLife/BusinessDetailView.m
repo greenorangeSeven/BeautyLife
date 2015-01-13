@@ -99,7 +99,7 @@
     [MobClick endLogPageView:@"BusinessDetailView"];
 }
 
-//取数方法
+//取数方法（优惠券、商品）
 - (void)reload
 {
     //如果有网络连接

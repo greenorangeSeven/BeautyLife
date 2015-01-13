@@ -100,6 +100,7 @@
     [self.timeLb setText:timestamp];
 }
 
+#pragma -mark 初始化报修类型
 - (void)initCateData
 {
     //如果有网络连接

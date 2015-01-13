@@ -4,6 +4,7 @@
 //
 //  Created by Seven on 14-11-22.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+//  大众点评行模型
 //
 
 #import <UIKit/UIKit.h>

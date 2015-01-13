@@ -4,6 +4,7 @@
 //
 //  Created by Seven on 14-8-16.
 //  Copyright (c) 2014年 Seven. All rights reserved.
+// 报修详情
 //
 
 #import <UIKit/UIKit.h>
@@ -12,6 +13,7 @@
 
 @interface RepairsItemView : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {
+    //报修详情数组
     NSMutableArray *repairsItemData;
 }
 

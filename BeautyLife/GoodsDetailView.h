@@ -16,10 +16,12 @@
 
 @interface GoodsDetailView : UIViewController<UIWebViewDelegate>
 {
+    //商品详情模型
     Goods *goodDetail;
     MBProgressHUD *hud;
 }
 
+//页面传递商品基本信息
 @property (weak, nonatomic) Goods *good;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -27,8 +29,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLb;
 @property (weak, nonatomic) IBOutlet UILabel *titleLb;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIButton *addShopCarBtn;
+@property (weak, nonatomic) IBOutlet UIButton *buyNowBtn;
 
+// 购物车点击
 - (IBAction)toShoppingCartAction:(id)sender;
+//马上购买点击
 - (IBAction)buyAction:(id)sender;
 
 @end
